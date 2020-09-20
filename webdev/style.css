@@ -449,3 +449,63 @@ our-community {
 .downloads__buttons .btn-store:first-child {
   margin-right: 30px;
 }
+
+footer {
+  height: 185px;
+  background: #000;
+}
+
+.footer__container {
+  width: 1280px;
+  margin: 0 auto;
+  padding-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-footer ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav-footer li {
+  margin-right: 40px;
+  position: relative;
+}
+.nav-footer li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  border: 1px solid #4e4e4e;
+  transform: rotate(-90deg);
+  top: 8px;
+  left: -24px;
+  width: 8px;
+  height: 0;
+}
+
+.nav-footer a {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.nav-footer a:hover {
+  opacity: 0.8;
+}
+
+.footer__container p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #818181;
+}
+
+.footer__container .footer-logo {
+  margin-left: -105px;
+}
