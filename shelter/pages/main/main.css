@@ -1,0 +1,141 @@
+/*TODO sccs preloader
+$color-primary-color: #f1cdb3;
+$color-primary-light: #f1cdb3;
+
+$color-light-s: #fafafa;
+$color-light-l: #f6f6f6;
+$color-light-xl: #ffffff;
+
+$color-dark-s: #cdcdcd;
+$color-dark-m: #b2b2b2;
+$color-dark-l: #545454;
+$color-dark-xl: #4c4c4c;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929;
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: 2000px;
+}
+
+.header {
+  margin-top: 3.75rem;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+
+.wrapper {
+  display: flex;
+  margin: 0 auto;
+  max-width: 75rem; /*! wrapper-width / baseFontSize = 1200px / 16px = 75rem   */
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo__title {
+  font-family: Georgia;
+  font-size: 2rem; /*! em/rem  */
+  line-height: 110%;
+  letter-spacing: 6%;
+  color: #f1cdb3;
+}
+
+.logo__subtitle {
+  font-family: Arial;
+  font-size: 0.8125rem; /*! em/rem  */
+  letter-spacing: 10%;
+  line-height: 110%;
+  color: #ffffff;
+}
+
+.menu {
+  display: flex;
+  width: 27.69rem; /*! em/rem  */
+}
+
+.list {
+  display: flex;
+  text-decoration: none;
+  list-style-type: none;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.list__item {
+  display: flex;
+  align-items: center;
+}
+
+.list__link {
+  color: white;
+  font-family: Arial;
+  font-size: 0.9375rem; /*! em/rem  */
+  line-height: 160%;
+  text-decoration: none;
+}
+
+.list__link_active {
+  border-bottom: 3px solid #f1cdb3;
+}
+
+.list__link_disabled {
+  color: #cdcdcd;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  display: flex;
+  background: url(/assets/noise_transparent@2x.png),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__title {
+  max-width: 19.375rem;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 2.75rem;
+  line-height: 130%;
+}
+
+.hero__subtitle {
+  font-family: Arial;
+  margin-top: 2.625rem;
+  color: #cdcdcd;
+  line-height: 160%;
+}
+
+.hero__button {
+  padding: 0.9375rem 2.8125rem;
+  max-width: 12.9375rem;
+  border-radius: 100px; /*! em/rem ? */
+  border: none;
+  background-color: #f1cdb3;
+  margin-top: 2.625rem; /*! 42px, в макете было 41 */
+}
