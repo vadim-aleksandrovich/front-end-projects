@@ -1,9 +1,13 @@
-@charset "UTF-8";
+:root {
+  font-size: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -13,14 +17,13 @@ body {
 
 .header {
   width: 100vw;
-  position: fixed;
+  position: absolute;
   top: 60px;
 }
 
 .wrapper {
   margin: 0 auto;
   max-width: 75rem;
-  /*! wrapper-width / baseFontSize = 1200px / 16px = 75rem   */
   display: flex;
   justify-content: space-between;
 }
@@ -33,7 +36,6 @@ body {
 .logo__title {
   font-family: Georgia;
   font-size: 2rem;
-  /*! em/rem  */
   font-weight: 400;
   line-height: 110%;
   letter-spacing: 0.12rem;
@@ -45,9 +47,8 @@ body {
   text-align: center;
   font-family: Arial;
   font-size: 0.8125rem;
-  /*! em/rem  */
   font-weight: 400;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.08rem;
   line-height: 110%;
   color: #ffffff;
 }
@@ -55,7 +56,6 @@ body {
 .menu {
   display: flex;
   width: 27.69rem;
-  /*! em/rem  */
 }
 
 .list {
@@ -72,21 +72,24 @@ body {
 }
 
 .list__link {
-  color: white;
+  color: #cdcdcd;
   font-family: Arial;
   font-size: 0.9375rem;
-  /*! em/rem  */
   font-weight: 400;
   text-decoration: none;
   line-height: 160%;
+  border-bottom: 3px solid transparent;
+}
+.list__link:hover {
+  color: #fafafa;
+}
+.list__link:active {
+  border-bottom-color: #f1cdb3;
 }
 
 .list__link_active {
-  border-bottom: 3px solid #f1cdb3;
-}
-
-.list__link_disabled {
-  color: #cdcdcd;
+  border-bottom-color: #f1cdb3;
+  color: #fafafa;
 }
 
 .main {
@@ -100,6 +103,10 @@ body {
   padding-top: 180px;
 }
 
+.hero__image {
+  height: 728px;
+}
+
 .hero__content {
   display: flex;
 }
@@ -108,39 +115,49 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 84px;
+  padding-bottom: 80px;
+  max-width: 28.75rem;
+  margin-right: 42px;
 }
 
 .content-section__title {
-  max-width: 19.375rem;
   font-family: Georgia;
-  color: #ffffff;
+  font-style: normal;
+  font-weight: normal;
   font-size: 2.75rem;
   line-height: 130%;
-  font-weight: 400;
+  max-width: 19.375rem;
+  color: #ffffff;
 }
 
 .content-section__subtitle {
-  font-family: Georgia;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
   font-size: 0.9375rem;
+  line-height: 160%;
   margin-top: 2.625rem;
   color: #cdcdcd;
-  line-height: 160%;
 }
 
-.content-section__button {
+.button__primary {
   padding: 0.9375rem 2.8125rem;
-  width: 12.9375rem;
   border-radius: 100px;
-  /*! em/rem ? */
   border: none;
   background-color: #f1cdb3;
-  margin-top: 2.625rem;
-  /*! 42px, в макете было 41 */
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
   font-size: 1.0625rem;
   line-height: 130%;
   letter-spacing: 0.06rem;
+}
+.button__primary:hover {
+  background-color: #fddcc4;
+  cursor: pointer;
+}
+
+.button__primary_start {
+  width: 12.9375rem;
+  margin-top: 2.625rem;
 }

@@ -3,3 +3,5 @@
 *.DS_Store
 pages/main/main.css.map
 pages/main/main.scss
+pages/main/mixin.css
+pages/main/mixin.scss
