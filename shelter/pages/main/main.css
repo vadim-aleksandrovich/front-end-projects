@@ -191,9 +191,8 @@ body {
   margin-left: 42px;
 }
 
-/* ABOUT */
 .about {
-  margin-top: 80px;
+  padding-top: 80px;
 }
 
 .content_about {
@@ -234,6 +233,7 @@ body {
 
 .slider__container {
   width: 82.5%;
+  overflow: hidden;
 }
 
 .content__title_pets {
@@ -313,4 +313,51 @@ body {
 .button__primary_pets {
   max-width: 16.3125rem;
   margin-bottom: 6.25rem;
+}
+
+.help {
+  padding-top: 80px;
+}
+
+.content__section_help {
+  align-items: center;
+}
+
+.content__title_help {
+  max-width: 20rem;
+  text-align: center;
+  letter-spacing: 0.13rem;
+  margin-bottom: 3.75rem;
+}
+
+.help-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 75.375rem;
+}
+
+.help-list__item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 60px 55px 60px;
+}
+
+.help-list__icon {
+  width: 3.75rem;
+  height: 3.75rem;
+  margin-bottom: 1.875rem;
+}
+
+.help-list__title {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.25rem;
+  line-height: 115%;
+  letter-spacing: 0.07rem;
+  color: #545454;
 }
