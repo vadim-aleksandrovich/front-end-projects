@@ -301,6 +301,7 @@ body {
 .slider__arrow:hover {
   background-color: #fddcc4;
   border-color: transparent;
+  cursor: pointer;
 }
 .slider__arrow:disabled {
   background-color: transparent;
