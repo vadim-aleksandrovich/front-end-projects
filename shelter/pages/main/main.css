@@ -3,11 +3,11 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   margin-block-start: 0;
   margin-block-end: 0;
 }
@@ -17,16 +17,16 @@ body {
 }
 
 .wrapper {
-  margin: 0 auto;
-  max-width: 75rem;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: 75rem;
 }
 
 .header {
-  width: 100%;
   position: absolute;
-  top: 60px;
+  width: 100vw;
+  top: 3.75rem;
 }
 
 .logo {
@@ -44,7 +44,7 @@ body {
 }
 
 .logo__subtitle {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   text-align: center;
   font-family: Arial;
   font-size: 0.8125rem;
@@ -56,15 +56,15 @@ body {
 
 .menu {
   display: flex;
-  width: 27.69rem;
+  max-width: 27.69rem;
 }
 
 .list {
   display: flex;
+  justify-content: space-between;
   text-decoration: none;
   list-style-type: none;
-  width: 100%;
-  justify-content: space-between;
+  width: 100vw;
 }
 
 .list__item {
@@ -73,11 +73,11 @@ body {
 }
 
 .list__link {
-  color: #cdcdcd;
   font-family: Arial;
+  text-decoration: none;
+  color: #cdcdcd;
   font-size: 0.9375rem;
   font-weight: 400;
-  text-decoration: none;
   line-height: 160%;
   border-bottom: 3px solid transparent;
   transition: all 0.3s;
@@ -102,26 +102,26 @@ body {
 .start {
   display: flex;
   background: url(/assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
-  padding-top: 180px;
+  padding-top: 11.25rem;
 }
 
 .content {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
+  width: 100%;
 }
 
 .content__section {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
 }
 
 .content__section_start {
-  padding-bottom: 80px;
-  max-width: 28.75rem;
+  padding-bottom: 5rem;
+  max-width: 35.9375vw;
 }
 
 .content__title {
@@ -164,7 +164,6 @@ body {
 }
 
 .button__primary {
-  background-color: #f1cdb3;
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -175,6 +174,7 @@ body {
   padding: 0.9375rem 2.8125rem;
   border: none;
   outline: none;
+  background-color: #f1cdb3;
 }
 .button__primary:hover {
   background-color: #fddcc4;
@@ -182,16 +182,16 @@ body {
 }
 
 .button__primary_start {
-  width: 12.9375rem;
+  max-width: 12.9375rem;
   margin-top: 2.625rem;
 }
 
 .start__image {
-  margin-left: 42px;
+  margin-left: 2.625rem;
 }
 
 .about {
-  padding-top: 80px;
+  padding-top: 5rem;
 }
 
 .content_about {
@@ -211,7 +211,7 @@ body {
 
 .pets {
   background-color: #f6f6f6;
-  padding-top: 80px;
+  padding-top: 5rem;
 }
 
 .content__section_pets {
@@ -226,8 +226,8 @@ body {
 .slider,
 .slider__container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .slider__container {
@@ -246,7 +246,6 @@ body {
   flex-direction: column;
   background-color: #fafafa;
   border-radius: 9px;
-  padding: 1.875rem 2.1875rem;
   align-items: center;
 }
 .card:hover {
@@ -255,7 +254,6 @@ body {
 }
 
 .card__title {
-  margin: 30px 0;
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -264,6 +262,7 @@ body {
   text-align: center;
   letter-spacing: 0.06em;
   color: #545454;
+  margin: 1.875rem 0;
 }
 
 .card__button {
@@ -271,6 +270,7 @@ body {
   border-radius: 100px;
   box-sizing: border-box;
   padding: 0.8125rem 2.6875rem;
+  margin-bottom: 30px;
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -316,7 +316,7 @@ body {
 }
 
 .help {
-  padding-top: 80px;
+  padding-top: 5rem;
 }
 
 .content__section_help {
@@ -336,7 +336,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   width: 75.375rem;
-  padding-bottom: 45px;
+  padding-bottom: 2.8125rem;
 }
 
 .help-list__item {
@@ -344,7 +344,7 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin: 0 60px 55px 60px;
+  margin: 0 3.75rem 3.4375rem 3.75rem;
 }
 
 .help-list__icon {
@@ -365,8 +365,8 @@ body {
 
 .donation {
   background-color: #f6f6f6;
-  padding-top: 80px;
-  padding-bottom: 100px;
+  padding-top: 5rem;
+  padding-bottom: 6.25rem;
 }
 
 .content_donation {
@@ -375,19 +375,20 @@ body {
 }
 
 .donation_image {
-  margin-right: 30px;
-  max-height: 261px;
+  margin-right: 1.84rem;
+  max-height: 16.3125rem;
+  padding-right: 0.0625rem;
 }
 
 .content__section_donation {
-  max-width: 380px;
+  max-width: 29.6875vw;
   align-items: left;
   justify-content: center;
 }
 
 .content__title_donation {
-  margin-bottom: 20px;
-  max-width: 300px;
+  margin-bottom: 1.25rem;
+  max-width: 18.75rem;
   letter-spacing: 0.13rem;
 }
 
@@ -399,7 +400,7 @@ body {
   line-height: 110%;
   letter-spacing: 0.06rem;
   color: #545454;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   line-height: 120%;
 }
 
@@ -407,13 +408,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 15px;
+  padding: 0.625rem 0.9375rem;
   background: #f1cdb3;
   border-radius: 9px;
   border: none;
   outline: none;
-  max-width: 349px;
-  margin-bottom: 20px;
+  max-width: 21.8125rem;
+  margin-bottom: 1.25rem;
 }
 .credit-card:hover {
   background-color: #fddcc4;
@@ -421,9 +422,9 @@ body {
 }
 
 .credit-card__image {
-  width: 30px;
-  height: 23px;
-  margin-right: 15px;
+  width: 1.875rem;
+  height: 1.4375rem;
+  margin-right: 0.9375rem;
 }
 
 .credit-card__account {
@@ -440,11 +441,12 @@ body {
   font-family: Arial;
   font-style: italic;
   font-weight: normal;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
   display: flex;
   align-items: center;
   color: #b2b2b2;
+  padding-bottom: 0.0625rem;
 }
 
 .footer {
@@ -452,27 +454,27 @@ body {
 }
 
 .content_footer {
-  padding-top: 40px;
+  padding-top: 2.5rem;
 }
 
 .content__section_footer1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 278px;
-  margin: 21px 0 60px 0;
+  max-width: 17.375rem;
+  margin: 1.3125rem 0 3.75rem 0;
 }
 
 .content__section_footer2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 278px;
-  margin: 21px 0 60px 0;
+  max-width: 17.375rem;
+  margin: 1.3125rem 0 3.75rem 0;
 }
 
 .content__section_footer2 {
-  max-width: 302px;
+  max-width: 18.875rem;
 }
 
 .content__title_footer {
@@ -494,13 +496,13 @@ body {
   line-height: 115%;
   letter-spacing: 0.07rem;
   color: #f1cdb3;
-  margin-left: 20px;
+  margin-left: 1.25rem;
 }
 
 .content__icon_contact {
-  max-width: 40px;
+  max-width: 2.5rem;
 }
 
 .content__icon_adress {
-  max-width: 22px;
+  max-width: 1.375rem;
 }
