@@ -5,4 +5,6 @@ pages/main/main.css.map
 pages/main/main.scss
 pages/main/mixin.css
 pages/main/mixin.scss
+pages/pets/pets.css.map
+pages/pets/pets.scss
 .prettierrc
