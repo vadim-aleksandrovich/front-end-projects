@@ -1,10 +1,7 @@
 .vscode/*
 .DS_Store
 *.DS_Store
-pages/main/main.css.map
-pages/main/main.scss
-pages/main/mixin.css
-pages/main/mixin.scss
-pages/pets/pets.css.map
-pages/pets/pets.scss
+*.scss
+*.css.map
+mixin.css
 .prettierrc

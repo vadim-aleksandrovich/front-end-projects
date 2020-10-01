@@ -117,12 +117,11 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
 }
 
 .content__section_start {
   padding-bottom: 5rem;
-  max-width: 35.9375vw;
+  max-width: 28.75rem;
 }
 
 .content__title {
@@ -217,6 +216,7 @@ body {
 
 .content__section_pets {
   align-items: center;
+  width: 100%;
 }
 
 .slider {
@@ -382,8 +382,7 @@ body {
 }
 
 .content__section_donation {
-  max-width: 29.6875vw;
-  align-items: left;
+  max-width: 23.75rem;
   justify-content: center;
 }
 
@@ -462,7 +461,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 17.375rem;
+  max-width: 23.17%;
   margin: 1.3125rem 0 3.75rem 0;
 }
 
@@ -470,7 +469,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 17.375rem;
+  max-width: 25.16%;
   margin: 1.3125rem 0 3.75rem 0;
 }
 
