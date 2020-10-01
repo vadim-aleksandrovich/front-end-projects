@@ -4,7 +4,7 @@
   }
 
   .slider {
-    padding: 0 64px;
+    padding: 0 4rem;
   }
 
   .content_footer {
@@ -21,7 +21,7 @@
   }
 
   .content__link {
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 
   .footer_image {
@@ -30,7 +30,7 @@
 }
 @media screen and (max-width: 710px) {
   .wrapper {
-    width: 300px;
+    width: 18.75rem;
   }
 
   .menu {
@@ -42,7 +42,7 @@
   }
 
   .slider {
-    padding: 0 15px;
+    padding: 0 0.9375rem;
   }
 
   .slider__nav {
@@ -60,7 +60,7 @@
   }
 
   .content__link {
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 
   .footer__image {
