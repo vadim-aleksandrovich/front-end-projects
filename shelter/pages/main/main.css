@@ -1,10 +1,11 @@
 :root {
-  font-size: 16px;
+  font-size: 10px;
 }
 
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -20,13 +21,13 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 75rem;
+  max-width: 120rem;
 }
 
 .header {
   position: absolute;
   width: 100vw;
-  top: 3.75rem;
+  top: 6rem;
 }
 
 .logo {
@@ -37,27 +38,27 @@ body {
 
 .logo__title {
   font-family: Georgia;
-  font-size: 2rem;
+  font-size: 3.2rem;
   font-weight: 400;
   line-height: 110%;
-  letter-spacing: 0.112rem;
+  letter-spacing: 0.1792rem;
   color: #f1cdb3;
 }
 
 .logo__subtitle {
-  margin-top: 0.625rem;
+  margin-top: 1rem;
   text-align: center;
   font-family: Arial;
-  font-size: 0.8125rem;
+  font-size: 1.3rem;
   font-weight: 400;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.128rem;
   line-height: 110%;
   color: #ffffff;
 }
 
 .menu {
   display: flex;
-  max-width: 27.69rem;
+  max-width: 44.3rem;
 }
 
 .list {
@@ -77,7 +78,7 @@ body {
   font-family: Arial;
   text-decoration: none;
   color: #cdcdcd;
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 160%;
   border-bottom: 3px solid transparent;
@@ -102,7 +103,7 @@ body {
 .start {
   display: flex;
   background: url(../../assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
-  padding-top: 11.25rem;
+  padding-top: 18rem;
 }
 
 .content {
@@ -119,17 +120,17 @@ body {
 }
 
 .content__section_start {
-  padding-bottom: 5rem;
-  max-width: 28.75rem;
+  padding-bottom: 8rem;
+  max-width: 46rem;
 }
 
 .content__title {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.1875rem;
+  font-size: 3.5rem;
   line-height: 130%;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.1rem;
   color: #545454;
 }
 
@@ -137,7 +138,7 @@ body {
   font-family: Arial;
   font-style: normal;
   font-weight: normal;
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   line-height: 160%;
   color: #545454;
 }
@@ -146,31 +147,31 @@ body {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.75rem;
+  font-size: 4.4rem;
   line-height: 130%;
   color: #ffffff;
-  max-width: 19.375rem;
+  max-width: 31rem;
 }
 
 .content__subtitle_start {
   font-family: Arial;
   font-style: normal;
   font-weight: normal;
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   line-height: 160%;
   color: #cdcdcd;
-  margin-top: 2.625rem;
+  margin-top: 4.2rem;
 }
 
 .button__primary {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.0625rem;
+  font-size: 1.7rem;
   line-height: 130%;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.096rem;
   border-radius: 100px;
-  padding: 0.9375rem 2.8125rem;
+  padding: 1.5rem 4.5rem;
   border: none;
   outline: none;
   background-color: #f1cdb3;
@@ -181,36 +182,36 @@ body {
 }
 
 .button__primary_start {
-  max-width: 12.9375rem;
-  margin-top: 2.625rem;
+  max-width: 20.7rem;
+  margin-top: 4.2rem;
 }
 
 .start__image {
-  margin-left: 2.625rem;
+  margin-left: 4.2rem;
 }
 
 .about {
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 
 .content_about {
-  padding: 0 10.9375rem;
-  margin-bottom: 6.25rem;
+  padding: 0 17.5rem;
+  margin-bottom: 10rem;
 }
 
 .content__section_about {
-  max-width: 26.875rem;
+  max-width: 43rem;
   justify-content: space-around;
 }
 
 .content__title_about {
-  max-width: 23.125rem;
-  letter-spacing: 0.122rem;
+  max-width: 37rem;
+  letter-spacing: 0.1952rem;
 }
 
 .pets {
   background-color: #f6f6f6;
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 
 .content__section_pets {
@@ -220,7 +221,7 @@ body {
 
 .slider {
   width: 100%;
-  margin: 3.75rem 0;
+  margin: 6rem 0;
 }
 
 .slider,
@@ -236,9 +237,9 @@ body {
 }
 
 .content__title_pets {
-  max-width: 25rem;
+  max-width: 40rem;
   text-align: center;
-  letter-spacing: 0.13rem;
+  letter-spacing: 0.208rem;
 }
 
 .card {
@@ -257,26 +258,26 @@ body {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.25rem;
-  line-height: 1.4375rem;
+  font-size: 2rem;
+  line-height: 2.3rem;
   text-align: center;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1rem;
   color: #545454;
-  margin: 1.875rem 0;
+  margin: 3rem 0;
 }
 
 .card__button {
   border: 2px solid #f1cdb3;
   border-radius: 100px;
   box-sizing: border-box;
-  padding: 0.8125rem 2.6875rem;
-  margin-bottom: 30px;
+  padding: 1.3rem 4.3rem;
+  margin-bottom: 3rem;
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.0625rem;
+  font-size: 1.7rem;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.096rem;
   outline: none;
   background-color: transparent;
 }
@@ -288,8 +289,8 @@ body {
 
 .slider__arrow {
   display: flex;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 5.2rem;
+  height: 5.2rem;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -311,12 +312,12 @@ body {
 }
 
 .button__primary_pets {
-  max-width: 16.3125rem;
-  margin-bottom: 6.25rem;
+  max-width: 26.1rem;
+  margin-bottom: 10rem;
 }
 
 .help {
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 
 .content__section_help {
@@ -324,10 +325,10 @@ body {
 }
 
 .content__title_help {
-  max-width: 20rem;
+  max-width: 32rem;
   text-align: center;
-  letter-spacing: 0.13rem;
-  margin-bottom: 3.75rem;
+  letter-spacing: 0.208rem;
+  margin-bottom: 6rem;
 }
 
 .help-list {
@@ -335,8 +336,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 75.375rem;
-  padding-bottom: 2.8125rem;
+  width: 120rem;
+  padding-bottom: 4.5rem;
 }
 
 .help-list__item {
@@ -344,29 +345,29 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin: 0 3.75rem 3.4375rem 3.75rem;
+  margin: 0 6rem 5.5rem 6rem;
 }
 
 .help-list__icon {
-  width: 3.75rem;
-  height: 3.75rem;
-  margin-bottom: 1.875rem;
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: 3rem;
 }
 
 .help-list__title {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.25rem;
+  font-size: 2rem;
   line-height: 115%;
-  letter-spacing: 0.07rem;
+  letter-spacing: 0.112rem;
   color: #545454;
 }
 
 .donation {
   background-color: #f6f6f6;
-  padding-top: 5rem;
-  padding-bottom: 6.25rem;
+  padding-top: 8rem;
+  padding-bottom: 10rem;
 }
 
 .content_donation {
@@ -375,31 +376,31 @@ body {
 }
 
 .donation_image {
-  margin-right: 1.84rem;
-  max-height: 16.3125rem;
+  margin-right: 3rem;
+  max-height: 26.1rem;
   padding-right: 0.0625rem;
 }
 
 .content__section_donation {
-  max-width: 23.75rem;
+  max-width: 38rem;
   justify-content: center;
 }
 
 .content__title_donation {
-  margin-bottom: 1.25rem;
-  max-width: 18.75rem;
-  letter-spacing: 0.13rem;
+  margin-bottom: 2rem;
+  max-width: 30rem;
+  letter-spacing: 0.208rem;
 }
 
 .content__naming_donation {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   line-height: 110%;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.1rem;
   color: #545454;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
   line-height: 120%;
 }
 
@@ -407,13 +408,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.625rem 0.9375rem;
+  padding: 1rem 1.5rem;
   background: #f1cdb3;
   border-radius: 9px;
   border: none;
   outline: none;
-  max-width: 21.8125rem;
-  margin-bottom: 1.25rem;
+  max-width: 34.9rem;
+  margin-bottom: 2rem;
 }
 .credit-card:hover {
   background-color: #fddcc4;
@@ -421,18 +422,18 @@ body {
 }
 
 .credit-card__image {
-  width: 1.875rem;
-  height: 1.4375rem;
-  margin-right: 0.9375rem;
+  width: 3rem;
+  height: 2.3rem;
+  margin-right: 1.5rem;
 }
 
 .credit-card__account {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.25rem;
+  font-size: 2rem;
   line-height: 115%;
-  letter-spacing: 0.07rem;
+  letter-spacing: 0.112rem;
   color: #545454;
 }
 
@@ -440,12 +441,12 @@ body {
   font-family: Arial;
   font-style: italic;
   font-weight: normal;
-  font-size: 0.75rem;
-  line-height: 1.125rem;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
   display: flex;
   align-items: center;
   color: #b2b2b2;
-  padding-bottom: 0.0625rem;
+  padding-bottom: 0.1rem;
 }
 
 .footer {
@@ -453,7 +454,7 @@ body {
 }
 
 .content_footer {
-  padding-top: 2.5rem;
+  padding-top: 4rem;
 }
 
 .content__section_footer1 {
@@ -461,7 +462,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   max-width: 23.17%;
-  margin: 1.3125rem 0 3.75rem 0;
+  margin: 2.1rem 0 6rem 0;
 }
 
 .content__section_footer2 {
@@ -469,16 +470,16 @@ body {
   flex-direction: column;
   justify-content: space-between;
   max-width: 25.16%;
-  margin: 1.3125rem 0 3.75rem 0;
+  margin: 2.1rem 0 6rem 0;
 }
 
 .content__section_footer2 {
-  max-width: 18.875rem;
+  max-width: 30.2rem;
 }
 
 .content__title_footer {
   color: #ffffff;
-  letter-spacing: 0.13rem;
+  letter-spacing: 0.208rem;
 }
 
 .content__link {
@@ -491,17 +492,17 @@ body {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.25rem;
+  font-size: 2rem;
   line-height: 115%;
-  letter-spacing: 0.07rem;
+  letter-spacing: 0.112rem;
   color: #f1cdb3;
-  margin-left: 1.25rem;
+  margin-left: 2rem;
 }
 
 .content__icon_contact {
-  max-width: 2.5rem;
+  max-width: 4rem;
 }
 
 .content__icon_adress {
-  max-width: 1.375rem;
+  max-width: 2.2rem;
 }

@@ -1,10 +1,11 @@
 :root {
-  font-size: 16px;
+  font-size: 10px;
 }
 
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -21,12 +22,12 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  max-width: 75rem;
+  max-width: 120rem;
 }
 
 .header {
   width: 100vw;
-  padding: 1.875rem 0;
+  padding: 3rem 0;
   background-color: #ffffff;
 }
 
@@ -38,27 +39,27 @@ body {
 
 .logo__title {
   font-family: Georgia;
-  font-size: 2rem;
+  font-size: 3.2rem;
   font-weight: 400;
   line-height: 110%;
-  letter-spacing: 0.112rem;
+  letter-spacing: 0.1792rem;
   color: #545454;
 }
 
 .logo__subtitle {
-  margin-top: 0.625rem;
+  margin-top: 1rem;
   text-align: center;
   font-family: Arial;
-  font-size: 0.8125rem;
+  font-size: 1.3rem;
   font-weight: 400;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.128rem;
   line-height: 110%;
   color: #292929;
 }
 
 .menu {
   display: flex;
-  max-width: 27.69rem;
+  max-width: 44.3rem;
 }
 
 .list {
@@ -78,7 +79,7 @@ body {
   font-family: Arial;
   text-decoration: none;
   color: #545454;
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 160%;
   border-bottom: 3px solid transparent;
@@ -118,9 +119,9 @@ body {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.1875rem;
+  font-size: 3.5rem;
   line-height: 130%;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.1rem;
   color: #545454;
 }
 
@@ -128,14 +129,14 @@ body {
   font-family: Arial;
   font-style: normal;
   font-weight: normal;
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   line-height: 160%;
   color: #545454;
 }
 
 .pets {
   background-color: #f6f6f6;
-  padding: 5rem 0 6.25rem 0;
+  padding: 8rem 0 10rem 0;
 }
 
 .content__section_pets {
@@ -144,7 +145,7 @@ body {
 
 .slider {
   width: 100%;
-  margin: 2.8125rem 0 0 0;
+  margin-top: 4.5rem;
 }
 
 .slider__container {
@@ -153,13 +154,13 @@ body {
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
-  padding: 15px 0 31px 0;
+  padding: 1.5rem 0 3.1rem 0;
 }
 
 .content__title_pets {
-  max-width: 25rem;
+  max-width: 40rem;
   text-align: center;
-  letter-spacing: 0.13rem;
+  letter-spacing: 0.208rem;
 }
 
 .card {
@@ -167,7 +168,7 @@ body {
   flex-direction: column;
   background-color: #fafafa;
   border-radius: 9px;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
   align-items: center;
 }
 .card:hover {
@@ -179,26 +180,26 @@ body {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.25rem;
-  line-height: 1.4375rem;
+  font-size: 2rem;
+  line-height: 2.3rem;
   text-align: center;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1rem;
   color: #545454;
-  margin: 1.875rem 0;
+  margin: 3rem 0;
 }
 
 .card__button {
   border: 2px solid #f1cdb3;
   border-radius: 100px;
   box-sizing: border-box;
-  padding: 0.8125rem 2.6875rem;
-  margin-bottom: 30px;
+  padding: 1.5rem 4.5rem;
+  margin-bottom: 3rem;
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.0625rem;
-  line-height: 130%;
-  letter-spacing: 0.06em;
+  font-size: 1.7rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.06rem;
   outline: none;
   background-color: transparent;
 }
@@ -211,20 +212,20 @@ body {
 .slider__nav {
   display: flex;
   justify-content: space-between;
-  width: 21.25rem;
+  width: 34rem;
 }
 
 .slider__button {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.25rem;
+  font-size: 2rem;
   line-height: 115%;
-  letter-spacing: 0.07rem;
+  letter-spacing: 0.112rem;
   color: #545454;
   display: flex;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 5.2rem;
+  height: 5.2rem;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -254,7 +255,7 @@ body {
 }
 
 .content_footer {
-  padding-top: 2.5rem;
+  padding-top: 4rem;
   display: flex;
   justify-content: space-between;
 }
@@ -264,7 +265,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 23.17%;
-  margin: 1.3125rem 0 3.75rem 0;
+  margin: 1.6rem 0 6rem 0;
 }
 
 .content__section_footer2 {
@@ -272,12 +273,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 25.16%;
-  margin: 1.3125rem 0 3.75rem 0;
+  margin: 1.6rem 0 6rem 0;
 }
 
 .content__title_footer {
   color: #ffffff;
-  letter-spacing: 0.13rem;
+  letter-spacing: 0.208rem;
 }
 
 .content__link {
@@ -290,21 +291,21 @@ body {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.25rem;
+  font-size: 2rem;
   line-height: 115%;
-  letter-spacing: 0.07rem;
+  letter-spacing: 0.112rem;
   color: #f1cdb3;
-  margin-left: 1.25rem;
+  margin-left: 2rem;
 }
 
 .content__icon_contact {
-  max-width: 2.5rem;
+  max-width: 4rem;
 }
 
 .content__icon_adress {
-  max-width: 1.375rem;
+  max-width: 2.2rem;
 }
 
 .footer_image {
-  width: 18.75rem;
+  width: 30rem;
 }
