@@ -56,42 +56,64 @@
     height: 31.5rem;
   }
 }
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 500px) {
   .wrapper {
-    width: 18.75rem;
+    max-width: 30rem;
   }
 
   .menu {
     display: none;
   }
 
-  .content__title {
-    font-size: 1.5625rem;
+  .pets {
+    padding: 4rem 0 3rem 0;
+  }
+
+  .content_pets {
+    padding: 0;
+  }
+
+  .content__section_pets {
+    padding: 0;
+  }
+
+  .content__title_pets {
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
   }
 
   .slider {
-    padding: 0 0.9375rem;
+    margin-top: 4.9rem;
+  }
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card:nth-child(even) {
+    display: none;
   }
 
   .slider__nav {
-    width: 18.75rem;
+    margin-top: 0;
+    width: 30rem;
   }
 
   .content_footer {
-    justify-items: center;
-    flex-wrap: wrap;
+    padding: 0;
+    justify-content: center;
   }
 
-  .content__section_footer1,
-.content__section_footer2 {
-    width: 18.75rem;
+  .content__title_footer {
+    text-align: center;
   }
 
-  .content__link {
-    margin-top: 2.5rem;
+  .content__section_footer1 {
+    margin: 0 0 4rem 0;
   }
 
-  .footer__image {
-    margin: 0 auto;
+  .content__section_footer2 {
+    margin: 0 0 9rem 0;
   }
 }
