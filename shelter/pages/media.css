@@ -1,4 +1,4 @@
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1090px) {
   .wrapper {
     max-width: 708px;
   }
@@ -56,7 +56,7 @@
     height: 31.5rem;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 670px) {
   .wrapper {
     max-width: 30rem;
   }
