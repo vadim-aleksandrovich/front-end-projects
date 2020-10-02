@@ -53,7 +53,7 @@ body {
   font-size: 1.3rem;
   font-weight: 400;
   letter-spacing: 0.128rem;
-  line-height: 110%;
+  line-height: 120%;
   color: #292929;
 }
 
@@ -154,7 +154,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
-  padding: 1.5rem 0 3.1rem 0;
+  padding: 1.5rem 0 3rem 0;
 }
 
 .content__title_pets {
