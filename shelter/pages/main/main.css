@@ -8,6 +8,7 @@
   -o-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
+  margin-left: 5px;
   padding: 0;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -509,3 +510,5 @@ body {
 .footer_image {
   width: 30rem;
 }
+
+/*# sourceMappingURL=main.css.map */
