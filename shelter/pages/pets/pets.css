@@ -29,12 +29,17 @@ body {
   width: 100vw;
   padding: 3rem 0;
   background-color: #ffffff;
+  position: sticky;
+  top: 0;
 }
 
 .logo {
   display: flex;
   flex-direction: column;
   text-decoration: none;
+}
+.logo:hover {
+  filter: contrast(1.5);
 }
 
 .logo__title {
@@ -94,11 +99,6 @@ body {
 .list__link_active {
   color: #292929;
   border-bottom-color: #f1cdb3;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
 }
 
 .content {
@@ -238,10 +238,14 @@ body {
   border-color: transparent;
   cursor: pointer;
 }
+.slider__button:active {
+  background-color: #f1cdb3;
+}
 .slider__button:disabled {
   background-color: transparent;
   border-color: #cdcdcd;
   color: #cdcdcd;
+  cursor: auto;
 }
 
 .slider__button_active {
@@ -309,5 +313,3 @@ body {
 .footer_image {
   width: 30rem;
 }
-
-/*# sourceMappingURL=pets.css.map */
