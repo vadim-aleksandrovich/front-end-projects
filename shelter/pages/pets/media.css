@@ -60,8 +60,18 @@
     max-width: 30rem;
   }
 
+  .logo__subtitle {
+    line-height: 120%;
+  }
+
   .menu {
     display: none;
+  }
+
+  .menu_burger {
+    display: flex;
+    align-self: center;
+    margin-right: 4.3rem;
   }
 
   .pets {

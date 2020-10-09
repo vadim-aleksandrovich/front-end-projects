@@ -59,6 +59,10 @@ body {
   color: #ffffff;
 }
 
+.menu_burger {
+  display: none;
+}
+
 .menu {
   display: flex;
   max-width: 44.3rem;
