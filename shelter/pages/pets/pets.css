@@ -67,6 +67,10 @@ body {
   max-width: 44.3rem;
 }
 
+.menu_burger {
+  display: none;
+}
+
 .list {
   display: flex;
   justify-content: space-between;
