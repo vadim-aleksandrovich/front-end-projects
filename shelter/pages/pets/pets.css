@@ -67,8 +67,14 @@ body {
   max-width: 44.3rem;
 }
 
-.menu_burger {
-  display: none;
+.menu_burger_link {
+  background: none;
+  border: none;
+  outline: none;
+}
+.menu_burger_link:hover {
+  filter: contrast(1.2);
+  cursor: pointer;
 }
 
 .list {

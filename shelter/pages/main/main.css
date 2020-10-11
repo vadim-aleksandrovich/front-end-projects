@@ -63,6 +63,16 @@ body {
   display: none;
 }
 
+.menu_burger_link {
+  background: none;
+  border: none;
+  outline: none;
+}
+.menu_burger_link:hover {
+  filter: contrast(1.2);
+  cursor: pointer;
+}
+
 .menu {
   display: flex;
   max-width: 44.3rem;
