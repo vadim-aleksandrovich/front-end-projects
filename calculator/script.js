@@ -33,22 +33,22 @@ for (let i = 0; i < clearBtns.length; i++) {
 
 const numberPress = (number) => {
   if (MemoryNewNumber) {
-    display.value = number;
+    display.textContent = number;
     MemoryNewNumber = false;
   } else {
-    if (display.value === "0") {
-      display.value = number;
+    if (display.textContent === "0") {
+      display.textContent = number;
     } else {
-      display.value += number;
+      display.textContent += number;
     }
   }
 };
 
 const operationPress = (op) => {
-  let localOperationMemory = display.value;
+  let localOperationMemory = display.textContent;
 
   if (MemoryNewNumber && MemoryPendingOperation !== "=") {
-    display.value = MemoryCurrentNumber;
+    display.textContent = MemoryCurrentNumber;
   } else {
     MemoryNewNumber = true;
     switch (MemoryPendingOperation) {
@@ -71,12 +71,12 @@ const operationPress = (op) => {
         MemoryCurrentNumber = +localOperationMemory;
     }
   }
-  display.value = Number(MemoryCurrentNumber.toFixed(7));
+  display.textContent = Number(MemoryCurrentNumber.toFixed(7));
   MemoryPendingOperation = op;
 };
 
 const decimal = (argument) => {
-  let localDecimalMemory = display.value;
+  let localDecimalMemory = display.textContent;
 
   if (MemoryNewNumber) {
     localDecimalMemory = "0.";
@@ -86,32 +86,32 @@ const decimal = (argument) => {
       localDecimalMemory += ".";
     }
   }
-  display.value = localDecimalMemory;
+  display.textContent = localDecimalMemory;
 };
 
 decimalBtn.addEventListener("click", decimal);
 
 const plusMinus = (argument) => {
-  display.value *= -1;
+  display.textContent *= -1;
 };
 
 plus_minusBtn.addEventListener("click", plusMinus);
 
 const sqrt = (argument) => {
-  let localSqrt = display.value;
-  display.value < 0
-    ? (display.value = "error")
-    : (display.value = Math.sqrt(localSqrt));
+  let localSqrt = display.textContent;
+  display.textContent < 0
+    ? (display.textContent = "error")
+    : (display.textContent = Math.sqrt(localSqrt));
 };
 
 sqrtBtn.addEventListener("click", sqrt);
 
 const clear = (id) => {
   if (id === "CE") {
-    display.value = "0";
+    display.textContent = "0";
     MemoryNewNumber = true;
   } else if (id === "C") {
-    display.value = "0";
+    display.textContent = "0";
     MemoryNewNumber = true;
     MemoryCurrentNumber = 0;
     MemoryPendingOperation = "";
