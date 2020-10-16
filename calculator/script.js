@@ -62,8 +62,10 @@ const operationPress = (op) => {
         MemoryCurrentNumber *= +localOperationMemory;
         break;
       case "/":
-        MemoryCurrentNumber /= +localOperationMemory;
-        break;
+        +localOperationMemory === 0 ?
+          MemoryCurrentNumber = 'error':
+          MemoryCurrentNumber /= +localOperationMemory;
+          break;
       case "xn":
         MemoryCurrentNumber **= +localOperationMemory;
         break;
@@ -71,7 +73,9 @@ const operationPress = (op) => {
         MemoryCurrentNumber = +localOperationMemory;
     }
   }
-  display.textContent = Number(MemoryCurrentNumber.toFixed(7));
+  MemoryCurrentNumber === 'error' ?
+  display.textContent = 'ошибочка...' :
+  display.textContent = Number(MemoryCurrentNumber.toFixed(7)),
   MemoryPendingOperation = op;
 };
 
@@ -100,7 +104,7 @@ plus_minusBtn.addEventListener("click", plusMinus);
 const sqrt = (argument) => {
   let localSqrt = display.textContent;
   display.textContent < 0
-    ? (display.textContent = "error")
+    ? (display.textContent = "ошибочка...")
     : (display.textContent = Math.sqrt(localSqrt));
 };
 
