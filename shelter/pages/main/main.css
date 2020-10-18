@@ -1,3 +1,13 @@
+@charset "UTF-8";
+@keyframes animation {
+  0% {
+    opacity: 0;
+    transform: rotate(10deg) scale(0.4);
+  }
+  100% {
+    opacity: 1;
+  }
+}
 :root {
   font-size: 10px;
 }
@@ -264,6 +274,9 @@ body {
   flex-direction: column;
   background-color: #fafafa;
   border-radius: 9px;
+  animation-name: animation;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
   align-items: center;
 }
 .card:hover {
@@ -535,4 +548,116 @@ body {
 
 .footer_image {
   width: 30rem;
+}
+
+.popup__window {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(41, 41, 41, 0.6);
+}
+
+.popup__card {
+  animation-name: animation;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fafafa;
+  border-radius: 0.9rem;
+  max-width: 90rem;
+}
+
+.popup__image {
+  width: 50rem;
+  flex-shrink: 0;
+}
+
+.popup__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 2rem;
+}
+
+.popup__name {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  letter-spacing: 0.1rem;
+  color: #000;
+}
+
+.popup__type {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 115%;
+  letter-spacing: 0.112rem;
+  color: #000;
+  margin-top: 1rem;
+}
+
+.popup__description {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 110%;
+  letter-spacing: 0.1rem;
+  color: #000;
+  margin: 4rem auto;
+}
+
+.popup__list {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 110%;
+  letter-spacing: 0.1rem;
+  color: #000;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 10.2rem;
+}
+
+.popup__item:before {
+  content: "•";
+  color: #f1cdb3;
+  width: 0.4rem;
+  padding-right: 1rem;
+}
+
+.popup__btn {
+  background: url("../../assets/icons/popup_closer.svg") center center no-repeat;
+  right: -5rem;
+  top: -5rem;
+  position: absolute;
+  display: flex;
+  width: 5.2rem;
+  height: 5.2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  outline: none;
+  border: 2px solid #f1cdb3;
+  background-color: transparent;
+}
+.popup__btn:hover {
+  background-color: #fddcc4;
+  border-color: transparent;
+  cursor: pointer;
 }
