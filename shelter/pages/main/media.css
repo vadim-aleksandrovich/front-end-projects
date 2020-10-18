@@ -101,6 +101,30 @@
     margin: 0.5rem auto 0 auto;
     width: 30rem;
   }
+
+  .popup__card {
+    max-width: 63rem;
+  }
+
+  .popup__image {
+    width: 100%;
+    max-width: 35rem;
+  }
+
+  .popup__content {
+    margin: 1rem 0.9rem 3.7rem 1.1rem;
+  }
+
+  .popup__description {
+    font-size: 1.3rem;
+    margin: 2rem auto;
+    letter-spacing: 0.07rem;
+  }
+
+  .popup__list {
+    max-height: 8.7rem;
+    min-height: 8.7rem;
+  }
 }
 @media screen and (max-width: 670px) {
   .wrapper {
@@ -345,5 +369,35 @@
   .footer_image {
     width: 26rem;
     height: 26.9rem;
+  }
+
+  .popup__card {
+    max-width: 24rem;
+  }
+
+  .popup__content {
+    margin: 1rem;
+  }
+
+  .popup__name,
+.popup__type {
+    text-align: center;
+  }
+
+  .popup__list {
+    max-height: 8.7rem;
+  }
+
+  .popup__description {
+    text-align: justify;
+    letter-spacing: 0.07rem;
+  }
+
+  .popup__image {
+    display: none;
+  }
+
+  .popup__btn {
+    right: -3rem;
   }
 }

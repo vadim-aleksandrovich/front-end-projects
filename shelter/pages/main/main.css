@@ -551,10 +551,11 @@ body {
 }
 
 .popup__window {
-  position: fixed;
   display: none;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100vw;
@@ -563,28 +564,30 @@ body {
 }
 
 .popup__card {
-  animation-name: animation;
-  animation-duration: 0.4s;
-  animation-timing-function: linear;
-  position: relative;
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
   background: #fafafa;
   border-radius: 0.9rem;
   max-width: 90rem;
+  animation-name: animation;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
 }
 
 .popup__image {
-  width: 50rem;
+  height: 100%;
+  width: 60%;
+  max-width: 50rem;
   flex-shrink: 0;
 }
 
 .popup__content {
+  margin: 5rem 2rem 8.8rem 2.9rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 2rem;
 }
 
 .popup__name {
@@ -595,6 +598,8 @@ body {
   line-height: 130%;
   letter-spacing: 0.1rem;
   color: #000;
+  border-radius: none;
+  letter-spacing: 0.2rem;
 }
 
 .popup__type {
@@ -617,6 +622,7 @@ body {
   letter-spacing: 0.1rem;
   color: #000;
   margin: 4rem auto;
+  letter-spacing: 0.09rem;
 }
 
 .popup__list {
@@ -637,26 +643,29 @@ body {
 .popup__item:before {
   content: "•";
   color: #f1cdb3;
+  display: inline-block;
   width: 0.4rem;
-  padding-right: 1rem;
+  margin-right: 1rem;
 }
 
 .popup__btn {
-  background: url("../../assets/icons/popup_closer.svg") center center no-repeat;
-  right: -5rem;
-  top: -5rem;
   position: absolute;
+  right: -4.1rem;
+  top: -5.5rem;
+  background: url(../../assets/icons/popup_closer.svg) center center no-repeat;
+  background-color: transparent;
+  border: 2px solid #f1cdb3;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 100px;
+  padding: 2.4rem;
   display: flex;
-  width: 5.2rem;
-  height: 5.2rem;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  outline: none;
-  border: 2px solid #f1cdb3;
-  background-color: transparent;
+  transition: background-color 0.2s ease-out;
 }
 .popup__btn:hover {
+  transition: 0.4s ease-in;
   background-color: #fddcc4;
   border-color: transparent;
   cursor: pointer;
