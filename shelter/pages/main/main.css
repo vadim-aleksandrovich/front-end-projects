@@ -562,6 +562,12 @@ body {
   height: 100vh;
   background: rgba(41, 41, 41, 0.6);
 }
+.popup__window:hover .popup__btn {
+  transition: 0.4s ease-in;
+  background-color: #fddcc4;
+  border-color: transparent;
+  cursor: pointer;
+}
 
 .popup__card {
   display: flex;
@@ -574,6 +580,12 @@ body {
   animation-name: animation;
   animation-duration: 0.4s;
   animation-timing-function: linear;
+}
+.popup__card:hover .popup__btn {
+  transition: 0.4s ease-in;
+  background-color: transparent;
+  border-color: #f1cdb3;
+  cursor: pointer;
 }
 
 .popup__image {
@@ -664,7 +676,8 @@ body {
   justify-content: center;
   transition: background-color 0.2s ease-out;
 }
-.popup__btn:hover {
+
+.popup__card .popup__btn:hover {
   transition: 0.4s ease-in;
   background-color: #fddcc4;
   border-color: transparent;

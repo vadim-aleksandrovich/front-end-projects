@@ -99,6 +99,7 @@ let petsArr = [
 
 let arrows = document.querySelectorAll(".slider__arrow");
 let slider = document.querySelector(".slider__container");
+
 let cardCreator = (i) => {
   let card = document.createElement("div");
   let image = document.createElement("img");
