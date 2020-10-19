@@ -32,7 +32,11 @@
             </li>
           </ul>
         </nav>
-        <nav class="menu_burger"> <a class="menu_burger_link"><img src="../../assets/icons/Burger.svg" alt="menu"></a></nav>
+        <nav class="menu_burger">
+          <button type="button" class="menu_burger_link">
+            <img src="../../assets/icons/Burger.svg" alt="menu" />
+          </button>
+        </nav>
       </div>
     </header>
     <main class="main">
@@ -114,7 +118,7 @@
                   </svg>
                 </button>
                 <div class="slider__container">
-                  <div class="card">
+                  <!--  <div class="card">
                     <img
                       src="../../assets/images/pets-katrine.png"
                       class="card__image"
@@ -143,7 +147,7 @@
                     <button type="button" class="card__button">
                       Learn more
                     </button>
-                  </div>
+                  </div> -->
                 </div>
                 <button class="slider__arrow">
                   <svg
@@ -362,5 +366,23 @@
         </div>
       </div>
     </footer>
+    <div class="popup__window">
+      <div class="popup__card">
+        <img class="popup__image" />
+        <div class="popup__content">
+          <h3 class="popup__name"></h3>
+          <h4 class="popup__type"></h4>
+          <h5 class="popup__description"></h5>
+          <ul class="popup__list">
+            <li class="popup__item popup__item_age"></li>
+            <li class="popup__item popup__item_inoculations"></li>
+            <li class="popup__item popup__item_diseases"></li>
+            <li class="popup__item popup__item_parasites"></li>
+          </ul>
+        </div>
+        <button class="popup__btn" type="button"></button>
+      </div>
+    </div>
+    <script src="../../pages/main/main.js"></script>
   </body>
 </html>
