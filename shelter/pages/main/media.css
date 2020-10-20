@@ -126,9 +126,13 @@
     min-height: 8.7rem;
   }
 }
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 767px) {
   .wrapper {
-    max-width: 30rem;
+    width: 25.7rem;
+  }
+
+  .wrapper_header {
+    margin: 0 5.3rem 0 auto;
   }
 
   .content__title {
@@ -149,7 +153,6 @@
   .menu_burger {
     display: flex;
     align-self: center;
-    margin-right: 4.3rem;
   }
 
   .content__title_start {

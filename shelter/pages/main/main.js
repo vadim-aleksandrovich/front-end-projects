@@ -161,6 +161,7 @@ let cardAdder = () => {
       popup.style.display = "flex";
     });
   });
+
   popup.addEventListener("click", function (e) {
     if (!e.target.closest(".popup__card") || e.target.closest(".popup__btn")) {
       popup.style.display = "none";
@@ -170,3 +171,23 @@ let cardAdder = () => {
 
 cardAdder();
 arrows.forEach((arrow) => arrow.addEventListener("click", cardAdder));
+
+const burgerBtn = document.querySelector(".menu_burger_link");
+const burgerWindow = document.querySelector(".burger__window");
+const burgerLinkActive = document.querySelector(".burger__link_active");
+burgerBtn.addEventListener("click", function () {
+  burgerBtn.classList.toggle("menu_burger_link_active");
+  burgerWindow.classList.toggle("burger__window_active");
+});
+
+burgerWindow.addEventListener("click", function (e) {
+  if (!e.target.closest(".burger__box")) {
+    burgerWindow.classList.toggle("burger__window_active");
+    burgerBtn.classList.toggle("menu_burger_link_active");
+  }
+});
+
+burgerLinkActive.addEventListener("click", function () {
+  burgerWindow.classList.remove("burger__window_active");
+  burgerBtn.classList.remove("menu_burger_link_active");
+});

@@ -41,10 +41,12 @@ body {
 }
 
 .logo {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   text-decoration: none;
 }
+
 .logo:hover {
   filter: contrast(1.2);
 }
@@ -69,23 +71,91 @@ body {
   color: #ffffff;
 }
 
+.menu {
+  display: flex;
+  max-width: 44.3rem;
+}
+
 .menu_burger {
   display: none;
 }
 
 .menu_burger_link {
+  z-index: 2;
   background: none;
   border: none;
   outline: none;
 }
+
 .menu_burger_link:hover {
   filter: contrast(1.2);
   cursor: pointer;
 }
 
-.menu {
+.menu_burger_link_active {
+  transform: rotate(90deg);
+}
+
+.burger__window {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 200rem;
+  width: 100vw;
+  height: 82.3rem;
+  background: rgba(41, 41, 41, 0.6);
+}
+
+.burger__window_active {
   display: flex;
-  max-width: 44.3rem;
+  left: 0;
+}
+
+.burger__box {
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32rem;
+  height: 100%;
+  background-color: #292929;
+}
+
+.burger__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  height: 32.7rem;
+}
+
+.burger__item {
+  border-bottom: 2px solid transparent;
+}
+
+.burger__link {
+  text-decoration: none;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 160%;
+  color: #cdcdcd;
+}
+.burger__link:hover {
+  color: #fafafa;
+}
+
+.burger__link_active {
+  color: #fafafa;
+}
+
+.burger__item_active {
+  border-color: #f1cdb3;
 }
 
 .list {
@@ -110,9 +180,11 @@ body {
   line-height: 160%;
   border-bottom: 3px solid transparent;
 }
+
 .list__link:hover {
   color: #fafafa;
 }
+
 .list__link:active {
   border-bottom-color: #f1cdb3;
 }
@@ -203,6 +275,7 @@ body {
   outline: none;
   background-color: #f1cdb3;
 }
+
 .button__primary:hover {
   background-color: #fddcc4;
   cursor: pointer;
@@ -279,10 +352,12 @@ body {
   animation-timing-function: linear;
   align-items: center;
 }
+
 .card:hover {
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   background-color: #ffffff;
 }
+
 .card:nth-child(n+4) {
   display: none;
 }
@@ -314,6 +389,7 @@ body {
   outline: none;
   background-color: transparent;
 }
+
 .card__button:hover {
   background-color: #fddcc4;
   cursor: pointer;
@@ -331,18 +407,22 @@ body {
   border: 2px solid #f1cdb3;
   background-color: transparent;
 }
+
 .slider__arrow:hover {
   background-color: #fddcc4;
   border-color: transparent;
   cursor: pointer;
 }
+
 .slider__arrow:active {
   background-color: #f1cdb3;
 }
+
 .slider__arrow:disabled {
   background-color: transparent;
   border-color: #cdcdcd;
 }
+
 .slider__arrow:disabled svg {
   fill: #cdcdcd;
 }
@@ -451,6 +531,7 @@ body {
   max-width: 34.9rem;
   margin-bottom: 2rem;
 }
+
 .credit-card:hover {
   background-color: #fddcc4;
   cursor: pointer;
@@ -562,6 +643,7 @@ body {
   height: 100vh;
   background: rgba(41, 41, 41, 0.6);
 }
+
 .popup__window:hover .popup__btn {
   transition: 0.4s ease-in;
   background-color: #fddcc4;
@@ -581,6 +663,7 @@ body {
   animation-duration: 0.4s;
   animation-timing-function: linear;
 }
+
 .popup__card:hover .popup__btn {
   transition: 0.4s ease-in;
   background-color: transparent;
