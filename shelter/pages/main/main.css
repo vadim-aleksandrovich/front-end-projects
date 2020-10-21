@@ -27,6 +27,10 @@ body {
   position: relative;
 }
 
+body.overflow-hidden {
+  overflow: hidden;
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -41,7 +45,7 @@ body {
 }
 
 .logo {
-  z-index: 2;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -78,10 +82,11 @@ body {
 
 .menu_burger {
   display: none;
+  z-index: 5;
 }
 
 .menu_burger_link {
-  z-index: 2;
+  z-index: 5;
   background: none;
   border: none;
   outline: none;
@@ -105,13 +110,14 @@ body {
   top: 0;
   left: 200rem;
   width: 100vw;
-  height: 82.3rem;
   background: rgba(41, 41, 41, 0.6);
 }
 
 .burger__window_active {
   display: flex;
   left: 0;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .burger__box {
@@ -636,7 +642,7 @@ body {
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100vw;

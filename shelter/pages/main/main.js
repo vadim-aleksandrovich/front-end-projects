@@ -175,19 +175,24 @@ arrows.forEach((arrow) => arrow.addEventListener("click", cardAdder));
 const burgerBtn = document.querySelector(".menu_burger_link");
 const burgerWindow = document.querySelector(".burger__window");
 const burgerLinkActive = document.querySelector(".burger__link_active");
+const body = document.querySelector("body");
+
 burgerBtn.addEventListener("click", function () {
   burgerBtn.classList.toggle("menu_burger_link_active");
   burgerWindow.classList.toggle("burger__window_active");
+  body.classList.toggle("overflow-hidden");
 });
 
 burgerWindow.addEventListener("click", function (e) {
   if (!e.target.closest(".burger__box")) {
     burgerWindow.classList.toggle("burger__window_active");
     burgerBtn.classList.toggle("menu_burger_link_active");
+    body.classList.toggle("overflow-hidden");
   }
 });
 
 burgerLinkActive.addEventListener("click", function () {
   burgerWindow.classList.remove("burger__window_active");
   burgerBtn.classList.remove("menu_burger_link_active");
+  body.classList.toggle("overflow-hidden");
 });

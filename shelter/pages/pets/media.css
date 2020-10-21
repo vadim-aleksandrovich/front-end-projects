@@ -58,10 +58,13 @@
 }
 @media screen and (max-width: 767px) {
   .wrapper {
-    width: 25.7rem;
+    max-width: 30rem;
+    width: 100%;
   }
 
   .wrapper_header {
+    max-width: 25.7rem;
+    width: 100%;
     margin: 0 5.3rem 0 auto;
   }
 

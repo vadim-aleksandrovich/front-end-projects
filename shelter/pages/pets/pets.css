@@ -17,6 +17,10 @@ body {
   position: relative;
 }
 
+body.overflow-hidden {
+  overflow: hidden;
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -33,7 +37,12 @@ body {
   top: 0;
 }
 
+.header__burger {
+  position: absolute;
+}
+
 .logo {
+  z-index: 5;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -93,17 +102,18 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 200rem;
   width: 100vw;
-  height: 82.3rem;
   background: rgba(41, 41, 41, 0.6);
 }
 
 .burger__window_active {
   display: flex;
   left: 0;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .burger__box {
@@ -148,6 +158,14 @@ body {
 
 .burger__item_active {
   border-color: #f1cdb3;
+}
+
+.burger__window {
+  top: 0%;
+}
+
+.burger__window_active {
+  top: 0%;
 }
 
 .list {
