@@ -132,6 +132,10 @@
     width: 100%;
   }
 
+  .burger__window_active {
+    display: flex;
+  }
+
   .wrapper_header {
     max-width: 25.7rem;
     width: 100%;

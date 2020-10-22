@@ -49,7 +49,6 @@
               <line y1="1" x2="30" y2="1" stroke="#000000" stroke-width="2" />
             </svg>
           </button>
-
         </nav>
       </div>
     </header>
@@ -147,14 +146,26 @@
                 </div>
               </div>
               <div class="slider__nav">
-                <button disabled class="slider__button">&lt;&lt;</button>
+                <button disabled class="slider__button arrows__container_start">
+                  &lt;&lt;
+                </button>
 
-                <button disabled class="slider__button">&lt;</button>
+                <button disabled class="slider__button arrows__container_prev">
+                  &lt;
+                </button>
 
-                <button class="slider__button slider__button_active">1</button>
+                <button
+                  class="slider__button slider__button_active arrows__container_counter"
+                >
+                  1
+                </button>
 
-                <button class="slider__button">&gt;</button>
-                <button class="slider__button">&gt;&gt;</button>
+                <button class="slider__button arrows__container_next">
+                  &gt;
+                </button>
+                <button class="slider__button arrows__container_end">
+                  &gt;&gt;
+                </button>
               </div>
             </div>
           </div>
@@ -250,6 +261,23 @@
             <a href="#" class="burger__link">Contacts</a>
           </li>
         </ul>
+      </div>
+    </div>
+    <div class="popup__window">
+      <div class="popup__card">
+        <img class="popup__image" />
+        <div class="popup__content">
+          <h3 class="popup__name"></h3>
+          <h4 class="popup__type"></h4>
+          <h5 class="popup__description"></h5>
+          <ul class="popup__list">
+            <li class="popup__item popup__item_age"></li>
+            <li class="popup__item popup__item_inoculations"></li>
+            <li class="popup__item popup__item_diseases"></li>
+            <li class="popup__item popup__item_parasites"></li>
+          </ul>
+        </div>
+        <button class="popup__btn" type="button"></button>
       </div>
     </div>
     <script src="../../pages/pets/pets.js"></script>
