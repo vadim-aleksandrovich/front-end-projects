@@ -13,7 +13,11 @@ body {
   text-align: center;
   height: 100vh;
   background-size: cover;
-  color: #000000;
+  color: #fafafa;
+}
+
+.date {
+  font-size: 7rem;
 }
 
 .time {
