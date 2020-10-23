@@ -48,7 +48,7 @@ setBgGreet = () => {
         document.body.style.backgroundImage = "url('../assets/images/evening/01.jpg')";
         greeting.textContent = 'Good Evening';
     }
-    if (hour > 0 && hour < 6) {
+    if (hour >= 0 && hour < 6) {
         document.body.style.backgroundImage = "url('../assets/images/evening/01.jpg')";
         greeting.textContent = 'Good Night';
         document.body.style.color = 'white';
