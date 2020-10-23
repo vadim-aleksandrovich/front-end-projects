@@ -26,8 +26,8 @@ getMonth = (month) => months[month];
 addZero = (n) => (parseInt(n, 10) < 10 ? '0' : '') + n;
 
 // Output Time and Date
-time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}`;
-date.innerHTML = `${getWeekDay(day)}<span>, </span> ${dayNumber} ${getMonth(month)}`;
+time.innerHTML = `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`;
+date.innerHTML = `${getWeekDay(day)}, ${dayNumber} ${getMonth(month)}`;
 setTimeout(showTime, 1000); //1000
 };
 
@@ -37,19 +37,19 @@ setBgGreet = () => {
     let hour = today.getHours();
 
     if (hour >= 6 && hour < 12) {
-        document.body.style.backgroundImage = "url('/assets/images/morning/01.jpg')";
+        document.body.style.backgroundImage = "url('../momentum/assets/images/morning/01.jpg')";
         greeting.textContent = 'Good Morning';
     }
     if (hour >= 12 && hour < 18) {
-        document.body.style.backgroundImage = "url('/assets/images/day/01.jpg')";
+        document.body.style.backgroundImage = "url('../momentum/assets/images/day/01.jpg')";
         greeting.textContent = 'Good Afternoon';
     }
     if (hour >= 18 && hour < 24) {
-        document.body.style.backgroundImage = "url('/assets/images/evening/01.jpg')";
+        document.body.style.backgroundImage = "url('../momentum/assets/images/evening/01.jpg')";
         greeting.textContent = 'Good Evening';
     }
     if (hour >= 0 && hour < 6) {
-        document.body.style.backgroundImage = "url('/assets/images/evening/01.jpg')";
+        document.body.style.backgroundImage = "url('../momentum/assets/images/evening/01.jpg')";
         greeting.textContent = 'Good Night';
         document.body.style.color = 'white';
     }
