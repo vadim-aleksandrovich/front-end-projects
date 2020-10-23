@@ -37,32 +37,32 @@ setBgGreet = () => {
     let hour = today.getHours();
 
     if (hour >= 6 && hour < 12) {
-        document.body.style.backgroundImage = "url('../assets/images/morning/01.jpg')";
+        document.body.style.backgroundImage = "url('/assets/images/morning/01.jpg')";
         greeting.textContent = 'Good Morning';
     }
     if (hour >= 12 && hour < 18) {
-        document.body.style.backgroundImage = "url('../assets/images/day/01.jpg')";
+        document.body.style.backgroundImage = "url('/assets/images/day/01.jpg')";
         greeting.textContent = 'Good Afternoon';
     }
     if (hour >= 18 && hour < 24) {
-        document.body.style.backgroundImage = "url('../assets/images/evening/01.jpg')";
+        document.body.style.backgroundImage = "url('/assets/images/evening/01.jpg')";
         greeting.textContent = 'Good Evening';
     }
     if (hour >= 0 && hour < 6) {
-        document.body.style.backgroundImage = "url('../assets/images/evening/01.jpg')";
+        document.body.style.backgroundImage = "url('/assets/images/evening/01.jpg')";
         greeting.textContent = 'Good Night';
         document.body.style.color = 'white';
     }
 }
 
 //? Get Name
-getName = () => (localStorage.getItem('name') === null) || localStorage.getItem('name').replace(/\s/g,'') == '' ?
+getName = () => localStorage.getItem('name') === null || localStorage.getItem('name').replace(/\s/g,'') == '' ?
                 name.textContent = '[Enter Name]' :
                 name.textContent = localStorage.getItem('name');
 
 //? Set Name
 setName = (e) => {
-    let memoryText = localStorage.getItem('name');
+    let memoryText = localStorage.getItem('name') || '[Enter Name]';
     if (e.type === 'keypress') {
         if (e.which == 13 || e.keyCode == 13) {
             name.textContent.replace(/\s/g,'') == '' ?
@@ -71,20 +71,22 @@ setName = (e) => {
             name.blur();
         }
     } else {
-      name.textContent = memoryText;
+        name.textContent.replace(/\s/g,'') == '' ?
+        name.textContent = memoryText:
+        localStorage.setItem('name', e.target.innerText);
       }
 };
 
 //? Get Focus
-getFocus = () => (localStorage.getItem('focus') === null) || localStorage.getItem('focus').replace(/\s/g,'') == '' ?
-                focus.textContent = '[Enter Focus]' :
-                focus.textContent = localStorage.getItem('focus');
+getFocus = () => localStorage.getItem('focus') === null || localStorage.getItem('focus').replace(/\s/g,'') == '' ?
+                 focus.textContent = '[Enter Focus]' :
+                 focus.textContent = localStorage.getItem('focus');
 
 
 
 //? Set focus
 setFocus = (e) => {
-    let memoryText = localStorage.getItem('focus');
+    let memoryText = localStorage.getItem('focus') || '[Enter Focus]';
     if (e.type === 'keypress') {
         if (e.which == 13 || e.keyCode == 13) {
             focus.textContent.replace(/\s/g,'') == '' ?
@@ -93,7 +95,9 @@ setFocus = (e) => {
             focus.blur();
         }
     } else {
-      focus.textContent = memoryText;
+        focus.textContent.replace(/\s/g,'') == '' ?
+        focus.textContent = memoryText:
+        localStorage.setItem('focus', e.target.innerText);
       }
 };
 
