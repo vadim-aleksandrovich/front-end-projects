@@ -27,8 +27,6 @@ for (let i = 0; i < 6; i++) backgroundArray.push(bgNightSort[i]);
 for (let i = 0; i < 6; i++) backgroundArray.push(bgMorningSort[i]);
 for (let i = 0; i < 6; i++) backgroundArray.push(bgAfternoonSort[i]);
 for (let i = 0; i < 6; i++) backgroundArray.push(bgEveningSort[i]);
-//(new Image()).src = url1;
-
 
 // Show Time and Date
 showTime = () => {
@@ -63,18 +61,10 @@ setBg = () => {
 setBgGreet = () => {
     let today = new Date();
     let hour = today.getHours();
-    if (hour >= 6 && hour < 12) {
-        greeting.textContent = 'Good Morning';
-    }
-    if (hour >= 12 && hour < 18) {
-        greeting.textContent = 'Good Afternoon';
-    }
-    if (hour >= 18 && hour < 24) {
-        greeting.textContent = 'Good Evening';
-    }
-    if (hour >= 0 && hour < 6) {
-        greeting.textContent = 'Good Night';
-    }
+    if (hour >= 6 && hour < 12) {greeting.textContent = 'Good Morning';}
+    if (hour >= 12 && hour < 18) {greeting.textContent = 'Good Afternoon';}
+    if (hour >= 18 && hour < 24) {greeting.textContent = 'Good Evening';}
+    if (hour >= 0 && hour < 6) {greeting.textContent = 'Good Night';}
 }
 
 //? Get Name
@@ -138,30 +128,24 @@ buttonBg.addEventListener('click', function () {
     setTimeout(function() { buttonBg.disabled = false }, 2000);
 });
 
-//! Цитата
-
+//! Quote
 const blockquote = document.querySelector('blockquote');
 const figcaption = document.querySelector('figcaption');
 const btnQt = document.querySelector('.button__qt');
 
 async function getQuote() {
-  const url = `https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en`;
-  const res = await fetch(url);
-  const data = await res.json();
-  btnQt.disabled = true;
-  blockquote.textContent = data.quoteText;
-  figcaption.textContent = data.quoteAuthor;
-  btnQt.disabled = true;
-  setTimeout(function() { btnQt.disabled = false }, 2000);
+    const url = `https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en`;
+    const res = await fetch(url);
+    const data = await res.json();
+    btnQt.disabled = true;
+    blockquote.textContent = data.quoteText;
+    figcaption.textContent = data.quoteAuthor;
+    btnQt.disabled = true;
+    setTimeout(function() { btnQt.disabled = false }, 2000);
 }
+
 document.addEventListener('DOMContentLoaded', getQuote);
 btnQt.addEventListener('click', getQuote);
-
-
-
-
-
-
 
 //? Run
 showTime();

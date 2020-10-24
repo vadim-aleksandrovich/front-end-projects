@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 14px;
 }
 
 body {
@@ -115,7 +115,7 @@ h2 {
 /*! Цитата */
 .quote {
   position: absolute;
-  top: 5rem;
+  top: 0;
   left: 0;
   right: 0;
   display: flex;
@@ -126,4 +126,28 @@ h2 {
 .quote figcaption,
 .quote blockquote {
   margin: 2rem;
+}
+
+@media (max-width: 800px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 5px;
+  }
 }
