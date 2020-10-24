@@ -10,11 +10,10 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 let now = new Date;
 let counterBg = now.getHours();
-let timeFlag = now.getHours();
-let bgNight = ["url(assets/images/night/01.jpg)", "url(assets/images/night/02.jpg)", "url(assets/images/night/02.jpg)", "url(assets/images/night/03.jpg)", "url(assets/images/night/04.jpg)", "url(assets/images/night/05.jpg)", "url(assets/images/night/06.jpg)", "url(assets/images/night/07.jpg)", "url(assets/images/night/08.jpg)", "url(assets/images/night/09.jpg)", "url(assets/images/night/10.jpg)", "url(assets/images/night/11.jpg)", "url(assets/images/night/12.jpg)", "url(assets/images/night/13.jpg)", "url(assets/images/night/14.jpg)", "url(assets/images/night/15.jpg)" ];
-let bgMorning = ["url(assets/images/morning/01.jpg)", "url(assets/images/morning/02.jpg)", "url(assets/images/morning/02.jpg)", "url(assets/images/morning/03.jpg)", "url(assets/images/morning/04.jpg)", "url(assets/images/morning/05.jpg)", "url(assets/images/morning/06.jpg)", "url(assets/images/morning/07.jpg)", "url(assets/images/morning/08.jpg)", "url(assets/images/morning/09.jpg)", "url(assets/images/morning/10.jpg)", "url(assets/images/morning/11.jpg)", "url(assets/images/morning/12.jpg)", "url(assets/images/morning/13.jpg)", "url(assets/images/morning/14.jpg)", "url(assets/images/morning/15.jpg)"];
-let bgAfternoon = ["url(assets/images/day/01.jpg)", "url(assets/images/day/02.jpg)", "url(assets/images/day/02.jpg)", "url(assets/images/day/03.jpg)", "url(assets/images/day/04.jpg)", "url(assets/images/day/05.jpg)", "url(assets/images/day/06.jpg)", "url(assets/images/day/07.jpg)", "url(assets/images/day/08.jpg)", "url(assets/images/day/09.jpg)", "url(assets/images/day/10.jpg)", "url(assets/images/day/11.jpg)", "url(assets/images/day/12.jpg)", "url(assets/images/day/13.jpg)", "url(assets/images/day/14.jpg)", "url(assets/images/day/15.jpg)"];
-let bgEvening = ["url(assets/images/evening/01.jpg)", "url(assets/images/evening/02.jpg)", "url(assets/images/evening/02.jpg)", "url(assets/images/evening/03.jpg)", "url(assets/images/evening/04.jpg)", "url(assets/images/evening/05.jpg)", "url(assets/images/evening/06.jpg)", "url(assets/images/evening/07.jpg)", "url(assets/images/evening/08.jpg)", "url(assets/images/evening/09.jpg)", "url(assets/images/evening/10.jpg)", "url(assets/images/evening/11.jpg)", "url(assets/images/evening/12.jpg)", "url(assets/images/evening/13.jpg)", "url(assets/images/evening/14.jpg)", "url(assets/images/day/15.jpg)"];
+let bgNight = ["assets/images/night/01.jpg", "assets/images/night/02.jpg", "assets/images/night/02.jpg", "assets/images/night/03.jpg", "assets/images/night/04.jpg", "assets/images/night/05.jpg", "assets/images/night/06.jpg", "assets/images/night/07.jpg", "assets/images/night/08.jpg", "assets/images/night/09.jpg", "assets/images/night/10.jpg", "assets/images/night/11.jpg", "assets/images/night/12.jpg", "assets/images/night/13.jpg", "assets/images/night/14.jpg", "assets/images/night/15.jpg" ];
+let bgMorning = ["assets/images/morning/01.jpg", "assets/images/morning/02.jpg", "assets/images/morning/02.jpg", "assets/images/morning/03.jpg", "assets/images/morning/04.jpg", "assets/images/morning/05.jpg", "assets/images/morning/06.jpg", "assets/images/morning/07.jpg", "assets/images/morning/08.jpg", "assets/images/morning/09.jpg", "assets/images/morning/10.jpg", "assets/images/morning/11.jpg", "assets/images/morning/12.jpg", "assets/images/morning/13.jpg", "assets/images/morning/14.jpg", "assets/images/morning/15.jpg"];
+let bgAfternoon = ["assets/images/day/01.jpg", "assets/images/day/02.jpg", "assets/images/day/02.jpg", "assets/images/day/03.jpg", "assets/images/day/04.jpg", "assets/images/day/05.jpg", "assets/images/day/06.jpg", "assets/images/day/07.jpg", "assets/images/day/08.jpg", "assets/images/day/09.jpg", "assets/images/day/10.jpg", "assets/images/day/11.jpg", "assets/images/day/12.jpg", "assets/images/day/13.jpg", "assets/images/day/14.jpg", "assets/images/day/15.jpg"];
+let bgEvening = ["assets/images/evening/01.jpg", "assets/images/evening/02.jpg", "assets/images/evening/02.jpg", "assets/images/evening/03.jpg", "assets/images/evening/04.jpg", "assets/images/evening/05.jpg", "assets/images/evening/06.jpg", "assets/images/evening/07.jpg", "assets/images/evening/08.jpg", "assets/images/evening/09.jpg", "assets/images/evening/10.jpg", "assets/images/evening/11.jpg", "assets/images/evening/12.jpg", "assets/images/evening/13.jpg", "assets/images/evening/14.jpg", "assets/images/day/15.jpg"];
 
 let partOfDay;
 let bgNightSort = bgNight.sort(() => Math.random() - 0.5);
@@ -52,10 +51,22 @@ setTimeout(showTime, 1000);
 };
 
 // //? Set Background and Greeting
+
+function viewBgImage(src) {
+    buttonBg.disabled = true;
+    const body = document.querySelector('body');
+    const img = document.createElement('img');
+    img.src = src;
+    img.onload = () => {
+      body.style.backgroundImage = `url(${src})`;
+      setTimeout(function() { buttonBg.disabled = false }, 1500);
+    };
+  }
+
+
 setBg = () => {
-    let today = new Date();
-    let hour = today.getHours();
-    document.body.style.backgroundImage = backgroundArray[hour];
+    counterBg < 23 ? counterBg +=1 : counterBg = 0;
+    viewBgImage(backgroundArray[counterBg]);
 }
 
 setBgGreet = () => {
@@ -121,12 +132,7 @@ focus.addEventListener ('click', function () {focus.textContent = '';});
 focus.addEventListener('keypress', setFocus);
 focus.addEventListener('blur', setFocus);
 
-buttonBg.addEventListener('click', function () {
-    counterBg < 23 ? counterBg +=1 : counterBg = timeFlag;
-    document.body.style.backgroundImage = backgroundArray[counterBg];
-    buttonBg.disabled = true;
-    setTimeout(function() { buttonBg.disabled = false }, 2000);
-});
+buttonBg.addEventListener('click', setBg);
 
 //! Quote
 const blockquote = document.querySelector('blockquote');
