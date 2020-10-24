@@ -141,12 +141,11 @@ const btnQt = document.querySelector('.button__qt');
 
 async function getQuote() {
     const url = `https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en`;
+    btnQt.disabled = true;
     const res = await fetch(url);
     const data = await res.json();
-    btnQt.disabled = true;
     blockquote.textContent = data.quoteText;
     figcaption.textContent = data.quoteAuthor;
-    btnQt.disabled = true;
     setTimeout(function() { btnQt.disabled = false }, 2000);
 }
 
