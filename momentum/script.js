@@ -135,18 +135,16 @@ focus.addEventListener('blur', setFocus);
 buttonBg.addEventListener('click', setBg);
 
 //! Quote
-const blockquote = document.querySelector('blockquote');
-const figcaption = document.querySelector('figcaption');
+const blockquote = document.querySelector('.advice__text');
 const btnQt = document.querySelector('.button__qt');
 
 async function getQuote() {
-    const url = `https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en`;
     btnQt.disabled = true;
+    const url = `https://api.adviceslip.com/advice`;
     const res = await fetch(url);
     const data = await res.json();
-    blockquote.textContent = data.quoteText;
-    figcaption.textContent = data.quoteAuthor;
-    setTimeout(function() { btnQt.disabled = false }, 2000);
+    blockquote.textContent = data.slip.advice;
+    setTimeout(function() { btnQt.disabled = false }, 4000);
 }
 
 document.addEventListener('DOMContentLoaded', getQuote);

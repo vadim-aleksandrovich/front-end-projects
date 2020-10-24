@@ -119,13 +119,13 @@ h2 {
 /*! Цитата */
 .quote {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  margin: 0 auto;
+  top: 1;
   display: flex;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   opacity: 0.8;
+  text-align: center;
 }
 .quote figcaption,
 .quote blockquote {
