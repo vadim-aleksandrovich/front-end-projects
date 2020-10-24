@@ -15,6 +15,7 @@ body {
   height: 100vh;
   background-size: cover;
   color: #fafafa;
+  transition: background 2s ease;
 }
 
 .date {
@@ -31,13 +32,41 @@ body {
 }
 
 h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 h2 {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
   opacity: 0.8;
+}
+
+.button__bg {
+  border: 0.1rem solid #fafafa;
+  border-radius: 5px;
+  background: none;
+  color: #f6f6f6;
+  padding: 1rem;
+  font-size: 3rem;
+}
+
+.button__bg,
+.name,
+.focus {
+  border: 1px solid inherit;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.button__bg:hover,
+.name:hover,
+.focus:hover {
+  cursor: pointer;
+  transition: 0.5s ease-out;
+  color: white;
+  background-color: rgba(44, 44, 44, 0.3);
+  border: 1px solid inherit;
+  border-radius: 5px;
 }
 
 @media (max-width: 700px) {
