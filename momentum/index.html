@@ -11,15 +11,30 @@
     <title>momentum</title>
   </head>
   <body>
-    <button type="button" class='button__bg'>Change background</button>
-    <time class="date"></time>
-    <time class="time"></time>
-    <h1>
-      <div class="greeting"></div>
-      <div class="name" contenteditable="true"></div>
-    </h1>
-    <h2>What Is Your Focus For Today?</h2>
-    <h2 class="focus" contenteditable="true"></h2>
+    <figure class="quote">
+      <blockquote>
+        You were not born a winner, and you were not born a loser. You are what
+        you make yourself be.
+      </blockquote>
+      <figcaption>Lou Holtz</figcaption>
+    </figure>
+    <div class="wrapper">
+      <time class="date"></time>
+      <time class="time"></time>
+
+      <h1 class="greeting-box">
+        <span class="greeting"></span>
+        <span class="name" contenteditable="true"></span>
+      </h1>
+
+      <div class="buttons">
+        <button type="button" class="btn button__bg">Change background</button>
+        <button type="button" class="btn button__qt">Change quote</button>
+      </div>
+
+      <h2 class="question">What Is Your Focus For Today?</h2>
+      <h2 class="focus" contenteditable="true"></h2>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

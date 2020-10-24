@@ -2,75 +2,128 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
   font-size: 10px;
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Nunito", sans-serif;
+  height: 100vh;
+  min-height: 50rem;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fafafa;
+  transition: background-image 2s ease-in;
+}
+
+.wrapper {
+  height: 100vh;
+  min-height: 60rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  height: 100vh;
-  background-size: cover;
-  color: #fafafa;
-  transition: background 2s ease;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .date {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 
 .time {
-  font-size: 12rem;
+  font-size: 10rem;
+}
+
+.greeting-box {
+  font-size: 3rem;
+  font-size: 2rem;
+  margin: 1rem 0 2rem 0;
+  display: flex;
+  align-items: center;
+}
+.greeting {
+  margin-right: 2rem;
+  opacity: 0.8;
 }
 
 .greeting,
 .name {
-  font-size: 4rem;
-}
-
-h1 {
-  margin-bottom: 2rem;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 2.5rem;
-  opacity: 0.8;
-}
-
-.button__bg {
-  border: 0.1rem solid #fafafa;
-  border-radius: 5px;
-  background: none;
-  color: #f6f6f6;
-  padding: 1rem;
   font-size: 3rem;
 }
 
-.button__bg,
 .name,
 .focus {
   border: 1px solid inherit;
   border-radius: 5px;
   padding: 1rem;
+  min-width: 4rem;
+  outline: none;
+  cursor: pointer;
 }
 
-.button__bg:hover,
 .name:hover,
 .focus:hover {
   cursor: pointer;
   transition: 0.5s ease-out;
   color: white;
-  background-color: rgba(44, 44, 44, 0.3);
+  transform: scale(1.01);
   border: 1px solid inherit;
   border-radius: 5px;
+  opacity: 0.5;
 }
 
-@media (max-width: 700px) {
-  .time {
-    font-size: 6rem;
-  }
+.question {
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.btn {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  color: #fafafa;
+  font-size: 1.5rem;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 1px solid #fafafa;
+  background-color: transparent;
+  transition: 1s ease-out;
+}
+
+.btn:hover {
+  color: #000000;
+  background-color: #fafafa;
+}
+
+.btn[disabled=""] {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.btn[disabled=""]:hover {
+  color: #fafafa;
+  background-color: transparent;
+}
+
+/*! Цитата */
+.quote {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  opacity: 0.8;
+}
+.quote figcaption,
+.quote blockquote {
+  margin: 2rem;
 }

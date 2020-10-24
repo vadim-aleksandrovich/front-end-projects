@@ -48,13 +48,13 @@ getMonth = (month) => months[month];
 addZero = (n) => (parseInt(n, 10) < 10 ? '0' : '') + n;
 
 // Output Time and Date
-time.innerHTML = `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`;
+time.innerHTML = `${addZero(hour)}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}`;
 date.innerHTML = `${getWeekDay(day)}, ${dayNumber} ${getMonth(month)}`;
-setTimeout(showTime, 1000); //1000
+setTimeout(showTime, 1000);
 };
 
 // //? Set Background and Greeting
-let setBg = () => {
+setBg = () => {
     let today = new Date();
     let hour = today.getHours();
     document.body.style.backgroundImage = backgroundArray[hour];
@@ -134,9 +134,33 @@ focus.addEventListener('blur', setFocus);
 buttonBg.addEventListener('click', function () {
     counterBg < 23 ? counterBg +=1 : counterBg = timeFlag;
     document.body.style.backgroundImage = backgroundArray[counterBg];
-    console.log(`image: ${backgroundArray[counterBg]}`);
-    console.log(`counter : ${counterBg}`)
+    buttonBg.disabled = true;
+    setTimeout(function() { buttonBg.disabled = false }, 2000);
 });
+
+//! Цитата
+
+const blockquote = document.querySelector('blockquote');
+const figcaption = document.querySelector('figcaption');
+const btnQt = document.querySelector('.button__qt');
+
+async function getQuote() {
+  const url = `https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en`;
+  const res = await fetch(url);
+  const data = await res.json();
+  btnQt.disabled = true;
+  blockquote.textContent = data.quoteText;
+  figcaption.textContent = data.quoteAuthor;
+  btnQt.disabled = true;
+  setTimeout(function() { btnQt.disabled = false }, 2000);
+}
+document.addEventListener('DOMContentLoaded', getQuote);
+btnQt.addEventListener('click', getQuote);
+
+
+
+
+
 
 
 //? Run
