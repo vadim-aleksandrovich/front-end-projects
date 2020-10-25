@@ -19,26 +19,27 @@ const city = document.querySelector('.city');
 const temperature = document.querySelector('.temperature');
 const weatherHumidity = document.querySelector('.weather-humidity');
 const weatherWind = document.querySelector('.weather-wind');
-const weatherError = document.querySelector('.weather__error')
+const weatherError = document.querySelector('.weather__error');
 
-let bgNight = ["assets/images/night/01.jpg", "assets/images/night/02.jpg", "assets/images/night/03.jpg", "assets/images/night/04.jpg", "assets/images/night/05.jpg", "assets/images/night/06.jpg", "assets/images/night/07.jpg", "assets/images/night/08.jpg", "assets/images/night/09.jpg", "assets/images/night/10.jpg", "assets/images/night/11.jpg", "assets/images/night/12.jpg", "assets/images/night/13.jpg", "assets/images/night/14.jpg", "assets/images/night/15.jpg", "assets/images/night/16.jpg" ];
-let bgMorning = ["assets/images/morning/01.jpg", "assets/images/morning/02.jpg", "assets/images/morning/16.jpg", "assets/images/morning/03.jpg", "assets/images/morning/04.jpg", "assets/images/morning/05.jpg", "assets/images/morning/06.jpg", "assets/images/morning/07.jpg", "assets/images/morning/08.jpg", "assets/images/morning/09.jpg", "assets/images/morning/10.jpg", "assets/images/morning/11.jpg", "assets/images/morning/12.jpg", "assets/images/morning/13.jpg", "assets/images/morning/14.jpg", "assets/images/morning/15.jpg"];
-let bgAfternoon = ["assets/images/day/01.jpg", "assets/images/day/02.jpg", "assets/images/day/16.jpg", "assets/images/day/03.jpg", "assets/images/day/04.jpg", "assets/images/day/05.jpg", "assets/images/day/06.jpg", "assets/images/day/07.jpg", "assets/images/day/08.jpg", "assets/images/day/09.jpg", "assets/images/day/10.jpg", "assets/images/day/11.jpg", "assets/images/day/12.jpg", "assets/images/day/13.jpg", "assets/images/day/14.jpg", "assets/images/day/15.jpg"];
-let bgEvening = ["assets/images/evening/01.jpg", "assets/images/evening/02.jpg", "assets/images/evening/16.jpg", "assets/images/evening/03.jpg", "assets/images/evening/04.jpg", "assets/images/evening/05.jpg", "assets/images/evening/06.jpg", "assets/images/evening/07.jpg", "assets/images/evening/08.jpg", "assets/images/evening/09.jpg", "assets/images/evening/10.jpg", "assets/images/evening/11.jpg", "assets/images/evening/12.jpg", "assets/images/evening/13.jpg", "assets/images/evening/14.jpg", "assets/images/evening/15.jpg"];
 
-// Creat background array
-let partOfDay;
-let bgNightSort = bgNight.sort(() => Math.random() - 0.5);
-let bgMorningSort = bgMorning.sort(() => Math.random() - 0.5);
-let bgAfternoonSort = bgAfternoon.sort(() => Math.random() - 0.5);
-let bgEveningSort = bgEvening.sort(() => Math.random() - 0.5);
 
 let backgroundArray = [];
+// Add Zero
+addZero = (n) => (parseInt(n, 10) < 10 ? '0' : '') + n;
 
-for (let i = 0; i < 6; i++) backgroundArray.push(bgNightSort[i]);
-for (let i = 0; i < 6; i++) backgroundArray.push(bgMorningSort[i]);
-for (let i = 0; i < 6; i++) backgroundArray.push(bgAfternoonSort[i]);
-for (let i = 0; i < 6; i++) backgroundArray.push(bgEveningSort[i]);
+ // Set Array backgrounds
+let BgAssets = ["night", "morning", "day", "evening"];
+for (let i = 0; i < 4; i++) {
+    tempArr = [];
+    while(tempArr.length < 6) {
+        let num = Math.round(Math.random() * 20 + 1);
+        if (tempArr.indexOf(num) == -1 && num < 20) {
+            tempArr.push(num);
+            backgroundArray.push(`assets/images/${BgAssets[i]}/${addZero(num)}.jpg`);
+        }
+    }
+}
+
 
 // Show Time and Date
 showTime = () => {
@@ -54,8 +55,7 @@ showTime = () => {
 getWeekDay = (day) => days[day];
 getMonth = (month) => months[month];
 
-// Add Zero
-addZero = (n) => (parseInt(n, 10) < 10 ? '0' : '') + n;
+
 
 // Output Time and Date
 time.innerHTML = `${addZero(hour)}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}`;
@@ -74,7 +74,7 @@ function viewBgImage(src) {
         body.style.backgroundImage = `url(${src})`;
          setTimeout(function() { buttonBg.disabled = false }, 1500);
     };
-  }
+}
 
 
 setBg = () => {
@@ -87,7 +87,7 @@ setBgGreet = () => {
     let hour = today.getHours();
     let min = today.getMinutes();
     let sec = today.getSeconds();
-    if ((min == 0) && (sec == 0))  viewBgImage(backgroundArray[hour]);
+    if ((min == 15) && (sec == 0))  viewBgImage(backgroundArray[hour]);
     if (hour >= 6 && hour < 12) {greeting.textContent = 'Good Morning';}
     if (hour >= 12 && hour < 18) {greeting.textContent = 'Good Afternoon';}
     if (hour >= 18 && hour < 24) {greeting.textContent = 'Good Evening';}
