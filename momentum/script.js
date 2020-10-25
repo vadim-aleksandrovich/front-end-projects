@@ -21,10 +21,10 @@ const weatherHumidity = document.querySelector('.weather-humidity');
 const weatherWind = document.querySelector('.weather-wind');
 const weatherError = document.querySelector('.weather__error')
 
-let bgNight = ["assets/images/night/01.jpg", "assets/images/night/02.jpg", "assets/images/night/02.jpg", "assets/images/night/03.jpg", "assets/images/night/04.jpg", "assets/images/night/05.jpg", "assets/images/night/06.jpg", "assets/images/night/07.jpg", "assets/images/night/08.jpg", "assets/images/night/09.jpg", "assets/images/night/10.jpg", "assets/images/night/11.jpg", "assets/images/night/12.jpg", "assets/images/night/13.jpg", "assets/images/night/14.jpg", "assets/images/night/15.jpg" ];
-let bgMorning = ["assets/images/morning/01.jpg", "assets/images/morning/02.jpg", "assets/images/morning/02.jpg", "assets/images/morning/03.jpg", "assets/images/morning/04.jpg", "assets/images/morning/05.jpg", "assets/images/morning/06.jpg", "assets/images/morning/07.jpg", "assets/images/morning/08.jpg", "assets/images/morning/09.jpg", "assets/images/morning/10.jpg", "assets/images/morning/11.jpg", "assets/images/morning/12.jpg", "assets/images/morning/13.jpg", "assets/images/morning/14.jpg", "assets/images/morning/15.jpg"];
-let bgAfternoon = ["assets/images/day/01.jpg", "assets/images/day/02.jpg", "assets/images/day/02.jpg", "assets/images/day/03.jpg", "assets/images/day/04.jpg", "assets/images/day/05.jpg", "assets/images/day/06.jpg", "assets/images/day/07.jpg", "assets/images/day/08.jpg", "assets/images/day/09.jpg", "assets/images/day/10.jpg", "assets/images/day/11.jpg", "assets/images/day/12.jpg", "assets/images/day/13.jpg", "assets/images/day/14.jpg", "assets/images/day/15.jpg"];
-let bgEvening = ["assets/images/evening/01.jpg", "assets/images/evening/02.jpg", "assets/images/evening/02.jpg", "assets/images/evening/03.jpg", "assets/images/evening/04.jpg", "assets/images/evening/05.jpg", "assets/images/evening/06.jpg", "assets/images/evening/07.jpg", "assets/images/evening/08.jpg", "assets/images/evening/09.jpg", "assets/images/evening/10.jpg", "assets/images/evening/11.jpg", "assets/images/evening/12.jpg", "assets/images/evening/13.jpg", "assets/images/evening/14.jpg", "assets/images/day/15.jpg"];
+let bgNight = ["assets/images/night/01.jpg", "assets/images/night/02.jpg", "assets/images/night/03.jpg", "assets/images/night/04.jpg", "assets/images/night/05.jpg", "assets/images/night/06.jpg", "assets/images/night/07.jpg", "assets/images/night/08.jpg", "assets/images/night/09.jpg", "assets/images/night/10.jpg", "assets/images/night/11.jpg", "assets/images/night/12.jpg", "assets/images/night/13.jpg", "assets/images/night/14.jpg", "assets/images/night/15.jpg", "assets/images/night/16.jpg" ];
+let bgMorning = ["assets/images/morning/01.jpg", "assets/images/morning/02.jpg", "assets/images/morning/16.jpg", "assets/images/morning/03.jpg", "assets/images/morning/04.jpg", "assets/images/morning/05.jpg", "assets/images/morning/06.jpg", "assets/images/morning/07.jpg", "assets/images/morning/08.jpg", "assets/images/morning/09.jpg", "assets/images/morning/10.jpg", "assets/images/morning/11.jpg", "assets/images/morning/12.jpg", "assets/images/morning/13.jpg", "assets/images/morning/14.jpg", "assets/images/morning/15.jpg"];
+let bgAfternoon = ["assets/images/day/01.jpg", "assets/images/day/02.jpg", "assets/images/day/16.jpg", "assets/images/day/03.jpg", "assets/images/day/04.jpg", "assets/images/day/05.jpg", "assets/images/day/06.jpg", "assets/images/day/07.jpg", "assets/images/day/08.jpg", "assets/images/day/09.jpg", "assets/images/day/10.jpg", "assets/images/day/11.jpg", "assets/images/day/12.jpg", "assets/images/day/13.jpg", "assets/images/day/14.jpg", "assets/images/day/15.jpg"];
+let bgEvening = ["assets/images/evening/01.jpg", "assets/images/evening/02.jpg", "assets/images/evening/16.jpg", "assets/images/evening/03.jpg", "assets/images/evening/04.jpg", "assets/images/evening/05.jpg", "assets/images/evening/06.jpg", "assets/images/evening/07.jpg", "assets/images/evening/08.jpg", "assets/images/evening/09.jpg", "assets/images/evening/10.jpg", "assets/images/evening/11.jpg", "assets/images/evening/12.jpg", "assets/images/evening/13.jpg", "assets/images/evening/14.jpg", "assets/images/evening/15.jpg"];
 
 // Creat background array
 let partOfDay;
@@ -71,8 +71,8 @@ function viewBgImage(src) {
     const body = document.querySelector('body');
     img.src = src;
     img.onload = () => {
-      body.style.backgroundImage = `url(${src})`;
-      setTimeout(function() { buttonBg.disabled = false }, 1500);
+        body.style.backgroundImage = `url(${src})`;
+         setTimeout(function() { buttonBg.disabled = false }, 1500);
     };
   }
 
@@ -142,14 +142,14 @@ setFocus = (e) => {
 };
 
 // Quote
-
 async function getQuote() {
     btnQt.disabled = true;
-    const url = `https://api.adviceslip.com/advice`;
+    const url = `https://type.fit/api/quotes`;
     const res = await fetch(url);
     const data = await res.json();
-    blockquote.textContent = data.slip.advice;
-    setTimeout(function() { btnQt.disabled = false }, 4000);
+    let random = Math.floor(Math.random() * data.length);
+    blockquote.textContent = data[random].text;
+    setTimeout(function() { btnQt.disabled = false }, 1000);
 }
 
 
