@@ -10,11 +10,23 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 let now = new Date;
 let counterBg = now.getHours();
+
+const blockquote = document.querySelector('.advice__text');
+const btnQt = document.querySelector('.button__qt');
+
+const weatherIcon = document.querySelector('.weather-icon');
+const city = document.querySelector('.city');
+const temperature = document.querySelector('.temperature');
+const weatherHumidity = document.querySelector('.weather-humidity');
+const weatherWind = document.querySelector('.weather-wind');
+const weatherError = document.querySelector('.weather__error')
+
 let bgNight = ["assets/images/night/01.jpg", "assets/images/night/02.jpg", "assets/images/night/02.jpg", "assets/images/night/03.jpg", "assets/images/night/04.jpg", "assets/images/night/05.jpg", "assets/images/night/06.jpg", "assets/images/night/07.jpg", "assets/images/night/08.jpg", "assets/images/night/09.jpg", "assets/images/night/10.jpg", "assets/images/night/11.jpg", "assets/images/night/12.jpg", "assets/images/night/13.jpg", "assets/images/night/14.jpg", "assets/images/night/15.jpg" ];
 let bgMorning = ["assets/images/morning/01.jpg", "assets/images/morning/02.jpg", "assets/images/morning/02.jpg", "assets/images/morning/03.jpg", "assets/images/morning/04.jpg", "assets/images/morning/05.jpg", "assets/images/morning/06.jpg", "assets/images/morning/07.jpg", "assets/images/morning/08.jpg", "assets/images/morning/09.jpg", "assets/images/morning/10.jpg", "assets/images/morning/11.jpg", "assets/images/morning/12.jpg", "assets/images/morning/13.jpg", "assets/images/morning/14.jpg", "assets/images/morning/15.jpg"];
 let bgAfternoon = ["assets/images/day/01.jpg", "assets/images/day/02.jpg", "assets/images/day/02.jpg", "assets/images/day/03.jpg", "assets/images/day/04.jpg", "assets/images/day/05.jpg", "assets/images/day/06.jpg", "assets/images/day/07.jpg", "assets/images/day/08.jpg", "assets/images/day/09.jpg", "assets/images/day/10.jpg", "assets/images/day/11.jpg", "assets/images/day/12.jpg", "assets/images/day/13.jpg", "assets/images/day/14.jpg", "assets/images/day/15.jpg"];
 let bgEvening = ["assets/images/evening/01.jpg", "assets/images/evening/02.jpg", "assets/images/evening/02.jpg", "assets/images/evening/03.jpg", "assets/images/evening/04.jpg", "assets/images/evening/05.jpg", "assets/images/evening/06.jpg", "assets/images/evening/07.jpg", "assets/images/evening/08.jpg", "assets/images/evening/09.jpg", "assets/images/evening/10.jpg", "assets/images/evening/11.jpg", "assets/images/evening/12.jpg", "assets/images/evening/13.jpg", "assets/images/evening/14.jpg", "assets/images/day/15.jpg"];
 
+// Creat background array
 let partOfDay;
 let bgNightSort = bgNight.sort(() => Math.random() - 0.5);
 let bgMorningSort = bgMorning.sort(() => Math.random() - 0.5);
@@ -22,6 +34,7 @@ let bgAfternoonSort = bgAfternoon.sort(() => Math.random() - 0.5);
 let bgEveningSort = bgEvening.sort(() => Math.random() - 0.5);
 
 let backgroundArray = [];
+
 for (let i = 0; i < 6; i++) backgroundArray.push(bgNightSort[i]);
 for (let i = 0; i < 6; i++) backgroundArray.push(bgMorningSort[i]);
 for (let i = 0; i < 6; i++) backgroundArray.push(bgAfternoonSort[i]);
@@ -50,12 +63,12 @@ date.innerHTML = `${getWeekDay(day)}, ${dayNumber} ${getMonth(month)}`;
 setTimeout(showTime, 1000);
 };
 
-// //? Set Background and Greeting
+// Set Background and Greeting
+const img = document.createElement('img');
 
 function viewBgImage(src) {
     buttonBg.disabled = true;
     const body = document.querySelector('body');
-    const img = document.createElement('img');
     img.src = src;
     img.onload = () => {
       body.style.backgroundImage = `url(${src})`;
@@ -72,18 +85,22 @@ setBg = () => {
 setBgGreet = () => {
     let today = new Date();
     let hour = today.getHours();
+    let min = today.getMinutes();
+    let sec = today.getSeconds();
+    if ((min == 0) && (sec == 0))  viewBgImage(backgroundArray[hour]);
     if (hour >= 6 && hour < 12) {greeting.textContent = 'Good Morning';}
     if (hour >= 12 && hour < 18) {greeting.textContent = 'Good Afternoon';}
     if (hour >= 18 && hour < 24) {greeting.textContent = 'Good Evening';}
     if (hour >= 0 && hour < 6) {greeting.textContent = 'Good Night';}
+    setTimeout(setBgGreet, 1000);
 }
 
-//? Get Name
+// Get Name
 getName = () => localStorage.getItem('name') === null || localStorage.getItem('name').replace(/\s/g,'') == '' ?
                 name.textContent = '[Enter Name]' :
                 name.textContent = localStorage.getItem('name');
 
-//? Set Name
+// Set Name
 setName = (e) => {
     let memoryText = localStorage.getItem('name') || '[Enter Name]';
     if (e.type === 'keypress') {
@@ -100,14 +117,14 @@ setName = (e) => {
       }
 };
 
-//? Get Focus
+// Get Focus
 getFocus = () => localStorage.getItem('focus') === null || localStorage.getItem('focus').replace(/\s/g,'') == '' ?
                  focus.textContent = '[Enter Focus]' :
                  focus.textContent = localStorage.getItem('focus');
 
 
 
-//? Set focus
+// Set focus
 setFocus = (e) => {
     let memoryText = localStorage.getItem('focus') || '[Enter Focus]';
     if (e.type === 'keypress') {
@@ -124,19 +141,7 @@ setFocus = (e) => {
       }
 };
 
-name.addEventListener ('click', function () {name.textContent = '';});
-name.addEventListener('keypress', setName);
-name.addEventListener('blur', setName);
-
-focus.addEventListener ('click', function () {focus.textContent = '';});
-focus.addEventListener('keypress', setFocus);
-focus.addEventListener('blur', setFocus);
-
-buttonBg.addEventListener('click', setBg);
-
-//! Quote
-const blockquote = document.querySelector('.advice__text');
-const btnQt = document.querySelector('.button__qt');
+// Quote
 
 async function getQuote() {
     btnQt.disabled = true;
@@ -147,12 +152,89 @@ async function getQuote() {
     setTimeout(function() { btnQt.disabled = false }, 4000);
 }
 
+
+
+// Weather
+
+async function getWeather() {
+    if ((city.textContent !== "[Enter City]") && (city.textContent !== null)) {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=en&appid=424a8b197e07c37b49bc78d046e68544&units=metric`;
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if ((data["message"] === "city not found")) {
+            weatherError.textContent = "Error, city not found!";
+            weatherIcon.style.display = "none";
+            temperature.textContent = "";
+            weatherHumidity.textContent = "";
+            weatherWind.textContent = "";
+        } else {
+            weatherError.textContent = "";
+            weatherIcon.style.display = "flex";
+            weatherIcon.className = 'weather-icon owf';
+            weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+            temperature.textContent = `${data.main.temp}°C`;
+            weatherHumidity.textContent = `${data.main.humidity}%`;
+            weatherWind.textContent = `${data.wind.speed}m/s`;
+            }
+    }
+
+    setTimeout(() => {getWeather();}, 600000);
+  }
+
+getCity = () => localStorage.getItem('city') === null || localStorage.getItem('city').replace(/\s/g,'') == '' ?
+    city.textContent = '[Enter City]' :
+    city.textContent = localStorage.getItem('city');
+
+setCity = (e) => {
+    let memoryText = localStorage.getItem('city') || '[Enter city]';
+    if (e.type === 'keypress') {
+        if (e.which == 13 || e.keyCode == 13) {
+            if (city.textContent.replace(/\s/g,'') == '') {
+                city.textContent = memoryText;
+            } else {
+                localStorage.setItem('city', e.target.innerText);
+                getWeather();
+            }
+            city.blur();
+        }
+    } else {
+        city.textContent.replace(/\s/g,'') == '' ?
+        city.textContent = memoryText:
+        localStorage.setItem('city', e.target.innerText);
+        }
+    };
+
+setInterval(() => {
+    if (city.textContent !== "[Enter City]")
+    getWeather();
+}, 300000);
+
+
+name.addEventListener ('click', function () {name.textContent = '';});
+name.addEventListener('keypress', setName);
+name.addEventListener('blur', setName);
+
+focus.addEventListener ('click', function () {focus.textContent = '';});
+focus.addEventListener('keypress', setFocus);
+focus.addEventListener('blur', setFocus);
+
+buttonBg.addEventListener('click', setBg);
+
 document.addEventListener('DOMContentLoaded', getQuote);
 btnQt.addEventListener('click', getQuote);
 
-//? Run
+document.addEventListener('DOMContentLoaded', getWeather);
+city.addEventListener ('click', function () {city.textContent = '';});
+city.addEventListener('keypress', setCity);
+city.addEventListener('blur', setCity);
+
+
+// Run
 showTime();
 setBg();
 setBgGreet();
 getName();
 getFocus();
+getCity();
+
