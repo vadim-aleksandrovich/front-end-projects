@@ -87,11 +87,11 @@ setBgGreet = () => {
     let hour = today.getHours();
     let min = today.getMinutes();
     let sec = today.getSeconds();
-    if ((min == 0) && (sec == 0))  viewBgImage(backgroundArray[hour]);
-    if (hour >= 6 && hour < 12) {greeting.textContent = 'Good Morning';}
-    if (hour >= 12 && hour < 18) {greeting.textContent = 'Good Afternoon';}
-    if (hour >= 18 && hour < 24) {greeting.textContent = 'Good Evening';}
-    if (hour >= 0 && hour < 6) {greeting.textContent = 'Good Night';}
+    if ((min == 1) && (sec == 0))  viewBgImage(backgroundArray[hour]);
+    if (hour >= 6 && hour < 12) {greeting.textContent = 'Good Morning';};
+    if (hour >= 12 && hour < 18) {greeting.textContent = 'Good Afternoon';};
+    if (hour >= 18 && hour < 24) {greeting.textContent = 'Good Evening';};
+    if (hour >= 0 && hour < 6) {greeting.textContent = 'Good Night';};
     setTimeout(setBgGreet, 1000);
 }
 
