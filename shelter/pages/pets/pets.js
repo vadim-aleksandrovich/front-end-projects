@@ -5,7 +5,7 @@ let petsArr = [
     type: "Dog",
     breed: "Labrador",
     description:
-      "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+      "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. ",
     age: "2 months",
     inoculations: ["none"],
     diseases: ["none"],
@@ -18,9 +18,9 @@ let petsArr = [
     type: "Dog",
     breed: "Shih tzu",
     description:
-      "Sophia here and I'm looking for my forever home to live out the best years of my life. I am full of energy. Everyday I'm learning new things, like how to walk on a leash, go potty outside, bark and play with toys and I still need some practice.",
+      "Sophia here and I'm looking for my forever home to live out the best years of my life. I am full of energy. ",
     age: "1 month",
-    inoculations: ["parvovirus"],
+    inoculations: ["virus"],
     diseases: ["none"],
     parasites: ["none"],
     id: "1",
@@ -31,10 +31,10 @@ let petsArr = [
     type: "Dog",
     breed: "Golden Retriever",
     description:
-      "Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training. Woody will be happier when he finds a new family that can spend a lot of time with him.",
+      "Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training.",
     age: "3 years 6 months",
-    inoculations: ["adenovirus", "distemper"],
-    diseases: ["right back leg mobility reduced"],
+    inoculations: ["virus"],
+    diseases: ["right back"],
     parasites: ["none"],
     id: "2",
   },
@@ -44,9 +44,9 @@ let petsArr = [
     type: "Dog",
     breed: "Jack Russell Terrier",
     description:
-      "Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.",
+      "Scarlett is a happy, playful girl who will make you laugh and smile.",
     age: "3 months",
-    inoculations: ["parainfluenza"],
+    inoculations: ["fluen"],
     diseases: ["none"],
     parasites: ["none"],
     id: "3",
@@ -57,9 +57,9 @@ let petsArr = [
     type: "Cat",
     breed: "British Shorthair",
     description:
-      "Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one. She is picky about her affection. She loves cuddles and to stretch into your hands for a deeper relaxations.",
+      "Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one.",
     age: "6 months",
-    inoculations: ["panleukopenia"],
+    inoculations: ["penia"],
     diseases: ["none"],
     parasites: ["none"],
     id: "4",
@@ -70,9 +70,9 @@ let petsArr = [
     type: "Cat",
     breed: "British Shorthair",
     description:
-      "Timmy is an adorable grey british shorthair male. He loves to play and snuggle. He is neutered and up to date on age appropriate vaccinations. He can be chatty and enjoys being held. Timmy has a lot to say and wants a person to share his thoughts with.",
+      "Timmy is an adorable grey british shorthair male. He loves to play and snuggle.",
     age: "2 years 3 months",
-    inoculations: ["calicivirus", "viral rhinotracheitis"],
+    inoculations: ["calic"],
     diseases: ["kidney stones"],
     parasites: ["none"],
     id: "5",
@@ -83,9 +83,9 @@ let petsArr = [
     type: "Cat",
     breed: "British Shorthair",
     description:
-      "Freddie is a little shy at first, but very sweet when he warms up. He likes playing with shoe strings and bottle caps. He is quick to learn the rhythms of his human’s daily life. Freddie has bounced around a lot in his life, and is looking to find his forever home.",
+      "Freddie is a little shy at first, but very sweet when he warms up.",
     age: "2 months",
-    inoculations: ["rabies"],
+    inoculations: ["rabie"],
     diseases: ["none"],
     parasites: ["none"],
     id: "6",
@@ -96,10 +96,10 @@ let petsArr = [
     type: "Dog",
     breed: "Jack Russell Terrier",
     description:
-      "This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.",
+      "This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home.",
     age: "8 years",
-    inoculations: ["bordetella bronchiseptica", "leptospirosis"],
-    diseases: ["deafness", "blindness"],
+    inoculations: ["lepto"],
+    diseases: ["deafness"],
     parasites: ["lice", "fleas"],
     id: "7",
   },
@@ -173,7 +173,7 @@ for (let index = 0; index < 8; index++) {
 }
 
 let cardAdder = () => {
-  for (let j = 0; j < checkWidth(); j++) {
+  for (let j = 0; j < 6; j++) {
     cardIndex.sort((a, b) => Math.random() * 2 - 1);
     cardIndex.forEach((i) => cardCreator(i));
   }
@@ -203,6 +203,9 @@ arrowNext.addEventListener("click", function () {
   cards.forEach((card) => (card.style.display = "none"));
   for (let i = checkWidth() * counter; i < checkWidth() * (counter + 1); i++) {
     cards[i].style.display = "flex";
+    cards[i].classList.remove("slide-right");
+    cards[i].classList.add("slide-left");
+
   }
   checkButtons(++counter);
 });
@@ -212,13 +215,17 @@ arrowPrev.addEventListener("click", function () {
   checkButtons(--counter);
   for (let i = checkWidth() * (counter - 1); i < counter * checkWidth(); i++) {
     cards[i].style.display = "flex";
+    cards[i].classList.remove("slide-left");
+    cards[i].classList.add("slide-right");
   }
 });
 
 arrowStart.addEventListener("click", function () {
   cards.forEach((card) => (card.style.display = "none"));
-  for (let i = 0; i < cards.length; i++) {
+  for (let i = 0; i < checkWidth(); i++) {
     cards[i].style.display = "flex";
+    cards[i].classList.remove("slide-left");
+    cards[i].classList.add("slide-right");
   }
   checkButtons((counter = 1));
 });
@@ -228,6 +235,9 @@ arrowEnd.addEventListener("click", function () {
   cards.forEach((card) => (card.style.display = "none"));
   for (let i = checkWidth() * (counter - 1); i < checkWidth() * counter; i++) {
     cards[i].style.display = "flex";
+    cards[i].classList.remove("slide-right");
+    cards[i].classList.add("slide-left");
+
   }
 });
 
@@ -249,29 +259,32 @@ windowModal.addEventListener("click", function (e) {
   }
 });
 
-// ! BURGER FUNCTION
 
 const burgerBtn = document.querySelector(".menu_burger_link");
-const burgerWindow = document.querySelector(".burger__window");
+const burgerWindow = document.querySelector(".burger__overlay");
+const menu = document.querySelector(".menu");
 const burgerLinkActive = document.querySelector(".burger__link_active");
 const body = document.querySelector("body");
 
 burgerBtn.addEventListener("click", function () {
   burgerBtn.classList.toggle("menu_burger_link_active");
-  burgerWindow.classList.toggle("burger__window_active");
+  burgerWindow.classList.toggle("burger__overlay_active");
+  menu.classList.toggle("menu_active");
   body.classList.toggle("overflow-hidden");
 });
 
 burgerWindow.addEventListener("click", function (e) {
   if (!e.target.closest(".burger__box")) {
-    burgerWindow.classList.toggle("burger__window_active");
     burgerBtn.classList.toggle("menu_burger_link_active");
-    body.classList.toggle("overflow-hidden");
+  burgerWindow.classList.toggle("burger__overlay_active");
+  menu.classList.toggle("menu_active");
+  body.classList.toggle("overflow-hidden");
   }
 });
 
 burgerLinkActive.addEventListener("click", function () {
-  burgerWindow.classList.remove("burger__window_active");
-  burgerBtn.classList.remove("menu_burger_link_active");
+  burgerBtn.classList.toggle("menu_burger_link_active");
+  burgerWindow.classList.toggle("burger__overlay_active");
+  menu.classList.toggle("menu_active");
   body.classList.toggle("overflow-hidden");
 });
