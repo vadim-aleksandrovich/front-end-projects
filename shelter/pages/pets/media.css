@@ -66,14 +66,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  .header {
-    position: absolute;
-  }
-  .burger__window_active {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
   .wrapper {
     max-width: 30rem;
     width: 100%;
@@ -86,15 +78,12 @@
   .logo__subtitle {
     line-height: 120%;
   }
-  .menu {
-    display: none;
-  }
   .menu_burger {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
     -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
         align-self: center;
+    z-index: 999;
   }
   .pets {
     padding: 16rem 0 4.4rem 0;
