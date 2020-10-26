@@ -347,7 +347,7 @@ windowModal.addEventListener("click", function (e) {
 const burgerBtn = document.querySelector(".menu_burger_link");
 const burgerWindow = document.querySelector(".burger__overlay");
 const menu = document.querySelector(".menu");
-const burgerLinkActive = document.querySelector(".burger__link_active");
+const burgerLinkActive = document.querySelector(".list__link_active");
 const body = document.querySelector("body");
 
 burgerBtn.addEventListener("click", function () {
