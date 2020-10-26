@@ -67,10 +67,6 @@ body.overflow-hidden {
   top: 0;
 }
 
-.header__burger {
-  position: absolute;
-}
-
 .logo {
   z-index: 900;
   display: -webkit-box;
@@ -680,8 +676,8 @@ body.overflow-hidden {
     top: 0;
     right: 0;
     z-index: 200;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    -webkit-transform: translateX(500%);
+            transform: translateX(500%);
     -webkit-transition: 0.8s ease-out;
     transition: 0.8s ease-out;
   }

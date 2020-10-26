@@ -259,7 +259,6 @@ windowModal.addEventListener("click", function (e) {
   }
 });
 
-// ! BURGER FUNCTION
 
 const burgerBtn = document.querySelector(".menu_burger_link");
 const burgerWindow = document.querySelector(".burger__overlay");
