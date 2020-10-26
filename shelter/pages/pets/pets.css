@@ -1,4 +1,73 @@
 @charset "UTF-8";
+@-webkit-keyframes slide_left {
+  0% {
+    -webkit-transform: translateX(1200px);
+            transform: translateX(1200px);
+  }
+  33% {
+  }
+  66% {
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+@keyframes slide_left {
+  0% {
+    -webkit-transform: translateX(1200px);
+            transform: translateX(1200px);
+  }
+  33% {
+  }
+  66% {
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@-webkit-keyframes slide_right {
+  0% {
+    -webkit-transform: translateX(-1200px);
+            transform: translateX(-1200px);
+  }
+  33% {
+  }
+  66% {
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes slide_right {
+  0% {
+    -webkit-transform: translateX(-1200px);
+            transform: translateX(-1200px);
+  }
+  33% {
+  }
+  66% {
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+.slide-left {
+  -webkit-animation: slide_left 0.4s ease-out;
+          animation: slide_left 0.4s ease-out;
+}
+
+.slide-right {
+  -webkit-animation: slide_right 0.4s ease-out;
+          animation: slide_right 0.4s ease-out;
+}
+
 @-webkit-keyframes animation {
   0% {
     opacity: 0;
@@ -9,6 +78,7 @@
     opacity: 1;
   }
 }
+
 @keyframes animation {
   0% {
     opacity: 0;
@@ -65,6 +135,7 @@ body.overflow-hidden {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 20;
 }
 
 .logo {
@@ -205,7 +276,7 @@ body.overflow-hidden {
 
 .pets {
   background-color: #f6f6f6;
-  padding: 8rem 0 10rem 0;
+  padding: 6rem 0 10rem 0;
 }
 
 .content__section_pets {
@@ -676,8 +747,8 @@ body.overflow-hidden {
     top: 0;
     right: 0;
     z-index: 200;
-    -webkit-transform: translateX(500%);
-            transform: translateX(500%);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
     -webkit-transition: 0.8s ease-out;
     transition: 0.8s ease-out;
   }
