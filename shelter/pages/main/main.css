@@ -40,10 +40,6 @@ body {
   position: relative;
 }
 
-body.overflow-hidden {
-  overflow: hidden;
-}
-
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -902,6 +898,9 @@ body.overflow-hidden {
 }
 
 @media screen and (max-width: 767px) {
+  body.overflow-hidden {
+    overflow: hidden;
+  }
   .menu_burger {
     display: block;
   }
