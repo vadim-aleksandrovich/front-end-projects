@@ -332,6 +332,10 @@ body {
   background-color: #ffffff;
 }
 
+.card__image {
+  border-radius: 9px 9px 0 0;
+}
+
 .card__title {
   font-family: Georgia;
   font-style: normal;
@@ -577,6 +581,7 @@ body {
   max-width: 50rem;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  border-radius: 9px 0 0 9px;
 }
 
 .popup__content {
