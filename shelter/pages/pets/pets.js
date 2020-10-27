@@ -167,18 +167,6 @@ const popupCreator = (i) => {
     "<strong>Parasites: </strong>" + petsArr[i].parasites;
 };
 
-// let cardIndex = [];
-// for (let index = 0; index < 8; index++) {
-//   cardIndex.push(index);
-// }
-
-// let cardAdder = () => {
-//   for (let j = 0; j < 6; j++) {
-//     cardIndex.sort((a, b) => Math.random() * 2 - 1);
-//     cardIndex.forEach((i) => cardCreator(i));
-//   }
-// };
-
 // *NEW RANDOM & SORT FUNCTION
 let cardIndex = [], // *48
 petsIndex = []; // *8
@@ -333,13 +321,13 @@ cards.forEach((card) => {
   card.addEventListener("click", function () {
     popupCreator(card.id);
     windowModal.style.display = "flex";
-    body.classList.toggle("overflow-hidden");
+    body.classList.toggle("overflow-hidden_desktop");
   });
 });
 windowModal.addEventListener("click", function (e) {
   if (!e.target.closest(".popup__card") || e.target.closest(".popup__btn")) {
     windowModal.style.display = "none";
-    body.classList.toggle("overflow-hidden");
+    body.classList.toggle("overflow-hidden_desktop");
   }
 });
 

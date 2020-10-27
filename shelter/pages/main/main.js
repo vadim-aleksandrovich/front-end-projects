@@ -167,14 +167,14 @@ let cardAdder = () => {
     card.addEventListener("click", function () {
       popupCreator(card.id);
       popup.style.display = "flex";
-      body.classList.toggle("overflow-hidden");
+      body.classList.toggle("overflow-hidden_desktop");
     });
   });
 
   popup.addEventListener("click", function (e) {
     if (!e.target.closest(".popup__card") || e.target.closest(".popup__btn")) {
       popup.style.display = "none";
-      body.classList.toggle("overflow-hidden");
+      body.classList.toggle("overflow-hidden_desktop");
     }
   });
 };

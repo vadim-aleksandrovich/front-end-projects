@@ -704,7 +704,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: fixed;
-  z-index: 2;
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 100vw;
@@ -878,6 +878,10 @@ body {
 
 .burger__overlay {
   display: none;
+}
+
+body.overflow-hidden_desktop {
+  overflow: hidden;
 }
 
 .burger__overlay_active {
