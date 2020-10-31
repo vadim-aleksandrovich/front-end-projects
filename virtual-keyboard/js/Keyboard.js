@@ -4,8 +4,7 @@ import language from './layouts/index.js'; // { en, ru }
 import Key from './Key.js';
 
 const main = create('main', '',
-  [create('h1', 'title', 'Virtual Keyboard')
-]);
+  [create('h1', 'title', 'Virtual Keyboard')]);
 
 export default class Keyboard {
   constructor(rowsOrder) {
@@ -60,17 +59,19 @@ export default class Keyboard {
       keyObj.div.classList.add('active'); // Подсвечиваем нажатую кнопку
 
       // Switch language
-      //if (code.match(/Lang/)) this.switchLanguage();//! add
+      //if (code.match(/Lang/)) this.switchLanguage();//add
+      //delette
       if (code.match(/Control/)) this.ctrKey = true;
       if (code.match(/Alt/)) this.altKey = true;
       if (code.match(/Control/) && this.altKey) this.switchLanguage();
       if (code.match(/Alt/) && this.ctrKey) this.switchLanguage();
+      //d
 
     } else if (type.match(/keyup|mouseup/)) {
       keyObj.div.classList.remove('active'); // Снимаем подсветку с нажатой клавиши
 
-      if (code.match(/Control/)) this.ctrKey = false;
-      if (code.match(/Alt/)) this.altKey = false;
+      if (code.match(/Control/)) this.ctrKey = false; //deller
+      if (code.match(/Alt/)) this.altKey = false; //delller
     }
   }
 
