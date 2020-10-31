@@ -47,4 +47,54 @@ export default class Keyboard {
     this.container.onmousedown = this.preHandleEvent;
     this.container.onmouseup = this.preHandleEvent;
   }
+
+  handleEvent = (e) => {
+    if (e.stopPropagation) e.stopPropagation(); // Отключаем обработку клика
+    const { code, type } = e;
+    const keyObj = this.keyButtons.find((key) => key.code === code);
+    if (!keyObj) return;
+    this.output.focus();
+
+    if (type.match(/keydown|mousedown/)) {
+      if (type.match(/key/)) e.preventDefault(); // Отключаем станартное поведение клавиатуры
+      keyObj.div.classList.add('active'); // Подсвечиваем нажатую кнопку
+
+      // Switch language
+      //if (code.match(/Lang/)) this.switchLanguage();//! add
+      if (code.match(/Control/)) this.ctrKey = true;
+      if (code.match(/Alt/)) this.altKey = true;
+      if (code.match(/Control/) && this.altKey) this.switchLanguage();
+      if (code.match(/Alt/) && this.ctrKey) this.switchLanguage();
+
+    } else if (type.match(/keyup|mouseup/)) {
+      keyObj.div.classList.remove('active'); // Снимаем подсветку с нажатой клавиши
+
+      if (code.match(/Control/)) this.ctrKey = false;
+      if (code.match(/Alt/)) this.altKey = false;
+    }
+  }
+
+  switchLanguage = () => {
+    const langAbbr = Object.keys(language); // получаем ['en', 'ru']
+    let langIdx = langAbbr.indexOf(this.container.dataset.language); // 1
+    this.keyBase = langIdx + 1 < langAbbr.length ?
+                   language[langAbbr[langIdx += 1]]:
+                   language[langAbbr[langIdx -= langIdx]];
+
+    this.container.dataset.language = langAbbr[langIdx];
+    storage.set('kbLang', langAbbr[langIdx]);
+
+    this.keyButtons.forEach((button) => {
+      const keyObj = this.keyBase.find((key) => key.code === button.code);
+      if (!keyObj) return;
+      button.shift = keyObj.shift;
+      button.small = keyObj.small;
+      if (keyObj.shift && keyObj.shift.match(/[^a-zA-Zа-яА-ЯёЁ0-9]/g)) {
+        button.sub.innerHTML = keyObj.shift;
+      } else {
+        button.sub.innerHTML = '';
+      }
+      button.letter.innerHTML = keyObj.small;
+    });
+  }
 }

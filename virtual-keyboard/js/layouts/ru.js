@@ -75,9 +75,9 @@ export default [
     code: 'Backspace',
   },
   {
-    small: 'Delete',
+    small: 'ru',
     shift: null,
-    code: 'Delete',
+    code: 'Lang',
   },
   {
     small: 'Tab',
