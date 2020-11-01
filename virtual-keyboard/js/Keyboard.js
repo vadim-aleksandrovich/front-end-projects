@@ -109,9 +109,8 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
-      // let currentLang = this.container.dataset.language;
-      // console.log(currentLang);
-      //? Mute Switcher;
+
+      // Mute Switcher;
       if (code.match(/Mute/) && !this.isMute) {
         this.isMute = true;
     } else if (code.match(/Mute/) && this.isMute) {
