@@ -1,6 +1,6 @@
 export default [
   {
-    small: 'CapsLock',
+    small: '<i class="material-icons">keyboard_capslock</i>',
     shift: null,
     code: 'CapsLock',
   },
@@ -70,17 +70,17 @@ export default [
     code: 'Equal',
   },
   {
-    small: 'Backspace',
+    small: '<i class="material-icons">backspace</i>',
     shift: null,
     code: 'Backspace',
   },
   {
-    small: 'ru',
+    small: 'ru <i class="material-icons">language</i>',
     shift: null,
     code: 'LangBtn',
   },
   {
-    small: 'Tab',
+    small: '<i class="material-icons">keyboard_tab</i>',
     shift: null,
     code: 'Tab',
   },
@@ -145,7 +145,7 @@ export default [
     code: 'BracketRight',
   },
   {
-    small: 'Enter',
+    small: '<i class="material-icons">keyboard_return</i>',
     shift: null,
     code: 'Enter',
   },
@@ -210,7 +210,7 @@ export default [
     code: 'Backslash',
   },
   {
-    small: 'Shift',
+    small: '<i class="material-icons">keyboard_arrow_up</i>',
     shift: null,
     code: 'ShiftLeft',
   },
@@ -270,7 +270,7 @@ export default [
     code: 'Slash',
   },
   {
-    small: 'Shift',
+    small: '<i class="material-icons">keyboard_arrow_up</i>',
     shift: null,
     code: 'ShiftRight',
   },
@@ -290,32 +290,32 @@ export default [
     code: 'Space',
   },
   {
-    small: 'Close',
+    small: '<i class="material-icons">keyboard_hide</i>',
     shift: null,
     code: 'Done',
   },
   {
-    small: 'Mute',
+    small: '<i class="material-icons">volume_mute</i>',
     shift: null,
     code: 'Mute',
   },
   {
-    small: '&larr;',
+    small: '<i class="material-icons">arrow_left</i>',
     shift: null,
     code: 'ArrowLeft',
   },
   {
-    small: '&uarr;',
+    small: '<i class="material-icons">arrow_drop_up</i>',
     shift: null,
     code: 'ArrowUp',
   },
   {
-    small: '&darr;',
+    small: '<i class="material-icons">arrow_drop_down</i>',
     shift: null,
     code: 'ArrowDown',
   },
   {
-    small: '&rarr;',
+    small: '<i class="material-icons">arrow_right</i>',
     shift: null,
     code: 'ArrowRight',
   },
