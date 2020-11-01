@@ -34,6 +34,10 @@ main {
   border: 3px solid #222;
 }
 
+.keyboard_close {
+  visibility: hidden;
+}
+
 .keyboard__row {
   display: grid;
   grid-gap: 10px;
@@ -216,6 +220,10 @@ textarea.output {
   -moz-transform: translateX(20px);
   -ms-transform: translateX(20px);
   -o-transform: translateX(20px);
+}
+
+[data-code="Done"] {
+  background: red;
 }
 
 @keyframes fadeInOut {

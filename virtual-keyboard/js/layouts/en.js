@@ -72,7 +72,7 @@ export default [
   {
     small: 'en',
     shift: null,
-    code: 'Lang',
+    code: 'LangBtn',
   },
   {
     small: 'Tab',
@@ -290,14 +290,14 @@ export default [
     code: 'Space',
   },
   {
-    small: 'Alt',
+    small: 'Close',
     shift: null,
-    code: 'AltRight',
+    code: 'Done',
   },
   {
-    small: 'Ctrl',
+    small: 'Mute',
     shift: null,
-    code: 'ControlRight',
+    code: 'Mute',
   },
   {
     small: '&larr;',

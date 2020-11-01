@@ -3,8 +3,7 @@ import create from './utils/create.js';
 import language from './layouts/index.js'; // { en, ru }
 import Key from './Key.js';
 
-const main = create('main', '',
-  [create('h1', 'title', 'Virtual Keyboard!')]);
+const main = create('main', '');
 
 export default class Keyboard {
   constructor(rowsOrder) {
@@ -15,13 +14,20 @@ export default class Keyboard {
 
   init(langCode) {
     this.keyBase = language[langCode];
+    this.audioList = ['boom','clap','hihat','kick','openhat','boom','ride','snare','tink','tom'];
     this.output = create('textarea', 'output', null, main,
-      ['placeholder', 'Start type something...'],
+      ['placeholder', 'Click here to show a keyboard'],
       ['rows', 5],
       ['cols', 50],
       ['spellcheck', false],
       ['autocorrect', 'off']);
-    this.container = create('div', 'keyboard', null, main, ['language', langCode]);
+    this.container = create('div', 'keyboard keyboard_close', null, main, ['language', langCode]);
+    this.audioElements = [];
+        this.audioList.forEach((elem) => {
+            const audioElem = create('audio', '', null, main, ['src',`./sound/${elem}.wav`], ['name',`${elem}`])
+            this.audioElements.push(audioElem);
+        });
+
     document.body.prepend(main);
     return this;
   }
@@ -45,7 +51,15 @@ export default class Keyboard {
     document.addEventListener('keyup', this.handleEvent);
     this.container.onmousedown = this.preHandleEvent;
     this.container.onmouseup = this.preHandleEvent;
+
+    this.output.addEventListener('click', this.keyboadShow);
   }
+
+  keyboadShow = () => {
+    this.container.classList.remove('keyboard_close');
+}
+
+
 
   preHandleEvent = (e) => {
     e.stopPropagation();
@@ -70,6 +84,9 @@ export default class Keyboard {
 
       if (this.shiftKey) this.switchUpperCase(true);
 
+      if(code.match(/Done/)) this.container.classList.add('keyboard_close');
+
+
       keyObj.div.classList.add('active'); // Подсвечиваем нажатую кнопку
 
       if (code.match(/Caps/) && !this.isCaps) {
@@ -83,7 +100,7 @@ export default class Keyboard {
 
 
       // Switch language
-      if (code.match(/Lang/)) this.switchLanguage();
+      if (code.match(/LangBtn/)) this.switchLanguage();
 
       if (!this.isCaps) {
         this.printToOutput(keyObj, this.shiftKey ? keyObj.shift : keyObj.small);
@@ -130,7 +147,7 @@ export default class Keyboard {
       button.letter.innerHTML = keyObj.small;
     });
 
-    if (this.isCaps) this/this.switchUpperCase(true);
+    if (this.isCaps) this.switchUpperCase(true);
   }
 
   switchUpperCase(isTrue) {
@@ -171,10 +188,6 @@ export default class Keyboard {
       });
     }
   }
-
-
-
-
 
   printToOutput(keyObj, symbol) {
     let cursorPos = this.output.selectionStart;
