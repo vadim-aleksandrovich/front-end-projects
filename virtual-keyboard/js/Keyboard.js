@@ -146,11 +146,11 @@ export default class Keyboard {
       };
 
       if (keyObj.code.match(/Enter/)) {
-          audio[5].currentTime = 0;
-          audio[5].play();
+          audio[9].currentTime = 0;
+          audio[9].play();
       };
 
-      if (keyObj.code.match(/Control|Arrow|Alt|Tab|Win|Lang|Done/)) {
+      if (keyObj.code.match(/Control|Arrow|Alt|Tab|Win|LangBtn|Done/)) {
         audio[8].currentTime = 0;
         audio[8].play();
       };
