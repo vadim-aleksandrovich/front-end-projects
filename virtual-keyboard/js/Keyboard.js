@@ -16,7 +16,7 @@ export default class Keyboard {
     this.keyBase = language[langCode];
     this.audioList = ['boom','clap','hihat','kick','openhat','boom','ride','snare','tink','tom'];
     this.output = create('textarea', 'output', null, main,
-      ['placeholder', 'Click here to show a keyboard'],
+      ['placeholder', 'just click here'],
       ['rows', 5],
       ['cols', 50],
       ['spellcheck', false],
