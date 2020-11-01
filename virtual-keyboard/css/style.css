@@ -35,6 +35,9 @@ main {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 }
 
 .keyboard_close {
@@ -154,7 +157,7 @@ textarea.output {
 
 .sub {
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: white;
   text-align: left;
   padding-left: 1rem;
@@ -282,27 +285,27 @@ textarea.output {
 @media screen and (max-width: 800px) {
   .keyboard {
     margin: 0 auto;
-    max-width: 320px;
+    max-width: 480px;
     display: grid;
-    grid-row-gap: 0.1rem;
+    grid-row-gap: 0.3rem;
     padding: 1rem;
   }
 
   .keyboard__row {
-    grid-gap: 0.1rem;
+    grid-gap: 0.3rem;
     grid-row-gap: 1rem;
-    height: 4rem;
+    height: 4.5rem;
   }
 
   [data-fn="true"] > .letter {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
 
   [data-code="Tab"],
   [data-code="ControlLeft"],
   [data-code="AltLeft"],
   [data-code="AltRight"] {
-    width: 3rem;
+    width: 3.5rem;
   }
 
   [data-code="CapsLock"] {
@@ -323,20 +326,20 @@ textarea.output {
   }
 
   [data-code="Space"] {
-    width: 12rem;
+    width: 18rem;
   }
 
   .letter {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   [data-fn="false"].active .letter,
   [data-fn="true"].active .letter {
-    transform: translateY(0);
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
+    transform: translateY(0.2rem);
+    -webkit-transform: translateY(0.2rem);
+    -moz-transform: translateY(0.2rem);
+    -ms-transform: translateY(0.2rem);
+    -o-transform: translateY(0.2rem);
     color: white;
   }
 
