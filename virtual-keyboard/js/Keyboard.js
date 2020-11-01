@@ -16,7 +16,7 @@ export default class Keyboard {
     this.keyBase = language[langCode];
     this.audioList = ['boom','clap','hihat','kick','openhat','boom','ride','snare','tink','tom'];
     this.output = create('textarea', 'output', null, main,
-      ['placeholder', 'Click here to show a keyboard'],
+      ['placeholder', 'just click here'],
       ['rows', 5],
       ['cols', 50],
       ['spellcheck', false],
@@ -109,9 +109,8 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
-      // let currentLang = this.container.dataset.language;
-      // console.log(currentLang);
-      //? Mute Switcher;
+
+      // Mute Switcher;
       if (code.match(/Mute/) && !this.isMute) {
         this.isMute = true;
     } else if (code.match(/Mute/) && this.isMute) {
