@@ -3,8 +3,7 @@ import create from './utils/create.js';
 import language from './layouts/index.js'; // { en, ru }
 import Key from './Key.js';
 
-const main = create('main', '',
-  [create('h1', 'title', 'Virtual Keyboard!')]);
+const main = create('main', '');
 
 export default class Keyboard {
   constructor(rowsOrder) {
@@ -15,13 +14,21 @@ export default class Keyboard {
 
   init(langCode) {
     this.keyBase = language[langCode];
+    this.audioList = ['boom','clap','hihat','kick','openhat','boom','ride','snare','tink','tom'];
     this.output = create('textarea', 'output', null, main,
-      ['placeholder', 'Start type something...'],
+      ['placeholder', 'Click here to show a keyboard'],
       ['rows', 5],
       ['cols', 50],
       ['spellcheck', false],
       ['autocorrect', 'off']);
-    this.container = create('div', 'keyboard', null, main, ['language', langCode]);
+    this.container = create('div', 'keyboard keyboard_close', null, main, ['language', langCode]);
+    this.audioElements = [];
+
+    this.audioList.forEach((elem) => {
+      const audioElem = create('audio', '', null, main, ['src',`./sound/${elem}.wav`], ['name',`${elem}`])
+      this.audioElements.push(audioElem);
+      });
+
     document.body.prepend(main);
     return this;
   }
@@ -45,7 +52,15 @@ export default class Keyboard {
     document.addEventListener('keyup', this.handleEvent);
     this.container.onmousedown = this.preHandleEvent;
     this.container.onmouseup = this.preHandleEvent;
+
+    this.output.addEventListener('click', this.keyboadShow);
   }
+
+  keyboadShow = () => {
+    this.container.classList.remove('keyboard_close');
+}
+
+
 
   preHandleEvent = (e) => {
     e.stopPropagation();
@@ -56,22 +71,34 @@ export default class Keyboard {
     this.handleEvent({ code, type: e.type });
   };
 
+  resetButtonState = ({ target: { dataset: {code} } }) => {
+    const keyObj = this.keyButtons.find((key) => key.code === code);
+    if (!code.match(/Mute|Caps/)){
+        keyObj.div.classList.remove('active');
+    }
+    keyObj.div.removeEventListener('mouseleave', this.resetButtonState);
+}
+
   handleEvent = (e) => {
     if (e.stopPropagation) e.stopPropagation(); // Отключаем обработку клика
     const { code, type } = e;
     const keyObj = this.keyButtons.find((key) => key.code === code);
-    if (!keyObj) return;
+    const audio = this.audioElements;
+    if (!audio || !keyObj) return;
     this.output.focus();
 
     if (type.match(/keydown|mousedown/)) {
       if (type.match(/key/)) e.preventDefault(); // Отключаем станартное поведение клавиатуры
-
       if (code.match(/Shift/)) this.shiftKey = true;
-
       if (this.shiftKey) this.switchUpperCase(true);
+      if(code.match(/Done/)) this.container.classList.add('keyboard_close');
+
+      // Switch language
+      if (code.match(/LangBtn/)) this.switchLanguage();
 
       keyObj.div.classList.add('active'); // Подсвечиваем нажатую кнопку
 
+      //? Caps Lock switcher;
       if (code.match(/Caps/) && !this.isCaps) {
         this.isCaps = true;
         this.switchUpperCase(true);
@@ -81,9 +108,28 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
+      //? Mute Switcher;
+      if (code.match(/Mute/) && !this.isMute) {
+        this.isMute = true;
+    } else if (code.match(/Mute/) && this.isMute) {
+        this.isMute = false;
+        keyObj.div.classList.remove('active');
+    }
+    if (!this.isMute) {
+      if (keyObj.small.match(/[а-яА-я0-9-=ё/.]/) && !keyObj.isFnKey) {
+          audio[3].currentTime = 0;
+          audio[3].play();
+      };
+      if (keyObj.small.match(/[a-zA-z0-9-=;`,'/.]/) && !keyObj.isFnKey) {
+          audio[0].currentTime = 0;
+          audio[0].play();
+      };
 
-      // Switch language
-      if (code.match(/Lang/)) this.switchLanguage();
+  }
+
+
+
+
 
       if (!this.isCaps) {
         this.printToOutput(keyObj, this.shiftKey ? keyObj.shift : keyObj.small);
@@ -103,7 +149,7 @@ export default class Keyboard {
         this.switchUpperCase(false);
       }
 
-      if (!code.match(/Caps/)) keyObj.div.classList.remove('active'); // Снимаем подсветку с нажатой клавиши
+      if (!code.match(/Caps|Mute/)) keyObj.div.classList.remove('active'); // Снимаем подсветку с нажатой клавиши
     }
   }
 
@@ -130,7 +176,7 @@ export default class Keyboard {
       button.letter.innerHTML = keyObj.small;
     });
 
-    if (this.isCaps) this/this.switchUpperCase(true);
+    if (this.isCaps) this.switchUpperCase(true);
   }
 
   switchUpperCase(isTrue) {
@@ -171,10 +217,6 @@ export default class Keyboard {
       });
     }
   }
-
-
-
-
 
   printToOutput(keyObj, symbol) {
     let cursorPos = this.output.selectionStart;
