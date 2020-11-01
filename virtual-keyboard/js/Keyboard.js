@@ -90,7 +90,8 @@ export default class Keyboard {
     if (type.match(/keydown|mousedown/)) {
       if (type.match(/key/)) e.preventDefault(); // Отключаем станартное поведение клавиатуры
       if (code.match(/Shift/)) this.shiftKey = true;
-      if (this.shiftKey) this.switchUpperCase(true);
+      if (this.shiftKey) {
+        this.switchUpperCase(true);}
       if(code.match(/Done/)) this.container.classList.add('keyboard_close');
 
       // Switch language
