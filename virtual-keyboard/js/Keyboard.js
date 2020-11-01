@@ -149,6 +149,11 @@ export default class Keyboard {
           audio[5].currentTime = 0;
           audio[5].play();
       };
+
+      if (keyObj.code.match(/Control|Arrow|Alt|Tab|Win|Lang|Done/)) {
+        audio[8].currentTime = 0;
+        audio[8].play();
+      };
   }
 
       if (!this.isCaps) {
