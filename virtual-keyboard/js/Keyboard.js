@@ -109,6 +109,8 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
+      // let currentLang = this.container.dataset.language;
+      // console.log(currentLang);
       //? Mute Switcher;
       if (code.match(/Mute/) && !this.isMute) {
         this.isMute = true;
@@ -117,20 +119,37 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
     }
     if (!this.isMute) {
-      if (keyObj.small.match(/[а-яА-я0-9-=ё/.]/) && !keyObj.isFnKey) {
-          audio[3].currentTime = 0;
-          audio[3].play();
-      };
-      if (keyObj.small.match(/[a-zA-z0-9-=;`,'/.]/) && !keyObj.isFnKey) {
+
+      if (this.container.dataset.language === 'en' && !keyObj.isFnKey) {
           audio[0].currentTime = 0;
           audio[0].play();
       };
 
+      if (this.container.dataset.language === 'ru' && !keyObj.isFnKey) {
+        audio[1].currentTime = 0;
+        audio[1].play();
+      };
+
+      if (keyObj.code.match(/Shift/)) {
+          audio[2].currentTime = 0;
+          audio[2].play();
+      };
+
+      if (keyObj.code.match(/Caps/)) {
+          audio[3].currentTime = 0;
+          audio[3].play();
+      };
+
+      if (keyObj.code.match(/Backspace/)) {
+          audio[4].currentTime = 0;
+          audio[4].play();
+      };
+
+      if (keyObj.code.match(/Enter/)) {
+          audio[5].currentTime = 0;
+          audio[5].play();
+      };
   }
-
-
-
-
 
       if (!this.isCaps) {
         this.printToOutput(keyObj, this.shiftKey ? keyObj.shift : keyObj.small);
@@ -145,7 +164,7 @@ export default class Keyboard {
     } else if (type.match(/keyup|mouseup/)) {
 
 
-      if (code.match(/Shift/)) {
+      if (!code.match(/Shift/)) {
         this.shiftKey = false;
         this.switchUpperCase(false);
       }
