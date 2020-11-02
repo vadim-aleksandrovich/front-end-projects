@@ -270,9 +270,9 @@ export default [
     code: 'Slash',
   },
   {
-    small: '<i class="material-icons">keyboard_arrow_up</i>',
+    small: '<i class="material-icons">mic_off</i>',
     shift: null,
-    code: 'ShiftRight',
+    code: 'Voice',
   },
   {
     small: 'Ctrl',

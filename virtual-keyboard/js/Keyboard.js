@@ -4,6 +4,7 @@ import language from './layouts/index.js'; // { en, ru }
 import Key from './Key.js';
 
 const main = create('main', '');
+let languageKeyboard = document.querySelector('html');
 
 export default class Keyboard {
   constructor(rowsOrder) {
@@ -48,6 +49,7 @@ export default class Keyboard {
       });
     });
 
+
     document.addEventListener('keydown', this.handleEvent);
     document.addEventListener('keyup', this.handleEvent);
     this.container.onmousedown = this.preHandleEvent;
@@ -78,6 +80,7 @@ export default class Keyboard {
     }
     keyObj.div.removeEventListener('mouseleave', this.resetButtonState);
 }
+
 
   handleEvent = (e) => {
     if (e.stopPropagation) e.stopPropagation(); // Отключаем обработку клика
@@ -186,6 +189,8 @@ export default class Keyboard {
 
     this.container.dataset.language = langAbbr[langIdx];
     storage.set('kbLang', langAbbr[langIdx]);
+    languageKeyboard.lang = this.container.dataset.language; // html lang = current lang;
+    console.log(`current lang = ${languageKeyboard.lang}`); //del
 
     this.keyButtons.forEach((button) => {
       const keyObj = this.keyBase.find((key) => key.code === button.code);
@@ -293,3 +298,7 @@ export default class Keyboard {
   }
 
 }
+
+
+
+
