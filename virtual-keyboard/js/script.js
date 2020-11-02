@@ -9,7 +9,7 @@ const rowsOrder = [
   ['ControlLeft', 'Win', 'AltLeft', 'Space', 'Done', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'Mute'],
 ];
 
-const lang = get('kbLang', '"ru"');
+const lang = get('kbLang', '"en"');
 
 // Keyboard Initialize
 new Keyboard(rowsOrder).init(lang).generateLayout();
@@ -18,8 +18,6 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 
 const words = document.querySelector(".output");
 const start = document.querySelector('.keyboard__key[data-code="Voice"]');
-console.log(`this is stard ${start}`);
-console.log(`this is words ${words}`);
 
 let rec = new SpeechRecognition();
 rec.interimResults = true;
