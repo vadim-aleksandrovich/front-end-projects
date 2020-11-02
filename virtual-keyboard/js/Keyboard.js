@@ -4,7 +4,7 @@ import language from './layouts/index.js'; // { en, ru }
 import Key from './Key.js';
 
 const main = create('main', '');
-let languageKeyboard = document.querySelector('html');
+const html = document.querySelector('html');
 
 export default class Keyboard {
   constructor(rowsOrder) {
@@ -189,8 +189,11 @@ export default class Keyboard {
 
     this.container.dataset.language = langAbbr[langIdx];
     storage.set('kbLang', langAbbr[langIdx]);
-    languageKeyboard.lang = this.container.dataset.language; // html lang = current lang;
-    console.log(`current lang = ${languageKeyboard.lang}`); //del
+
+    // html.lang = current lang;
+    if (this.container.dataset.language === 'ru') html.lang = 'ru-RU';
+    if (this.container.dataset.language === 'en') html.lang = 'en-US';
+
 
     this.keyButtons.forEach((button) => {
       const keyObj = this.keyBase.find((key) => key.code === button.code);
