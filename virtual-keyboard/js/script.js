@@ -43,7 +43,10 @@ rec.addEventListener("result", function(e) {
     .map(result => result[0])
     .map(result => result.transcript)
     .join('');
-    words.value = text;
+    if(e.results[0].isFinal) {
+      words.setRangeText(' ', words.selectionStart, words.selectionEnd, "end" );
+      words.setRangeText(text, words.selectionStart, words.selectionEnd, "end");
+    }
 });
 
 rec.addEventListener("end", function(e) {
