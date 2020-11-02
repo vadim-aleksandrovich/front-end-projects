@@ -5,7 +5,7 @@ const rowsOrder = [
   ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'LangBtn'],
   ['Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backspace'],
   ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash', 'Enter'],
-  ['ShiftLeft', 'IntlBackslash', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
+  ['ShiftLeft', 'IntlBackslash', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'Voice'],
   ['ControlLeft', 'Win', 'AltLeft', 'Space', 'Done', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'Mute'],
 ];
 
@@ -13,3 +13,40 @@ const lang = get('kbLang', '"ru"');
 
 // Keyboard Initialize
 new Keyboard(rowsOrder).init(lang).generateLayout();
+
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const words = document.querySelector(".output");
+const start = document.querySelector('.keyboard__key[data-code="Voice"]');
+console.log(`this is stard ${start}`);
+console.log(`this is words ${words}`);
+
+let rec = new SpeechRecognition();
+rec.interimResults = true;
+
+
+start.addEventListener("click", function() {
+    this.classList.toggle('on');
+    if(this.classList.contains('on')) {
+      rec.start();
+      this.innerHTML = '<i class="material-icons">mic</i>';
+    } else {
+      rec.stop();
+      this.innerHTML = '<i class="material-icons">mic_off</i>';
+    }
+
+
+});
+
+rec.addEventListener("result", function(e) {
+    let text = Array.from(e.results)
+    .map(result => result[0])
+    .map(result => result.transcript)
+    .join('');
+    words.value = text;
+});
+
+rec.addEventListener("end", function(e) {
+    (start.classList.contains('on')) ? rec.start() : rec.stop();
+
+});
