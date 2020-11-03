@@ -75,7 +75,7 @@ export default class Keyboard {
 
   resetButtonState = ({ target: { dataset: {code} } }) => {
     const keyObj = this.keyButtons.find((key) => key.code === code);
-    if (!code.match(/Mute|Caps/)){
+    if (!code.match(/Mute|Caps|Shift/)){
         keyObj.div.classList.remove('active');
     }
     keyObj.div.removeEventListener('mouseleave', this.resetButtonState);
@@ -171,12 +171,18 @@ export default class Keyboard {
     } else if (type.match(/keyup|mouseup/)) {
 
 
-      if (!code.match(/Shift/)) {
+      if(!code.match(/Shift/) && type.match(/mouseup/)) {
         this.shiftKey = false;
         this.switchUpperCase(false);
-      }
+        document.querySelector('[data-code="ShiftLeft"]').classList.remove('active');
+    } else if (code.match(/Shift/) && type.match(/keyup/)) {
+        this.shiftKey = false;
+        this.switchUpperCase(false);
+        document.querySelector('[data-code="ShiftLeft"]').classList.remove('active');
+    }
 
-      if (!code.match(/Caps|Mute/)) keyObj.div.classList.remove('active'); // Снимаем подсветку с нажатой клавиши
+
+      if (!code.match(/Caps|Mute|Shift/)) keyObj.div.classList.remove('active'); // Снимаем подсветку с нажатой клавиши
     }
   }
 
