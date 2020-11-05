@@ -15,3 +15,130 @@ $base-text: #fafafa;
   font-size: 1px;
 }
 
+body {
+  background: url(/assets/background.jpg) no-repeat;
+  //background-size: cover;
+  //background-color: rgba(29, 28, 28, 0.6);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600rem;
+  margin: 40rem auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__img {
+  width: 60rem;
+  margin-right: 25rem;
+}
+
+.logo__title {
+  font-size: 30rem;
+}
+
+.burger__btn {
+  border: none;
+  outline: none;
+  width: 50rem;
+  height: 60rem;
+  font-size: 30rem;
+}
+
+.game__elements {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 200rem;
+  max-width: 500rem;
+  margin: 2rem 0;
+}
+
+.timer,
+.steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.material-icons {
+  font-size: 25rem;
+}
+
+.steps__icon, .timer__icon {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  width: 30rem;
+  }
+
+.steps__value,
+.timer__value {
+  font-size: 30rem;
+  padding-left: 5rem;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 600rem;
+  max-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.burger__btn {
+  z-index: 100;
+  transition: 0.3s ease-out;
+  width: 100rem;
+  background-color: inherit;
+  cursor: pointer;
+  &:hover {
+    transition: 0.3s ease-out;
+    opacity: 0.6;
+  }
+}
+
+.burger__btn_active {
+  transform: rotate(90deg);
+  transition: 0.3s ease-out;
+}
+
+.field {
+  position: relative;
+  margin: auto;
+}
+
+.cell {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $base-text;
+  font-size: 50rem;
+  box-sizing: border-box;
+  animation: cells 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.cell__empty {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.3;
+}
