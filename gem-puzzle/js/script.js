@@ -32,6 +32,13 @@ const sizeSelector = create('input', '', '', menu,
   ['step', '1']);
 sizeSelector.value = 4;
 
+const startBtn = create('button', 'menu__btn start__btn', `New game ${sizeSelector.value}x${sizeSelector.value}`, menu);
+const saveBtn = create('button', 'menu__btn save__btn', 'Save', menu);
+const loadBtn = create('button', 'menu__btn load__btn', 'Load', menu);
+const autofinishBtn = create('button', 'menu__btn autofinish__btn', 'Auto finish', menu);
+const muteBtn = create('button', 'menu__btn mute__btn', 'Mute', menu);
+const resultsBtn = create('button', 'menu__btn results__btn', 'Best results', menu);
+
 //Game's parametrs
 
 const windowSize = 600;
@@ -41,6 +48,7 @@ let fieldSize = sizeSelector.value ** 2;
 let stepCounter = 0;
 let cells = [];
 let solution = [];
+let isMute = false;
 
 let timerSeconds = 0;
 let timerMinutes = 0;
@@ -59,6 +67,15 @@ let cellEmpty = create('div', 'cell__empty', '', '');
 function emptyCellMove() {
   cellEmpty.style.left = `${cells[fieldSize - 1].left * cellSize}rem`;
   cellEmpty.style.top = `${cells[fieldSize - 1].top * cellSize}rem`;
+}
+
+function gameTimer() {
+  timerSeconds += 1;
+  if (timerSeconds >= 60) {
+    timerMinutes += 1;
+    timerSeconds = 0;
+  }
+  timerValue.textContent = `${addZero(timerMinutes)} : ${addZero(timerSeconds)}`;
 }
 
 function move(index, param) {
@@ -112,6 +129,42 @@ function restartGame() {
   timerValue.textContent = `${addZero(timerMinutes)}:${addZero(timerSeconds)}`;
 }
 
+function timerPause() {
+  clearInterval(timerCount);
+}
+
+function timerResume() {
+  clearInterval(timerCount);
+  timerCount = setInterval(gameTimer, 1000);
+}
+
+function mute() {
+  if (!isMute) {
+    isMute = true;
+    muteBtn.classList.add('menu__btn_active');
+  } else {
+    isMute = false;
+    muteBtn.classList.remove('menu__btn_active');
+  }
+}
+
+function showMenu() {
+  if (burgerBtn.classList.contains('burger__btn_active')) {
+    timerResume();
+  } else {
+    timerPause();
+  }
+  burgerBtn.classList.toggle('burger__btn_active');
+  menuOverlay.classList.toggle('menu__overlay_active');
+  menu.classList.toggle('menu_active');
+  const solutionLoadStr = JSON.parse(window.localStorage.getItem('solution'));
+  if (!solutionLoadStr) {
+    loadBtn.disabled = true;
+  } else {
+    loadBtn.disabled = false;
+  }
+}
+
 function startGame(size) { // (size == fieldSize)
   const numbers = [...Array(size - 1).keys()];
   field.style.pointerEvents = '';
@@ -143,5 +196,19 @@ function startGame(size) { // (size == fieldSize)
       move(i);
     });
 }
+
+field.append(cellEmpty);
+  empty.element = cellEmpty;
+  empty.posX = `${-(cells[fieldSize - 1].left * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
+  empty.posY = `${-(cells[fieldSize - 1].top * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
+  cellEmpty.style.width = `${cellSize}rem`;
+  cellEmpty.style.height = `${cellSize}rem`;
+  cellEmpty.style.left = `${cells[fieldSize - 1].left * cellSize}rem`;
+  cellEmpty.style.top = `${cells[fieldSize - 1].top * cellSize}rem`;
 }
 restartGame()
+
+burgerBtn.addEventListener('click', () => {
+  showMenu();
+});
+muteBtn.addEventListener('click', mute);

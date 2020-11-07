@@ -97,6 +97,41 @@ body {
   align-items: center;
 }
 
+.menu__overlay {
+  display: none;
+}
+
+.menu__overlay_active {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.6);
+  z-index: 20;
+}
+
+.menu {
+  z-index: 50;
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 600rem;
+  left: 50%;
+  margin-left: -200rem;
+  -webkit-transform: translateX(250%);
+  transform: translateX(250%);
+  -webkit-transition: 0.8s ease-out;
+  transition: 0.3s ease-out;
+}
+
+.menu_active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
 .burger__btn {
   z-index: 100;
   transition: 0.3s ease-out;
@@ -112,6 +147,35 @@ body {
 .burger__btn_active {
   transform: rotate(90deg);
   transition: 0.3s ease-out;
+}
+
+.menu__btn {
+  width: 400rem;
+  outline: none;
+  height: 70rem;
+  font-size: 30rem;
+  border: 1rem solid $base-text;
+  color: $base-text;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 1s ease-out;
+  &:hover {
+    color: #000000;
+    background-color: $base-text;
+  }
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  &:disabled:hover {
+    color: $base-text;
+    background-color: transparent;
+  }
+}
+
+.menu__btn_active {
+  color: #000000;
+  background-color: $base-text;
 }
 
 .field {
