@@ -106,6 +106,13 @@ function move(index, param) {
   emptyCellMove();
 }
 
+function randomGame(count) {
+  for (let i = 0; i < count; i += 1) {
+    const moveItem = Math.floor(Math.random() * (fieldSize - 1));
+    move(moveItem, 'random');
+  }
+}
+
 function restartGame() {
   while (field.children.length) {
     field.removeChild(field.lastChild);
@@ -120,6 +127,7 @@ function restartGame() {
   field.style.width = `${Math.sqrt(fieldSize) * cellSize}rem`;
   field.style.height = `${Math.sqrt(fieldSize) * cellSize}rem`;
   startGame(fieldSize);
+  randomGame(fieldSize * 40); // Set random
   stepCounter = 0;
   stepsValue.textContent = stepCounter;
   clearInterval(timerCount);
@@ -127,6 +135,11 @@ function restartGame() {
   timerMinutes = 0;
   timerCount = setInterval(gameTimer, 1000);
   timerValue.textContent = `${addZero(timerMinutes)}:${addZero(timerSeconds)}`;
+}
+
+function changeSize() {
+  fieldSize = sizeSelector.value ** 2;
+  startBtn.textContent = `START ${sizeSelector.value}x${sizeSelector.value}`;
 }
 
 function timerPause() {
@@ -196,6 +209,8 @@ function startGame(size) { // (size == fieldSize)
       move(i);
     });
 }
+
+  cells.push(empty);
 
 field.append(cellEmpty);
   empty.element = cellEmpty;
