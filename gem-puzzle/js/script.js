@@ -44,6 +44,7 @@ const resultsBtn = create('button', 'menu__btn results__btn', 'Best results', me
 const windowSize = 600;
 let cellSize = windowSize / sizeSelector.value;
 let fieldSize = sizeSelector.value ** 2;
+let randImageInd = Math.floor(Math.random() * (150 - 1) + 1);
 
 let stepCounter = 0;
 let cells = [];
@@ -180,6 +181,7 @@ function showMenu() {
 
 function startGame(size) { // (size == fieldSize)
   const numbers = [...Array(size - 1).keys()];
+  randImageInd = Math.floor(Math.random() * (150));
   field.style.pointerEvents = '';
   for (let i = 0; i < size - 1; i += 1) {
     const cell = document.createElement('div');
@@ -204,6 +206,12 @@ function startGame(size) { // (size == fieldSize)
     cell.style.left = `${left * cellSize}rem`;
     cell.style.top = `${top * cellSize}rem`;
 
+    cell.style.backgroundImage = `url('/assets/images/${randImageInd}.jpg')`;
+    cell.style.backgroundRepeat = 'no-repeat';
+    cell.style.backgroundSize = `${Math.sqrt(size) * cellSize}rem ${Math.sqrt(size) * cellSize}rem`;
+    cell.style.backgroundPositionX = `${-(left * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
+    cell.style.backgroundPositionY = `${-(top * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
+
     field.append(cell);
     cell.addEventListener('click', () => {
       move(i);
@@ -220,6 +228,10 @@ field.append(cellEmpty);
   cellEmpty.style.height = `${cellSize}rem`;
   cellEmpty.style.left = `${cells[fieldSize - 1].left * cellSize}rem`;
   cellEmpty.style.top = `${cells[fieldSize - 1].top * cellSize}rem`;
+  cellEmpty.style.backgroundRepeat = 'no-repeat';
+  cellEmpty.style.backgroundSize = `${Math.sqrt(size) * cellSize}rem ${Math.sqrt(size) * cellSize}rem`;
+  cellEmpty.style.backgroundPositionX = `${-(cells[fieldSize - 1].left * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
+  cellEmpty.style.backgroundPositionY = `${-(cells[fieldSize - 1].top * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
 }
 restartGame()
 
