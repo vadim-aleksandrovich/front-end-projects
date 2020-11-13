@@ -57,6 +57,8 @@ let timerCount;
 
 const addZero = (n) => (n < 10 ? `0${n}` : n);
 
+const winners = JSON.parse(window.localStorage.getItem('winners')) || [];
+
 let empty = {
   value: fieldSize,
   top: Math.sqrt(fieldSize) - 1,
@@ -176,6 +178,86 @@ function showMenu() {
     loadBtn.disabled = true;
   } else {
     loadBtn.disabled = false;
+  }
+}
+
+function showMessage(message) {
+  messageOverlay.style.display = 'flex';
+  messageContent.classList.remove('message__close');
+  messageContent.classList.add('message__show');
+  messageSubtitle.textContent = message;
+}
+
+function closeMessage() {
+  messageContent.classList.remove('message__show');
+  setTimeout(() => {
+    messageContent.classList.add('message__close');
+  }, 0);
+  setTimeout(() => {
+    messageOverlay.style.display = 'none';
+    messageWinners.style.display = 'none';
+  }, 300);
+}
+
+function winnersRender() {
+  while (messageWinners.children.length) {
+    messageWinners.removeChild(messageWinners.lastChild);
+  }
+  for (let i = 0; i < winners.length && i < 10; i += 1) {
+    winners.sort((a, b) => (a.steps > b.steps ? 1 : -1));
+    messageWinners.append(create('p', '', `Game: ${winners.length - i} time: ${addZero(winners[i].mins)}:${addZero(winners[i].seconds)} steps: ${winners[i].steps}`));
+  }
+  timerPause();
+  messageWinners.style.display = 'flex';
+
+  if (param !== 'random') {
+    const isFinish = cells.every((el) => el.value === el.top * Math.sqrt(fieldSize) + el.left + 1);
+    if (isFinish && param !== 'solution') {
+      create('div', 'cell', '', field, ['style',
+        `width: ${cellSize}rem;
+      height: ${cellSize}rem;
+      left: ${empty.left * cellSize}rem;
+      top: ${empty.top * cellSize}rem;
+      background-image: url('/assets/images/${randImageInd}.jpg');
+      background-repeat: no-repeat;
+      background-size: ${Math.sqrt(fieldSize) * cellSize}rem ${Math.sqrt(fieldSize) * cellSize}rem;
+      background-position-x: ${-(empty.left * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;
+      background-position-y: ${-(empty.top * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;`,
+      ]);
+      timerPause();
+      showMessage(`Congratulations! You won in ${addZero(timerMinutes)} minutes ${addZero(timerSeconds)} seconds and ${stepCounter} steps`);
+      winners.unshift({
+        steps: stepCounter,
+        mins: timerMinutes,
+        seconds: timerSeconds,
+      });
+      window.localStorage.setItem('winners', JSON.stringify(winners));
+      winnersRender();
+      field.style.pointerEvents = 'none';
+    }
+    if (isFinish && param === 'solution') {
+      showMessage(`You gave up by ${addZero(timerMinutes)} minutes ${addZero(timerSeconds)} seconds, making ${stepCounter} moves. The result will not be added to the winner table. Please try again`);
+      create('div', 'cell', '', field, ['style',
+        `width: ${cellSize}rem;
+      height: ${cellSize}rem;
+      left: ${empty.left * cellSize}rem;
+      top: ${empty.top * cellSize}rem;
+      background-image: url('/assets/images/${randImageInd}.jpg');
+      background-repeat: no-repeat;
+      background-size: ${Math.sqrt(fieldSize) * cellSize}rem ${Math.sqrt(fieldSize) * cellSize}rem;
+      background-position-x: ${-(empty.left * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;
+      background-position-y: ${-(empty.top * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;`,
+      ]);
+      field.style.pointerEvents = 'none';
+    }
+  }
+  if (param !== 'random' && param !== 'solution') {
+    document.getElementById('sound').currentTime = 0;
+    if (!isMute) {
+      document.getElementById('sound').play();
+    } else {
+      document.getElementById('sound').pause();
+    }
   }
 }
 
