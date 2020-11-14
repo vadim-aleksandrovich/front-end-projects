@@ -24,6 +24,13 @@ const burgerBtn = create('button', 'burger__btn', '<svg class="menu_burger_svg" 
 const field = create('div', 'field', '', main);
 const menu = create('div', 'menu', '', main);
 
+const messageOverlay = create('div', 'message__overlay', '', main);
+const messageContent = create('div', 'message__content', '', messageOverlay);
+const messageTitle = create('div', 'message__title', '', messageContent);
+const messageClose = create('div', 'message__close', '<i class="material-icons">close</i>', messageTitle);
+const messageSubtitle = create('div', 'message__subtitle', 'subtitle', messageContent);
+const messageWinners = create('div', 'message__results', '', messageContent);
+
 const sizeSelector = create('input', '', '', menu,
   ['type', 'range'],
   ['id', 'sizeSelector'],
@@ -143,6 +150,44 @@ function restartGame() {
 function changeSize() {
   fieldSize = sizeSelector.value ** 2;
   startBtn.textContent = `START ${sizeSelector.value}x${sizeSelector.value}`;
+}
+
+function deleteDouble(solutionList) {
+  for (let i = solutionList.length - 1; i > 0; i -= 1) {
+    if (solutionList[i] === solutionList[i - 1]) {
+      solutionList.splice(i - 1, 2);
+      i -= 1;
+    }
+  }
+}
+
+function autoSolution() {
+  for (let i = 0; i < 5; i += 1) deleteDouble(solution);
+  if (solution.length > 1) {
+    let solutionSteps = solution.length;
+    autofinishBtn.disabled = true;
+    burgerBtn.disabled = true;
+
+    let ind = 0;
+    const pushElement = function loop() {
+      setTimeout(() => {
+        move(solution[ind], 'solution');
+        solutionSteps -= 1;
+        stepsValue.textContent = solutionSteps;
+        ind += 1;
+        if (ind < solution.length) {
+          pushElement();
+        }
+        if (ind === solution.length) {
+          clearInterval(timerCount);
+          solution = [];
+          autofinishBtn.disabled = false;
+          burgerBtn.disabled = false;
+        }
+      }, 170);
+    };
+    pushElement();
+  }
 }
 
 function timerPause() {
@@ -321,3 +366,21 @@ burgerBtn.addEventListener('click', () => {
   showMenu();
 });
 muteBtn.addEventListener('click', mute);
+messageClose.addEventListener('click', () => {
+  closeMessage();
+  timerResume();
+});
+startBtn.addEventListener('click', () => {
+  restartGame();
+  showMenu();
+});
+sizeSelector.addEventListener('change', changeSize);
+resultsBtn.addEventListener('click', () => {
+  showMenu();
+  showMessage('Best Results');
+  winnersRender();
+});
+autofinishBtn.addEventListener('click', () => {
+  autoSolution();
+  showMenu();
+});
