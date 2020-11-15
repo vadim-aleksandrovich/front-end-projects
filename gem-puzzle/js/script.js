@@ -238,7 +238,7 @@ function startGame(size) { // (size == fieldSize)
     cell.style.height = `${cellSize}rem`;
     cell.style.left = `${left * cellSize}rem`;
     cell.style.top = `${top * cellSize}rem`;
-    cell.style.backgroundImage = `url('/assets/images/${randImageInd}.jpg')`;
+    cell.style.backgroundImage = `url('./assets/images/${randImageInd}.jpg')`;
     cell.style.backgroundRepeat = 'no-repeat';
     cell.style.backgroundSize = `${Math.sqrt(size) * cellSize}rem ${Math.sqrt(size) * cellSize}rem`;
     cell.style.backgroundPositionX = `${-(left * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
@@ -433,7 +433,7 @@ function loadGame() {
     cell.style.height = `${cellSize}rem`;
     cell.style.left = `${left * cellSize}rem`;
     cell.style.top = `${top * cellSize}rem`;
-    cell.style.backgroundImage = `url('/assets/images/${randImageInd}.jpg')`;
+    cell.style.backgroundImage = `url('./assets/images/${randImageInd}.jpg')`;
     cell.style.backgroundRepeat = 'no-repeat';
     cell.style.backgroundSize = `${Math.sqrt(fieldSize) * cellSize}rem ${Math.sqrt(fieldSize) * cellSize}rem`;
     cell.style.backgroundPositionX = cellsLoad[i].posX;
