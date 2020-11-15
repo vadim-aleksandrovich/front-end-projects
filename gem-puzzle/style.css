@@ -19,7 +19,7 @@
 }
 
 body {
-  background: url(/assets/background.jpg) no-repeat;
+  background: url(./assets/background.jpg) no-repeat;
 }
 
 .header {
@@ -100,7 +100,8 @@ body {
   font-size: 25rem;
 }
 
-.steps__icon, .timer__icon {
+.steps__icon,
+.timer__icon {
   -webkit-filter: invert(1);
   filter: invert(1);
   width: 30rem;
