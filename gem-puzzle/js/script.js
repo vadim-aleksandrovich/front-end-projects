@@ -311,7 +311,7 @@ function restartGame() {
   field.style.width = `${Math.sqrt(fieldSize) * cellSize}rem`;
   field.style.height = `${Math.sqrt(fieldSize) * cellSize}rem`;
   startGame(fieldSize);
-  randomGame(fieldSize * 40); // Set random
+  randomGame(fieldSize * 35); // Set random
   stepCounter = 0;
   stepsValue.textContent = stepCounter;
   clearInterval(timerCount);

@@ -97,7 +97,7 @@ body {
 }
 
 .material-icons {
-  font-size: 25rem;
+  font-size: 70rem;
 }
 
 .steps__icon,
@@ -237,7 +237,10 @@ body {
 }
 
 .cell {
+  -webkit-text-stroke: 2rem #0c0c0c;
+  -webkit-text-fill-color: #fafafa;
   position: absolute;
+  font-weight: 500;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
