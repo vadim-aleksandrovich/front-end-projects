@@ -71,11 +71,12 @@ body {
   font-size: 25rem;
 }
 
-.steps__icon, .timer__icon {
+.steps__icon,
+.timer__icon {
   -webkit-filter: invert(1);
   filter: invert(1);
   width: 30rem;
-  }
+}
 
 .steps__value,
 .timer__value {

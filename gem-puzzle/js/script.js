@@ -182,17 +182,8 @@ function move(index, param) {
   if (param !== 'random') {
     const isFinish = cells.every((el) => el.value === el.top * Math.sqrt(fieldSize) + el.left + 1);
     if (isFinish && param !== 'solution') {
-      create('div', 'cell', '', field, ['style',
-        `width: ${cellSize}rem;
-      height: ${cellSize}rem;
-      left: ${empty.left * cellSize}rem;
-      top: ${empty.top * cellSize}rem;
-      background-image: url('./assets/images/${randImageInd}.jpg');
-      background-repeat: no-repeat;
-      background-size: ${Math.sqrt(fieldSize) * cellSize}rem ${Math.sqrt(fieldSize) * cellSize}rem;
-      background-position-x: ${-(empty.left * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;
-      background-position-y: ${-(empty.top * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;`,
-      ]);
+      cellEmpty.style.backgroundImage = `url('./assets/images/${randImageInd}.jpg')`;
+      cellEmpty.style.opacity = '1';
       timerPause();
       showMessage(`Congratulations! You won in ${addZero(timerMinutes)} minutes ${addZero(timerSeconds)} seconds and ${stepCounter} steps`);
       winners.unshift({
@@ -205,18 +196,9 @@ function move(index, param) {
       field.style.pointerEvents = 'none';
     }
     if (isFinish && param === 'solution') {
+      cellEmpty.style.backgroundImage = `url('./assets/images/${randImageInd}.jpg')`;
+      cellEmpty.style.opacity = '1';
       showMessage(`You gave up by ${addZero(timerMinutes)} minutes ${addZero(timerSeconds)} seconds, making ${stepCounter} moves. The result will not be added to the winner table. Please try again`);
-      create('div', 'cell', '', field, ['style',
-        `width: ${cellSize}rem;
-      height: ${cellSize}rem;
-      left: ${empty.left * cellSize}rem;
-      top: ${empty.top * cellSize}rem;
-      background-image: url('/assets/images/${randImageInd}.jpg');
-      background-repeat: no-repeat;
-      background-size: ${Math.sqrt(fieldSize) * cellSize}rem ${Math.sqrt(fieldSize) * cellSize}rem;
-      background-position-x: ${-(empty.left * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;
-      background-position-y: ${-(empty.top * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;`,
-      ]);
       field.style.pointerEvents = 'none';
     }
   }
