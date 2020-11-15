@@ -187,7 +187,7 @@ function move(index, param) {
       height: ${cellSize}rem;
       left: ${empty.left * cellSize}rem;
       top: ${empty.top * cellSize}rem;
-      background-image: url('/assets/images/${randImageInd}.jpg');
+      background-image: url('./assets/images/${randImageInd}.jpg');
       background-repeat: no-repeat;
       background-size: ${Math.sqrt(fieldSize) * cellSize}rem ${Math.sqrt(fieldSize) * cellSize}rem;
       background-position-x: ${-(empty.left * Math.sqrt(fieldSize) * cellSize) / Math.sqrt(fieldSize)}rem;
