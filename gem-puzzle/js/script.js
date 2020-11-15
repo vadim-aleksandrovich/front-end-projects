@@ -279,6 +279,7 @@ function startGame(size) { // (size == fieldSize)
   empty.element = cellEmpty;
   empty.posX = `${-(cells[fieldSize - 1].left * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
   empty.posY = `${-(cells[fieldSize - 1].top * Math.sqrt(size) * cellSize) / Math.sqrt(size)}rem`;
+  cellEmpty.style.backgroundImage = '';
   cellEmpty.style.width = `${cellSize}rem`;
   cellEmpty.style.height = `${cellSize}rem`;
   cellEmpty.style.left = `${cells[fieldSize - 1].left * cellSize}rem`;
