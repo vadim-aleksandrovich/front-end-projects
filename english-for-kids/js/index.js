@@ -21,6 +21,11 @@ const generateCards = function generateCards(cardContent) {
     const cardReverse = create('button', 'card__reverse', createIcon('autorenew'), cardBox);
     const cardBack = create('div', 'card__back', '', cardBox);
 
+    const cardSound = create('audio', '', '', cardBox, ['src', `./assets/sounds/${cardContent.title}/${content[i].eng}.mp3`]);
+    cardBox.addEventListener('click', () => {
+      cardSound.play();
+    });
+
     cardReverse.addEventListener('click', () => {
       cardBack.classList.remove('card__back_rotate');
       // cardBox.classList.add('card__box_reverse');
@@ -64,7 +69,7 @@ const createCards = function createCards() {
 const createMenu = function createMenu() {
   const menu = create('nav', 'menu', '', header.firstChild);
   const menuList = create('ul', 'menu__list', '', menu);
-  create('li', 'menu__item', create('a', 'menu__link', 'Menu', '', ['href', '']), menuList);
+  create('li', 'menu__item', create('a', 'menu__link', '<img src="./assets/icons/home.png" class="menu__image"/> main menu', '', ['href', '']), menuList);
 
   for (let i = 0; i < categories.length; i += 1) {
     const menuItem = create('li', 'menu__item', '', menuList);

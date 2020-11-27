@@ -641,6 +641,11 @@ const generateCards = function generateCards(cardContent) {
     const cardReverse = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('button', 'card__reverse', (0,_utils_createIcon__WEBPACK_IMPORTED_MODULE_3__.default)('autorenew'), cardBox);
     const cardBack = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__back', '', cardBox);
 
+    const cardSound = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('audio', '', '', cardBox, ['src', `./assets/sounds/${cardContent.title}/${content[i].eng}.mp3`]);
+    cardBox.addEventListener('click', () => {
+      cardSound.play();
+    });
+
     cardReverse.addEventListener('click', () => {
       cardBack.classList.remove('card__back_rotate');
       // cardBox.classList.add('card__box_reverse');
@@ -684,7 +689,7 @@ const createCards = function createCards() {
 const createMenu = function createMenu() {
   const menu = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('nav', 'menu', '', header.firstChild);
   const menuList = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('ul', 'menu__list', '', menu);
-  (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('li', 'menu__item', (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('a', 'menu__link', 'Menu', '', ['href', '']), menuList);
+  (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('li', 'menu__item', (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('a', 'menu__link', '<img src="./assets/icons/home.png" class="menu__image"/> main menu', '', ['href', '']), menuList);
 
   for (let i = 0; i < _categories_categories__WEBPACK_IMPORTED_MODULE_5__.default.length; i += 1) {
     const menuItem = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('li', 'menu__item', '', menuList);
