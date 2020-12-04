@@ -39,45 +39,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
   {
-    eng:   'cry',
-    rus:   'плакать',
+    eng: 'cry',
+    rus: 'плакать',
   },
 
   {
-    eng:   'listen',
-    rus:   'слушать',
+    eng: 'listen',
+    rus: 'слушать',
   },
 
   {
-    eng:   'play',
-    rus:   'играть',
+    eng: 'play',
+    rus: 'играть',
   },
 
   {
-    eng:   'run',
-    rus:   'бежать',
+    eng: 'run',
+    rus: 'бежать',
   },
 
   {
-    eng:   'sleep',
-    rus:   'спать',
+    eng: 'sleep',
+    rus: 'спать',
   },
 
   {
-    eng:   'swim',
-    rus:   'плыть',
+    eng: 'swim',
+    rus: 'плыть',
   },
 
   {
-    eng:   'talk',
-    rus:   'разговаривать',
+    eng: 'talk',
+    rus: 'разговаривать',
   },
 
   {
-    eng:   'walk',
-    rus:   'гулять',
+    eng: 'walk',
+    rus: 'гулять',
   },
 ]);
+
 
 /***/ }),
 
@@ -98,45 +99,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
   {
-    eng:   'butterfly',
-    rus:   'бабочка',
+    eng: 'butterfly',
+    rus: 'бабочка',
   },
 
   {
-    eng:   'chicken',
-    rus:   'курица',
+    eng: 'chicken',
+    rus: 'курица',
   },
 
   {
-    eng:   'dog',
-    rus:   'собака',
+    eng: 'dog',
+    rus: 'собака',
   },
 
   {
-    eng:   'fox',
-    rus:   'лиса',
+    eng: 'fox',
+    rus: 'лиса',
   },
 
   {
-    eng:   'monkey',
-    rus:   'обезьяна',
+    eng: 'monkey',
+    rus: 'обезьяна',
   },
 
   {
-    eng:   'owl',
-    rus:   'сова',
+    eng: 'owl',
+    rus: 'сова',
   },
 
   {
-    eng:   'pig',
-    rus:   'свинья',
+    eng: 'pig',
+    rus: 'свинья',
   },
 
   {
-    eng:   'turtle',
-    rus:   'черепаха',
+    eng: 'turtle',
+    rus: 'черепаха',
   },
 ]);
+
 
 /***/ }),
 
@@ -292,49 +294,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
   {
-    eng:   'brother',
-    rus:   'брат',
+    eng: 'brother',
+    rus: 'брат',
   },
 
   {
-    eng:   'sister',
-    rus:   'сестра',
+    eng: 'sister',
+    rus: 'сестра',
   },
 
   {
-    eng:   'mother',
-    rus:   'мама',
+    eng: 'mother',
+    rus: 'мама',
   },
 
   {
-    eng:   'father',
-    rus:   'папа',
+    eng: 'father',
+    rus: 'папа',
   },
 
   {
-    eng:   'grandfather',
-    rus:   'дедушка',
+    eng: 'grandfather',
+    rus: 'дедушка',
   },
 
   {
-    eng:   'grandmother',
-    rus:   'бабушка',
+    eng: 'grandmother',
+    rus: 'бабушка',
   },
 
   {
-    eng:   'house',
-    rus:   'дом',
+    eng: 'house',
+    rus: 'дом',
   },
 
   {
-    eng:   'family',
-    rus:   'семья',
+    eng: 'family',
+    rus: 'семья',
   },
 ]);
+
 
 /***/ }),
 
@@ -353,48 +354,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
   {
-    eng:   'apple',
-    rus:   'яблоко',
+    eng: 'apple',
+    rus: 'яблоко',
   },
 
   {
-    eng:   'banana',
-    rus:   'банан',
+    eng: 'banana',
+    rus: 'банан',
   },
 
   {
-    eng:   'grape',
-    rus:   'виноград',
+    eng: 'grape',
+    rus: 'виноград',
   },
 
   {
-    eng:   'kiwi',
-    rus:   'киви',
+    eng: 'kiwi',
+    rus: 'киви',
   },
 
   {
-    eng:   'lemon',
-    rus:   'лимон',
+    eng: 'lemon',
+    rus: 'лимон',
   },
 
   {
-    eng:   'orange',
-    rus:   'апельсин',
+    eng: 'orange',
+    rus: 'апельсин',
   },
 
   {
-    eng:   'pear',
-    rus:   'груша',
+    eng: 'pear',
+    rus: 'груша',
   },
 
   {
-    eng:   'watermelon',
-    rus:   'арбуз',
+    eng: 'watermelon',
+    rus: 'арбуз',
   },
 ]);
+
 
 /***/ }),
 
@@ -415,45 +416,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
   {
-    eng:   'forest',
-    rus:   'лес',
+    eng: 'forest',
+    rus: 'лес',
   },
 
   {
-    eng:   'moon',
-    rus:   'луна',
+    eng: 'moon',
+    rus: 'луна',
   },
 
   {
-    eng:   'mountain',
-    rus:   'горы',
+    eng: 'mountain',
+    rus: 'горы',
   },
 
   {
-    eng:   'rain',
-    rus:   'дождь',
+    eng: 'rain',
+    rus: 'дождь',
   },
 
   {
-    eng:   'river',
-    rus:   'река',
+    eng: 'river',
+    rus: 'река',
   },
 
   {
-    eng:   'sea',
-    rus:   'море',
+    eng: 'sea',
+    rus: 'море',
   },
 
   {
-    eng:   'snow',
-    rus:   'снег',
+    eng: 'snow',
+    rus: 'снег',
   },
 
   {
-    eng:   'sun',
-    rus:   'солнце',
+    eng: 'sun',
+    rus: 'солнце',
   },
 ]);
+
 
 /***/ }),
 
@@ -474,45 +476,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
   {
-    eng:   'backpack',
-    rus:   'рюкзак',
+    eng: 'backpack',
+    rus: 'рюкзак',
   },
 
   {
-    eng:   'blackboard',
-    rus:   'доска',
+    eng: 'blackboard',
+    rus: 'доска',
   },
 
   {
-    eng:   'book',
-    rus:   'книга',
+    eng: 'book',
+    rus: 'книга',
   },
 
   {
-    eng:   'bus',
-    rus:   'автобус',
+    eng: 'bus',
+    rus: 'автобус',
   },
 
   {
-    eng:   'desk',
-    rus:   'парта',
+    eng: 'desk',
+    rus: 'парта',
   },
 
   {
-    eng:   'pen',
-    rus:   'ручка',
+    eng: 'pen',
+    rus: 'ручка',
   },
 
   {
-    eng:   'pencil',
-    rus:   'карандаш',
+    eng: 'pencil',
+    rus: 'карандаш',
   },
 
   {
-    eng:   'teacher',
-    rus:   'учитель',
+    eng: 'teacher',
+    rus: 'учитель',
   },
 ]);
+
 
 /***/ }),
 
@@ -533,45 +536,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
   {
-    eng:   'broccoli',
-    rus:   'броколли',
+    eng: 'broccoli',
+    rus: 'броколли',
   },
 
   {
-    eng:   'cabbage',
-    rus:   'капуста',
+    eng: 'cabbage',
+    rus: 'капуста',
   },
 
   {
-    eng:   'carrot',
-    rus:   'морковь',
+    eng: 'carrot',
+    rus: 'морковь',
   },
 
   {
-    eng:   'cucumber',
-    rus:   'огурец',
+    eng: 'cucumber',
+    rus: 'огурец',
   },
 
   {
-    eng:   'pea',
-    rus:   'горох',
+    eng: 'pea',
+    rus: 'горох',
   },
 
   {
-    eng:   'pepper',
-    rus:   'перец',
+    eng: 'pepper',
+    rus: 'перец',
   },
 
   {
-    eng:   'potato',
-    rus:   'картофель',
+    eng: 'potato',
+    rus: 'картофель',
   },
 
   {
-    eng:   'tomato',
-    rus:   'помидор',
+    eng: 'tomato',
+    rus: 'помидор',
   },
 ]);
+
 
 /***/ }),
 
@@ -616,8 +620,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _images__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images */ "./js/images.js");
 /* harmony import */ var _utils_create__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/create */ "./js/utils/create.js");
 /* harmony import */ var _utils_createIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/createIcon */ "./js/utils/createIcon.js");
-/* harmony import */ var _utils_clear__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/clear */ "./js/utils/clear.js");
+/* harmony import */ var _utils_deleteChildren__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/deleteChildren */ "./js/utils/deleteChildren.js");
 /* harmony import */ var _categories_categories__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./categories/categories */ "./js/categories/categories.js");
+/* harmony import */ var _nls_links__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./nls/links */ "./js/nls/links.js");
+/* eslint-disable no-unused-vars */
+
 
 
 
@@ -627,43 +634,43 @@ __webpack_require__.r(__webpack_exports__);
 
 const header = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('header', 'header', (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'wrapper wrapper__header'));
 const burgerBtn = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('button', 'burger__btn', (0,_utils_createIcon__WEBPACK_IMPORTED_MODULE_3__.default)('menu'), header.firstChild);
-const main = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('main', 'main', (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'wrapper wrapper__main'));
+const main = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('main', 'main', '', '');
+const wrapperMain = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'wrapper wrapper__main', '', main);
 document.body.prepend(header, main);
+const engSound = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('audio', 'card__sound_eng', '', main);
+
+wrapperMain.onclick = function sayWord(event) {
+  const targ = event.target.closest('.card__box_word');
+  if (targ) {
+    const soundSrc = targ.getAttribute('data-sound-src');
+    engSound.src = soundSrc;
+    engSound.load();
+    engSound.play();
+  }
+};
 
 const generateCards = function generateCards(cardContent) {
-  (0,_utils_clear__WEBPACK_IMPORTED_MODULE_4__.default)(main.firstChild);
+  (0,_utils_deleteChildren__WEBPACK_IMPORTED_MODULE_4__.default)(main.firstChild);
   const { content } = cardContent;
   for (let i = 0; i < content.length; i += 1) {
-    const cardBox = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__box', '', main.firstChild);
-    const cardFront = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__front', '', cardBox);
-    const cardImage = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('img', 'card__image', '', cardFront, ['src', `./assets/icons/${cardContent.title}/${content[i].eng}.png`]);
-    const cardWord = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__word', `${content[i].eng}`, cardFront);
-    const cardReverse = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('button', 'card__reverse', (0,_utils_createIcon__WEBPACK_IMPORTED_MODULE_3__.default)('autorenew'), cardBox);
-    const cardBack = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__back', '', cardBox);
+    const cardBox = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__box card__box_word', '', main.firstChild, ['soundSrc', _nls_links__WEBPACK_IMPORTED_MODULE_6__.default.soundSrc(cardContent.title, content[i].eng)]);
 
-    const cardSound = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('audio', '', '', cardBox, ['src', `./assets/sounds/${cardContent.title}/${content[i].eng}.mp3`]);
-    cardBox.addEventListener('click', () => {
-      cardSound.play();
-    });
+    const cardFront = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__front', '', cardBox);
+    const cardBack = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__back', '', cardBox);
+    (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__word', `${content[i].rus}`, cardBack);
+
+    const cardImage = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('img', 'card__image', '', cardFront, ['src', _nls_links__WEBPACK_IMPORTED_MODULE_6__.default.imageSrc(cardContent.title, content[i].eng)]);
+    (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__word', `${content[i].eng}`, cardFront);
+
+    const cardReverse = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('button', 'card__reverse', (0,_utils_createIcon__WEBPACK_IMPORTED_MODULE_3__.default)('autorenew'), cardFront);
 
     cardReverse.addEventListener('click', () => {
-      cardBack.classList.remove('card__back_rotate');
-      // cardBox.classList.add('card__box_reverse');
-      // cardWord.textContent = '';
-      cardFront.classList.add('card__front_rotate');
-      setTimeout(() => {
-        cardWord.textContent = content[i].rus;
-        cardImage.classList.add('card__image_hide');
-      }, 500);
+      cardFront.classList.add('card__front_reverse');
+      cardBack.classList.add('card__back_reverse');
     });
     cardBox.addEventListener('mouseleave', () => {
-      cardFront.classList.remove('card__front_rotate');
-      cardBack.classList.add('card__back_rotate');
-      // cardBox.classList.remove('card__box_reverse');
-      setTimeout(() => {
-        cardImage.classList.remove('card__image_hide');
-        cardWord.textContent = content[i].eng;
-      }, 500);
+      cardFront.classList.remove('card__front_reverse');
+      cardBack.classList.remove('card__back_reverse');
     });
   }
 };
@@ -672,12 +679,12 @@ const createCards = function createCards() {
   for (let i = 0; i < _categories_categories__WEBPACK_IMPORTED_MODULE_5__.default.length; i += 1) {
     const cardBox = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('a', 'card__box', '', main.firstChild, [
       'href',
-      `#${_categories_categories__WEBPACK_IMPORTED_MODULE_5__.default[i].title}/`,
+      `#${_categories_categories__WEBPACK_IMPORTED_MODULE_5__.default[i].title}`,
     ]);
 
     const cardFront = (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__front',
       [(0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('img', 'card__image', '', '',
-        ['src', `./assets/icons/${_categories_categories__WEBPACK_IMPORTED_MODULE_5__.default[i].title}/${_categories_categories__WEBPACK_IMPORTED_MODULE_5__.default[i].title}.png`]),
+        ['src', _nls_links__WEBPACK_IMPORTED_MODULE_6__.default.imageSrc(_categories_categories__WEBPACK_IMPORTED_MODULE_5__.default[i].title, _categories_categories__WEBPACK_IMPORTED_MODULE_5__.default[i].title)]),
       (0,_utils_create__WEBPACK_IMPORTED_MODULE_2__.default)('div', 'card__word', `${_categories_categories__WEBPACK_IMPORTED_MODULE_5__.default[i].title}`, ''),
       ], cardBox);
     cardBox.addEventListener('click', () => {
@@ -727,26 +734,28 @@ menu.addEventListener('click', switherMenu);
 
 /***/ }),
 
-/***/ "./js/utils/clear.js":
-/*!***************************!*\
-  !*** ./js/utils/clear.js ***!
-  \***************************/
+/***/ "./js/nls/links.js":
+/*!*************************!*\
+  !*** ./js/nls/links.js ***!
+  \*************************/
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => /* binding */ create
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-function create(target) {
-  while (target.children.length) {
-    target.removeChild(target.lastChild);
-  }
-}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  soundSrc: (folderName, fileName) => `./assets/sounds/${folderName}/${fileName}.mp3`,
+  imageSrc: (folderName, fileName) => `./assets/icons/${folderName}/${fileName}.png`,
+});
+
+// cardContent.title  content[i].eng
+
 
 /***/ }),
 
@@ -834,6 +843,30 @@ __webpack_require__.r(__webpack_exports__);
 
 function createIcon(icon) {
   return `<i class="material-icons">${icon}</i>`;
+}
+
+
+/***/ }),
+
+/***/ "./js/utils/deleteChildren.js":
+/*!************************************!*\
+  !*** ./js/utils/deleteChildren.js ***!
+  \************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ create
+/* harmony export */ });
+function create(target) {
+  while (target.children.length) {
+    target.removeChild(target.lastChild);
+  }
 }
 
 

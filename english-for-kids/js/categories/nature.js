@@ -1,41 +1,41 @@
 export default [
   {
-    eng:   'forest',
-    rus:   'лес',
+    eng: 'forest',
+    rus: 'лес',
   },
 
   {
-    eng:   'moon',
-    rus:   'луна',
+    eng: 'moon',
+    rus: 'луна',
   },
 
   {
-    eng:   'mountain',
-    rus:   'горы',
+    eng: 'mountain',
+    rus: 'горы',
   },
 
   {
-    eng:   'rain',
-    rus:   'дождь',
+    eng: 'rain',
+    rus: 'дождь',
   },
 
   {
-    eng:   'river',
-    rus:   'река',
+    eng: 'river',
+    rus: 'река',
   },
 
   {
-    eng:   'sea',
-    rus:   'море',
+    eng: 'sea',
+    rus: 'море',
   },
 
   {
-    eng:   'snow',
-    rus:   'снег',
+    eng: 'snow',
+    rus: 'снег',
   },
 
   {
-    eng:   'sun',
-    rus:   'солнце',
+    eng: 'sun',
+    rus: 'солнце',
   },
-]
+];

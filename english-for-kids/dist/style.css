@@ -1,21 +1,17 @@
-@keyframes rotate {
-  0% {
-    transform: rotateY(0);
-  }
-  100% {
-    transform: rotateY(180deg);
-  }
-}
 * {
   padding: 0;
   font-size: 10px;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   box-sizing: border-box;
+  background: none;
+  outline: none;
+  border: none;
 }
 
 html {
-  background-color: #008cff;
+  background-color: #ffffff;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjM5IiBoZWlnaHQ9IjM5IiB2aWV3Qm94PSIwIDAgNDAsNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxNjUpICI+PHJlY3QgaWQ9InBhdHRlcm4tYmFja2dyb3VuZCIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSgyNDcsIDI1MCwgMjUyLDEpIj48L3JlY3Q+IDxjaXJjbGUgZmlsbD0icmdiYSgyMzksIDQ5LCAzNiwxKSIgY3g9IjUiIGN5PSIzMyIgcj0iMi4yNSI+PC9jaXJjbGU+PGNpcmNsZSBmaWxsPSJyZ2JhKDIzOSwgNDksIDM2LDEpIiBjeD0iMjUiIGN5PSI3IiByPSIyLjI1Ij48L2NpcmNsZT48Y2lyY2xlIGZpbGw9InJnYmEoMjM5LCA0OSwgMzYsMSkiIGN4PSI1IiBjeT0iLTciIHI9IjIuMjUiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0icmdiYSgyMzksIDQ5LCAzNiwxKSIgY3g9IjI1IiBjeT0iNDciIHI9IjIuMjUiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0icmdiYSgyNDcsIDI1MCwgMjUyLDEpIiBjeD0iMTUiIGN5PSIyMCIgcj0iMy41Ij48L2NpcmNsZT48Y2lyY2xlIGZpbGw9InJnYmEoMjQ3LCAyNTAsIDI1MiwxKSIgY3g9IjM1IiBjeT0iMjAiIHI9IjMuNSI+PC9jaXJjbGU+PC9wYXR0ZXJuPiAgPC9kZWZzPiA8cmVjdCBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIj48L3JlY3Q+PC9zdmc+");
 }
 
 .wrapper {
@@ -36,26 +32,45 @@ html {
   background: none;
   border: none;
   z-index: 100;
-  transition: 0.3s;
+  transition: 0.5s;
+}
+.burger__btn .material-icons {
+  color: #000000;
 }
 
 .burger__btn_active {
   transform: rotate(90deg);
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .menu {
   position: absolute;
+  width: 40rem;
   left: -100%;
   top: 0;
-  background: red;
+  background: #ffffff;
   z-index: 10;
-  transition: 0.3s ease-in;
+  transition: all 0.5s ease-in;
+  height: 100vh;
+  max-height: 100%;
+  padding: 5rem;
+}
+
+.menu__link {
+  display: flex;
+  align-items: center;
+  color: #EF3124;
+  font-size: 5rem;
+}
+
+.menu__image {
+  width: 5rem;
+  margin-right: 1rem;
 }
 
 .menu_active {
   left: 0;
-  transition: 0.3s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .main {
@@ -75,54 +90,66 @@ html {
 }
 
 .card__box {
+  position: relative;
   width: 20rem;
   height: 30rem;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: center;
-  background: white;
-  border-radius: 2rem;
-  padding: 3rem;
   margin: 1rem;
+}
+.card__box .card__front,
+.card__box .card__back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  height: 30rem;
+  background-color: #EF3124;
+  border-radius: 3rem;
+  backface-visibility: hidden;
+  transition: all 0.5s;
+}
+.card__box .card__front:hover,
+.card__box .card__back:hover {
+  box-shadow: #26394d 0px 20px 30px -10px;
+}
+.card__box .card__front::before {
+  content: "";
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  border-radius: 3rem 3rem 0 0;
+  top: 0rem;
+  left: 0rem;
+  background-color: #ffffff;
+}
+.card__box .card__back {
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+.card__box .card__word {
+  font-size: 3rem;
+  color: #ffffff;
+  z-index: 10;
+}
+.card__box .card__image {
+  margin: 3rem 0 2rem 0;
+  height: 15rem;
+  transition: padding 0.5s;
+  z-index: 2;
+}
+.card__box .card__front_reverse {
+  transition: all 0.5s ease-in;
+  transform: rotateY(180deg);
+}
+.card__box .card__back_reverse {
+  transition: all 0.5s ease-in;
+  transform: rotateY(360deg);
 }
 .card__box .material-icons {
   font-size: 3.6rem;
-  color: red;
-}
-
-.card__front_rotate {
-  animation: rotate 0.5s linear;
-}
-
-.card__back_rotate {
-  animation: rotate 0.5s linear;
-}
-
-.card__img {
-  width: 100%;
-}
-
-.card__word {
-  font-size: 4rem;
-  color: #008cff;
-  text-align: center;
-}
-
-.card__reverse {
-  color: #008cff;
-  margin: 0 auto;
-  background: none;
-  border: none;
-  outline: none;
-}
-
-.card__back {
-  transition: 0.5s;
-}
-
-.card__image_hide {
-  visibility: hidden;
+  color: #ffffff;
 }
 
 .footer__date,

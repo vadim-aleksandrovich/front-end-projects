@@ -1,49 +1,51 @@
+/* eslint-disable no-unused-vars */
 import '../sass/style.scss';
 import './images';
 import create from './utils/create';
 import createIcon from './utils/createIcon';
-import clear from './utils/clear';
+import deleteChildren from './utils/deleteChildren';
 import categories from './categories/categories';
+import links from './nls/links';
 
 const header = create('header', 'header', create('div', 'wrapper wrapper__header'));
 const burgerBtn = create('button', 'burger__btn', createIcon('menu'), header.firstChild);
-const main = create('main', 'main', create('div', 'wrapper wrapper__main'));
+const main = create('main', 'main', '', '');
+const wrapperMain = create('div', 'wrapper wrapper__main', '', main);
 document.body.prepend(header, main);
+const engSound = create('audio', 'card__sound_eng', '', main);
+
+wrapperMain.onclick = function sayWord(event) {
+  const targ = event.target.closest('.card__box_word');
+  if (targ) {
+    const soundSrc = targ.getAttribute('data-sound-src');
+    engSound.src = soundSrc;
+    engSound.load();
+    engSound.play();
+  }
+};
 
 const generateCards = function generateCards(cardContent) {
-  clear(main.firstChild);
+  deleteChildren(main.firstChild);
   const { content } = cardContent;
   for (let i = 0; i < content.length; i += 1) {
-    const cardBox = create('div', 'card__box', '', main.firstChild);
-    const cardFront = create('div', 'card__front', '', cardBox);
-    const cardImage = create('img', 'card__image', '', cardFront, ['src', `./assets/icons/${cardContent.title}/${content[i].eng}.png`]);
-    const cardWord = create('div', 'card__word', `${content[i].eng}`, cardFront);
-    const cardReverse = create('button', 'card__reverse', createIcon('autorenew'), cardBox);
-    const cardBack = create('div', 'card__back', '', cardBox);
+    const cardBox = create('div', 'card__box card__box_word', '', main.firstChild, ['soundSrc', links.soundSrc(cardContent.title, content[i].eng)]);
 
-    const cardSound = create('audio', '', '', cardBox, ['src', `./assets/sounds/${cardContent.title}/${content[i].eng}.mp3`]);
-    cardBox.addEventListener('click', () => {
-      cardSound.play();
-    });
+    const cardFront = create('div', 'card__front', '', cardBox);
+    const cardBack = create('div', 'card__back', '', cardBox);
+    create('div', 'card__word', `${content[i].rus}`, cardBack);
+
+    const cardImage = create('img', 'card__image', '', cardFront, ['src', links.imageSrc(cardContent.title, content[i].eng)]);
+    create('div', 'card__word', `${content[i].eng}`, cardFront);
+
+    const cardReverse = create('button', 'card__reverse', createIcon('autorenew'), cardFront);
 
     cardReverse.addEventListener('click', () => {
-      cardBack.classList.remove('card__back_rotate');
-      // cardBox.classList.add('card__box_reverse');
-      // cardWord.textContent = '';
-      cardFront.classList.add('card__front_rotate');
-      setTimeout(() => {
-        cardWord.textContent = content[i].rus;
-        cardImage.classList.add('card__image_hide');
-      }, 500);
+      cardFront.classList.add('card__front_reverse');
+      cardBack.classList.add('card__back_reverse');
     });
     cardBox.addEventListener('mouseleave', () => {
-      cardFront.classList.remove('card__front_rotate');
-      cardBack.classList.add('card__back_rotate');
-      // cardBox.classList.remove('card__box_reverse');
-      setTimeout(() => {
-        cardImage.classList.remove('card__image_hide');
-        cardWord.textContent = content[i].eng;
-      }, 500);
+      cardFront.classList.remove('card__front_reverse');
+      cardBack.classList.remove('card__back_reverse');
     });
   }
 };
@@ -52,12 +54,12 @@ const createCards = function createCards() {
   for (let i = 0; i < categories.length; i += 1) {
     const cardBox = create('a', 'card__box', '', main.firstChild, [
       'href',
-      `#${categories[i].title}/`,
+      `#${categories[i].title}`,
     ]);
 
     const cardFront = create('div', 'card__front',
       [create('img', 'card__image', '', '',
-        ['src', `./assets/icons/${categories[i].title}/${categories[i].title}.png`]),
+        ['src', links.imageSrc(categories[i].title, categories[i].title)]),
       create('div', 'card__word', `${categories[i].title}`, ''),
       ], cardBox);
     cardBox.addEventListener('click', () => {

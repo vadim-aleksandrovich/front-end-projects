@@ -1,42 +1,41 @@
-
 export default [
   {
-    eng:   'apple',
-    rus:   'яблоко',
+    eng: 'apple',
+    rus: 'яблоко',
   },
 
   {
-    eng:   'banana',
-    rus:   'банан',
+    eng: 'banana',
+    rus: 'банан',
   },
 
   {
-    eng:   'grape',
-    rus:   'виноград',
+    eng: 'grape',
+    rus: 'виноград',
   },
 
   {
-    eng:   'kiwi',
-    rus:   'киви',
+    eng: 'kiwi',
+    rus: 'киви',
   },
 
   {
-    eng:   'lemon',
-    rus:   'лимон',
+    eng: 'lemon',
+    rus: 'лимон',
   },
 
   {
-    eng:   'orange',
-    rus:   'апельсин',
+    eng: 'orange',
+    rus: 'апельсин',
   },
 
   {
-    eng:   'pear',
-    rus:   'груша',
+    eng: 'pear',
+    rus: 'груша',
   },
 
   {
-    eng:   'watermelon',
-    rus:   'арбуз',
+    eng: 'watermelon',
+    rus: 'арбуз',
   },
-]
+];

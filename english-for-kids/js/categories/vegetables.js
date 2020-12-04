@@ -1,41 +1,41 @@
 export default [
   {
-    eng:   'broccoli',
-    rus:   'броколли',
+    eng: 'broccoli',
+    rus: 'броколли',
   },
 
   {
-    eng:   'cabbage',
-    rus:   'капуста',
+    eng: 'cabbage',
+    rus: 'капуста',
   },
 
   {
-    eng:   'carrot',
-    rus:   'морковь',
+    eng: 'carrot',
+    rus: 'морковь',
   },
 
   {
-    eng:   'cucumber',
-    rus:   'огурец',
+    eng: 'cucumber',
+    rus: 'огурец',
   },
 
   {
-    eng:   'pea',
-    rus:   'горох',
+    eng: 'pea',
+    rus: 'горох',
   },
 
   {
-    eng:   'pepper',
-    rus:   'перец',
+    eng: 'pepper',
+    rus: 'перец',
   },
 
   {
-    eng:   'potato',
-    rus:   'картофель',
+    eng: 'potato',
+    rus: 'картофель',
   },
 
   {
-    eng:   'tomato',
-    rus:   'помидор',
+    eng: 'tomato',
+    rus: 'помидор',
   },
-]
+];
