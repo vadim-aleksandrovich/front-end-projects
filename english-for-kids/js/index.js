@@ -7,28 +7,67 @@ import deleteChildren from './utils/deleteChildren';
 import categories from './categories/categories';
 import links from './nls/links';
 
-const header = create('header', 'header', create('div', 'wrapper wrapper__header'));
-const burgerBtn = create('button', 'burger__btn', createIcon('menu'), header.firstChild);
-const main = create('main', 'main', '', '');
-const wrapperMain = create('div', 'wrapper wrapper__main', '', main);
-document.body.prepend(header, main);
-const engSound = create('audio', 'card__sound_eng', '', main);
+import gameOverlay from './elements/gameoverlay';
+import switchElement from './elements/switchelement';
 
-wrapperMain.onclick = function sayWord(event) {
-  const targ = event.target.closest('.card__box_word');
-  if (targ) {
-    const soundSrc = targ.getAttribute('data-sound-src');
-    engSound.src = soundSrc;
-    engSound.load();
-    engSound.play();
+const header = create('header', 'header', create('div', 'wrapper wrapper__header'));
+const footer = create('footer', 'footer', create('div', 'wrapper wrapper__footer'));
+const burgerBtn = create('button', 'burger__btn', createIcon('menu'), header.firstChild);
+
+const infoBtn = create('button', 'info__btn button', 'info', header.firstChild);
+header.firstChild.append(switchElement.switchBox);
+const gameBtn = create('button', 'game__btn button', 'START', header.firstChild);
+gameBtn.disabled = true;
+const main = create('main', 'main', create('div', 'wrapper wrapper__main'), '');
+const gameAnswers = create('div', 'game__answers', '', main.firstChild);
+const cardConteiner = create('div', 'card__container', '', main.firstChild);
+
+document.body.prepend(gameOverlay.gameOverlayBox, header, main);
+gameOverlay.gameOverlayBox.append(
+  gameOverlay.gameOverlayImg,
+  gameOverlay.gameOverlayMessage,
+  gameOverlay.gameOverlayLink,
+);
+
+const engSound = create('audio', '', '', main);
+const messageSound = create('audio', '', '', main);
+let gameMode = [];
+let currentFolder;
+
+switchElement.switchBox.append(
+  switchElement.switchBtn,
+  switchElement.switchLabel,
+  switchElement.trainLabel,
+  switchElement.playLabel,
+);
+let mistakes = 0;
+switchElement.switchBtn.addEventListener('change', () => {
+  if (switchElement.switchBtn.checked) {
+    main.setAttribute('data-state', 'gameMode');
+    footer.setAttribute('data-state', 'gameMode');
+    header.setAttribute('data-state', 'gameMode');
+    document.querySelector('body').setAttribute('data-state', 'gameMode');
   }
-};
+  if (!switchElement.switchBtn.checked) {
+    main.removeAttribute('data-state');
+    footer.removeAttribute('data-state');
+    header.removeAttribute('data-state');
+    document.querySelector('body').removeAttribute('data-state', 'gameMode');
+  }
+});
 
 const generateCards = function generateCards(cardContent) {
-  deleteChildren(main.firstChild);
+  deleteChildren(cardConteiner);
+  deleteChildren(gameAnswers);
+  mistakes = 0;
   const { content } = cardContent;
+  gameBtn.innerHTML = 'START';
+  gameBtn.disabled = false;
+  gameMode = [];
+  currentFolder = cardContent.title;
   for (let i = 0; i < content.length; i += 1) {
-    const cardBox = create('div', 'card__box card__box_word', '', main.firstChild, ['soundSrc', links.soundSrc(cardContent.title, content[i].eng)]);
+    gameMode.push(content[i].eng);
+    const cardBox = create('div', 'card__box card__box_word', '', cardConteiner, ['soundSrc', links.soundSrc(cardContent.title, content[i].eng)], ['cardName', content[i].eng]);
 
     const cardFront = create('div', 'card__front', '', cardBox);
     const cardBack = create('div', 'card__back', '', cardBox);
@@ -52,7 +91,7 @@ const generateCards = function generateCards(cardContent) {
 
 const createCards = function createCards() {
   for (let i = 0; i < categories.length; i += 1) {
-    const cardBox = create('a', 'card__box', '', main.firstChild, [
+    const cardBox = create('a', 'card__box', '', cardConteiner, [
       'href',
       `#${categories[i].title}`,
     ]);
@@ -102,6 +141,78 @@ function switherMenu() {
   menu.classList.toggle('menu_active');
   burgerBtn.classList.toggle('burger__btn_active');
 }
+
+const playMessageSound = (message) => {
+  messageSound.src = message;
+  setTimeout(() => {
+    messageSound.play();
+  }, 1);
+};
+
+const playSound = (card) => {
+  const soundSrc = card.getAttribute('data-sound-src');
+  engSound.src = soundSrc;
+  setTimeout(() => {
+    engSound.play();
+  }, 1);
+};
+
+const gameMessage = () => {
+  gameOverlay.gameOverlayBox.classList.add('gameoverlay_active');
+  if (mistakes === 0) {
+    playMessageSound(links.winnerSound);
+    gameOverlay.gameOverlayImg.src = links.imageSrc('gameIcons', 'win_color2');
+    gameOverlay.gameOverlayMessage.innerHTML = 'You are winner!!!';
+  } else {
+    playMessageSound(links.failSound);
+    gameOverlay.gameOverlayImg.src = links.imageSrc('gameIcons', 'losing_сolor');
+    gameOverlay.gameOverlayMessage.innerHTML = `You made ${mistakes} mistakes, please try again`;
+  }
+};
+
+const playGame = () => {
+  if (gameMode.length === 0) {
+    gameMessage();
+    return;
+  }
+  gameMode.sort(() => Math.random() * 2 - 1);
+  engSound.src = links.soundSrc(currentFolder, gameMode[gameMode.length - 1]);
+  engSound.load();
+  engSound.play();
+  gameBtn.innerHTML = 'REPEAT';
+};
+
+cardConteiner.onclick = function func(event) {
+  const targ = event.target.closest('.card__box_word');
+
+  if (targ) {
+    if (!switchElement.switchBtn.checked) {
+      playSound(targ);
+    }
+    if (switchElement.switchBtn.checked && gameBtn.innerHTML === 'REPEAT') {
+      if (targ.getAttribute('data-card-name') === gameMode[gameMode.length - 1]) {
+        targ.firstChild.classList.add('game__true');
+        gameAnswers.prepend(create('div', 'correct', '', ''));
+        playMessageSound(links.correctSound);
+        gameMode.pop();
+        playGame();
+      } else {
+        gameAnswers.prepend(create('div', 'mistake', '', ''));
+        playMessageSound(links.mistakeSound);
+        mistakes += 1;
+      }
+    }
+  }
+};
+
+gameBtn.addEventListener('click', () => {
+  if (gameBtn.innerHTML === 'START') {
+    playGame();
+  }
+  if (gameBtn.innerHTML === 'REPEAT') {
+    engSound.play();
+  }
+});
 
 burgerBtn.addEventListener('click', switherMenu);
 menu.addEventListener('click', switherMenu);

@@ -1,16 +1,7 @@
-// @keyframes rotate {
-//   0% {
-//     transform: rotateY(0);
-//   }
-//   100% {
-//     transform: rotateY(180deg);
-//   }
-// }
-
-$color-red: #EF3124;
+$color-red: #ef3124;
 $color-black: #000000;
 $color-strong-gray: #505759;
-$color-light-gray: #D9D9D6;
+$color-light-gray: #d9d9d6;
 $color-white: #ffffff;
 
 * {
@@ -23,10 +14,39 @@ $color-white: #ffffff;
   outline: none;
   border: none;
 }
+body {
+  position: relative;
+}
 
-html {
-  background-color: $color-white;
-  background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjM5IiBoZWlnaHQ9IjM5IiB2aWV3Qm94PSIwIDAgNDAsNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxNjUpICI+PHJlY3QgaWQ9InBhdHRlcm4tYmFja2dyb3VuZCIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSgyNDcsIDI1MCwgMjUyLDEpIj48L3JlY3Q+IDxjaXJjbGUgZmlsbD0icmdiYSgyMzksIDQ5LCAzNiwxKSIgY3g9IjUiIGN5PSIzMyIgcj0iMi4yNSI+PC9jaXJjbGU+PGNpcmNsZSBmaWxsPSJyZ2JhKDIzOSwgNDksIDM2LDEpIiBjeD0iMjUiIGN5PSI3IiByPSIyLjI1Ij48L2NpcmNsZT48Y2lyY2xlIGZpbGw9InJnYmEoMjM5LCA0OSwgMzYsMSkiIGN4PSI1IiBjeT0iLTciIHI9IjIuMjUiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0icmdiYSgyMzksIDQ5LCAzNiwxKSIgY3g9IjI1IiBjeT0iNDciIHI9IjIuMjUiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0icmdiYSgyNDcsIDI1MCwgMjUyLDEpIiBjeD0iMTUiIGN5PSIyMCIgcj0iMy41Ij48L2NpcmNsZT48Y2lyY2xlIGZpbGw9InJnYmEoMjQ3LCAyNTAsIDI1MiwxKSIgY3g9IjM1IiBjeT0iMjAiIHI9IjMuNSI+PC9jaXJjbGU+PC9wYXR0ZXJuPiAgPC9kZWZzPiA8cmVjdCBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIj48L3JlY3Q+PC9zdmc+")
+.gameoverlay {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  position: absolute;
+  background-color: rgba($color: #d9d9d6, $alpha: 0.8);
+}
+
+.gameoverlay_active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gameoverlay__img {
+  width: 10rem;
+  height: 10rem;
+}
+
+.gameoverlay__message {
+  font-size: 8rem;
+}
+
+.gameoverlay__link {
+  font-size: 10rem;
 }
 
 .wrapper {
@@ -34,12 +54,32 @@ html {
   margin: 0 auto;
   width: 100%;
   max-width: 90rem;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
-
+.header {
+  background-color: $color-white;
+}
 .wrapper__header {
-  margin-bottom: 10rem;
+  min-height: 8rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  color: $color-strong-gray;
+  border: 2px solid $color-red;
+  border-radius: 1rem;
+  height: 3rem;
+  font-size: 1.6rem;
+}
+
+.info__btn {
+  width: 4rem;
+}
+.game__btn {
+  width: 7rem;
 }
 
 .burger__btn {
@@ -58,11 +98,10 @@ html {
   transition: 0.5s;
 }
 
-
 .menu {
   position: absolute;
   width: 40rem;
-  left: -100%;
+  left: -150%;
   top: 0;
   background: $color-white;
   z-index: 10;
@@ -79,7 +118,6 @@ html {
   font-size: 5rem;
 }
 
-
 .menu__image {
   width: 5rem;
   margin-right: 1rem;
@@ -90,14 +128,89 @@ html {
   transition: all 0.5s ease-in;
 }
 
+//! Switcher
+.switch {
+  position: relative;
+  border: 2px solid $color-red;
+  width: 6rem;
+  border-radius: 1rem;
+  height: 3rem;
+  .checkbox {
+    visibility: hidden;
+    width: 6rem;
+    height: 3rem;
+  }
+  .checkbox__label {
+    display: block;
+    z-index: 1;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: -2px;
+    left: 0%;
+    background-color: $color-red;
+    border-radius: 30%;
+    transition: left 0.5s ease;
+    cursor: pointer;
+  }
+  .checkbox:checked + .checkbox__label {
+    left: calc(100% - 3rem);
+  }
+  .play,
+  .train {
+    position: absolute;
+    line-height: 2.5rem;
+    font-size: 1.6rem;
+    color: $color-strong-gray;
+    text-transform: uppercase;
+    left: -7rem;
+    top: 0;
+  }
+  .play {
+    display: none;
+  }
+  .checkbox:checked ~ .train {
+    display: none;
+  }
+  .checkbox:checked ~ .play {
+    display: block;
+  }
+}
+//!
+
 .main {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: $color-white;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjM5IiBoZWlnaHQ9IjM5IiB2aWV3Qm94PSIwIDAgNDAsNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxNjUpICI+PHJlY3QgaWQ9InBhdHRlcm4tYmFja2dyb3VuZCIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSgyNDcsIDI1MCwgMjUyLDEpIj48L3JlY3Q+IDxjaXJjbGUgZmlsbD0icmdiYSgyMzksIDQ5LCAzNiwxKSIgY3g9IjUiIGN5PSIzMyIgcj0iMi4yNSI+PC9jaXJjbGU+PGNpcmNsZSBmaWxsPSJyZ2JhKDIzOSwgNDksIDM2LDEpIiBjeD0iMjUiIGN5PSI3IiByPSIyLjI1Ij48L2NpcmNsZT48Y2lyY2xlIGZpbGw9InJnYmEoMjM5LCA0OSwgMzYsMSkiIGN4PSI1IiBjeT0iLTciIHI9IjIuMjUiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0icmdiYSgyMzksIDQ5LCAzNiwxKSIgY3g9IjI1IiBjeT0iNDciIHI9IjIuMjUiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0icmdiYSgyNDcsIDI1MCwgMjUyLDEpIiBjeD0iMTUiIGN5PSIyMCIgcj0iMy41Ij48L2NpcmNsZT48Y2lyY2xlIGZpbGw9InJnYmEoMjQ3LCAyNTAsIDI1MiwxKSIgY3g9IjM1IiBjeT0iMjAiIHI9IjMuNSI+PC9jaXJjbGU+PC9wYXR0ZXJuPiAgPC9kZWZzPiA8cmVjdCBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIj48L3JlY3Q+PC9zdmc+');
 }
-.wrapper__main {
+
+.game__answers {
+  visibility: hidden;
+  height: 4rem;
+  width: 100%;
+  overflow: hidden;
+  .correct,
+  .mistake {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin: 0 1rem;
+  }
+  .correct {
+    background-color: $color-red;
+  }
+
+  .mistake {
+    background-color: $color-light-gray;
+  }
+}
+.wrapper__main,
+.card__container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -155,24 +268,24 @@ html {
   .card__word {
     font-size: 3rem;
     color: $color-white;
-   //margin-top: 5rem;
+    //margin-top: 5rem;
     z-index: 10;
   }
 
   .card__image {
     margin: 3rem 0 2rem 0;
     height: 15rem;
-    transition: padding 0.5s;
+    transition: padding 0.7s;
     z-index: 2;
   }
 
   .card__front_reverse {
-    transition: all 0.5s ease-in;
+    transition: all 0.7s ease-in;
     transform: rotateY(180deg);
   }
 
   .card__back_reverse {
-    transition: all 0.5s ease-in;
+    transition: all 0.7s ease-in;
     transform: rotateY(360deg);
   }
 
@@ -182,6 +295,55 @@ html {
   }
 }
 
+//!! SwitchGame
+
+//!!
+.header[data-state='gameMode'] {
+  .game__btn {
+    visibility: visible;
+  }
+}
+.main[data-state='gameMode'] {
+  .game__answers {
+    visibility: visible;
+  }
+  .card__front {
+    background-color: $color-white;
+
+    .card__word {
+      display: none;
+    }
+    .card__reverse {
+      display: none;
+    }
+    .card__image {
+      height: 70%;
+      width: 90%;
+      transition: all 0.5s;
+      img {
+        padding: 3.5rem;
+        background: none;
+      }
+    }
+  }
+  .card__back {
+    display: none;
+  }
+
+  .game__true {
+    pointer-events: none;
+    img {
+      opacity: 0.5;
+    }
+  }
+}
+
+//!GAme mode
+// .info__btn {
+// }
+.game__btn {
+  visibility: hidden;
+}
 //! FOOTER
 .footer__date,
 .footer__author {
