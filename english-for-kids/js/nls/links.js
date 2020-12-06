@@ -6,5 +6,3 @@ export default {
   winnerSound: './assets/sounds/gamesounds/winner.mp3',
   failSound: './assets/sounds/gamesounds/fail.mp3',
 };
-
-// cardContent.title  content[i].eng

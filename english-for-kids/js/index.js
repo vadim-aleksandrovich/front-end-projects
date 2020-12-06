@@ -6,11 +6,12 @@ import createIcon from './utils/createIcon';
 import deleteChildren from './utils/deleteChildren';
 import categories from './categories/categories';
 import links from './nls/links';
+import messages from './nls/messages';
 
 import gameOverlay from './elements/gameoverlay';
 import switchElement from './elements/switchelement';
+import setActiveLink from './utils/setactivelink';
 import footer from './elements/footer';
-import school from './categories/school';
 
 const body = document.querySelector('body');
 const header = create('header', 'header', create('div', 'wrapper wrapper__header'));
@@ -55,13 +56,11 @@ let mistakes = 0;
 switchElement.switchBtn.addEventListener('change', () => {
   if (switchElement.switchBtn.checked) {
     main.setAttribute('data-state', 'gameMode');
-    // footer.setAttribute('data-state', 'gameMode');
     header.setAttribute('data-state', 'gameMode');
     document.querySelector('body').setAttribute('data-state', 'gameMode');
   }
   if (!switchElement.switchBtn.checked) {
     main.removeAttribute('data-state');
-    // footer.removeAttribute('data-state');
     header.removeAttribute('data-state');
     document.querySelector('body').removeAttribute('data-state', 'gameMode');
   }
@@ -106,7 +105,7 @@ const createCards = function createCards() {
     const cardBox = create('a', 'card__box', '', cardConteiner, [
       'href',
       `#${categories[i].title}`,
-    ]);
+    ], ['category', `${categories[i].title}`]);
 
     const cardFront = create('div', 'card__front',
       [create('img', 'card__image', '', '',
@@ -115,6 +114,7 @@ const createCards = function createCards() {
       ], cardBox);
     cardBox.addEventListener('click', () => {
       generateCards(categories[i]);
+      setActiveLink(categories[i].title);
     });
   }
 };
@@ -123,10 +123,11 @@ const createMenu = function createMenu() {
   const menu = create('nav', 'menu', '', header.firstChild);
 
   const menuList = create('ul', 'menu__list', '', menu);
-  create('li', 'menu__item', create('a', 'menu__link menu__link_main', '<img src="./assets/icons/home.png" class="menu__image"/> main menu', '', ['href', '']), menuList);
+  const mainMenu = create('li', 'menu__item menu__item_main', create('a', 'menu__link menu__link_main', '<img src="./assets/icons/home.png" class="menu__image"/> main menu', '', ['href', '']), menuList);
+  mainMenu.classList.add('menu__item_active');
   const itemsArray = [];
   for (let i = 0; i < categories.length; i += 1) {
-    const menuItem = create('li', 'menu__item', '', menuList);
+    const menuItem = create('li', 'menu__item', '', menuList, ['category', `${categories[i].title}`]);
     const menuLink = create(
       'a',
       'menu__link',
@@ -139,6 +140,7 @@ const createMenu = function createMenu() {
       itemsArray.forEach((el) => el.classList.remove('menu__item_active'));
       generateCards(categories[i]);
       menuItem.classList.add('menu__item_active');
+      mainMenu.classList.remove('menu__item_active');
     });
   }
   return menu;
@@ -169,17 +171,24 @@ const playSound = (card) => {
   }, 1);
 };
 
+const finishGame = () => {
+  setTimeout(() => {
+    window.location.reload();
+  }, 2000);
+};
+
 const gameMessage = () => {
   gameOverlay.gameOverlayBox.classList.add('gameoverlay_active');
   if (mistakes === 0) {
     playMessageSound(links.winnerSound);
     gameOverlay.gameOverlayImg.src = links.imageSrc('gameIcons', 'win_color2');
-    gameOverlay.gameOverlayMessage.innerHTML = 'You are winner!!!';
+    gameOverlay.gameOverlayMessage.innerHTML = messages.win;
   } else {
     playMessageSound(links.failSound);
     gameOverlay.gameOverlayImg.src = links.imageSrc('gameIcons', 'losing_сolor');
-    gameOverlay.gameOverlayMessage.innerHTML = `You made ${mistakes} mistakes, please try again`;
+    gameOverlay.gameOverlayMessage.innerHTML = messages.fail(mistakes);
   }
+  finishGame();
 };
 
 const playGame = () => {
@@ -205,7 +214,7 @@ cardConteiner.onclick = function func(event) {
     }
     if (switchElement.switchBtn.checked && gameBtn.classList.contains('repeat')) {
       if (targ.getAttribute('data-card-name') === gameMode[gameMode.length - 1]) {
-        targ.firstChild.classList.add('game__true');
+        targ.classList.add('game__true');
         gameAnswers.prepend(create('div', 'correct', '', ''));
         playMessageSound(links.correctSound);
         gameMode.pop();
