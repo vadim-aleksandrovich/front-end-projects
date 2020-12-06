@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 $color-red: #ef3124;
 $color-black: #000000;
 $color-strong-gray: #505759;
@@ -13,9 +14,15 @@ $color-white: #ffffff;
   background: none;
   outline: none;
   border: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 body {
   position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .gameoverlay {
@@ -27,6 +34,16 @@ body {
   z-index: 100;
   position: absolute;
   background-color: rgba($color: #d9d9d6, $alpha: 0.8);
+  .gameoverlay__img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .gameoverlay__message {
+    font-size: 8rem;
+  }
+  .gameoverlay__link {
+    font-size: 10rem;
+  }
 }
 
 .gameoverlay_active {
@@ -34,19 +51,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.gameoverlay__img {
-  width: 10rem;
-  height: 10rem;
-}
-
-.gameoverlay__message {
-  font-size: 8rem;
-}
-
-.gameoverlay__link {
-  font-size: 10rem;
 }
 
 .wrapper {
@@ -58,6 +62,9 @@ body {
 }
 .header {
   background-color: $color-white;
+  position: sticky;
+  top: 0;
+  z-index: 15;
 }
 .wrapper__header {
   min-height: 8rem;
@@ -68,18 +75,18 @@ body {
 }
 
 .button {
-  color: $color-strong-gray;
-  border: 2px solid $color-red;
-  border-radius: 1rem;
-  height: 3rem;
-  font-size: 1.6rem;
-}
-
-.info__btn {
-  width: 4rem;
-}
-.game__btn {
-  width: 7rem;
+  .material-icons {
+    width: 4rem;
+    height: 4rem;
+    font-size: 4rem;
+    transition: all 0.3s ease-in;
+    background-color: $color-light-gray;
+    border-radius: 50%;
+    &:hover {
+      transition: all 0.3s ease-in;
+      background-color: $color-red;
+    }
+  }
 }
 
 .burger__btn {
@@ -87,9 +94,17 @@ body {
   background: none;
   border: none;
   z-index: 100;
-  transition: 0.5s;
+  transition: all 0.3s ease-in;
   .material-icons {
-    color: $color-black;
+    color: $color-light-gray;
+    width: 5rem;
+    height: 5rem;
+    font-size: 5rem;
+    transition: all 0.3s ease-in;
+    &:hover {
+      transition: all 0.3s ease-in;
+      color: $color-red;
+    }
   }
 }
 
@@ -99,62 +114,141 @@ body {
 }
 
 .menu {
-  position: absolute;
-  width: 40rem;
+  position: fixed;
+  width: 30rem;
   left: -150%;
   top: 0;
   background: $color-white;
-  z-index: 10;
+  z-index: 20;
   transition: all 0.5s ease-in;
   height: 100vh;
   max-height: 100%;
-  padding: 5rem;
+  padding: 2rem;
+}
+
+.menu__overlay {
+  display: none;
+}
+
+.menu__overlay_active {
+  background: rgba(41, 41, 41, 0.6);
+  z-index: 19;
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.menu__item {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  transition: all 0.3s ease-in;
+  &:hover {
+    transition: all 0.3s ease-in;
+    background-color: $color-light-gray;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    .menu__image {
+      filter: grayscale(0);
+    }
+    .menu__link {
+      transition: all 0.3s ease-in;
+      color: $color-red;
+    }
+  }
+  &:active {
+    transition: all 0.3s ease-in;
+    box-shadow: 0 14px 28px rgba(239, 49, 36, 0.25),
+      0 10px 10px rgba(239, 49, 36, 0.22);
+    background-color: $color-red;
+    .menu__link {
+      transition: all 0.3s ease-in;
+      color: $color-white;
+    }
+  }
+}
+
+.menu__item_active {
+  transition: all 0.3s ease-in;
+  box-shadow: 0 14px 28px rgba(239, 49, 36, 0.25),
+    0 10px 10px rgba(239, 49, 36, 0.22);
+  background-color: $color-red;
+  .menu__link {
+    transition: all 0.3s ease-in;
+    color: $color-white;
+  }
+}
+.menu__list {
+  margin-top: 5rem;
 }
 
 .menu__link {
   display: flex;
   align-items: center;
-  color: $color-red;
-  font-size: 5rem;
+  color: $color-strong-gray;
+  font-size: 3rem;
+  transition: all 0.3s ease-in;
+}
+
+.menu__link_main {
+  color: black;
+  font-weight: 500;
 }
 
 .menu__image {
-  width: 5rem;
+  width: 3rem;
   margin-right: 1rem;
+  filter: grayscale(100%);
+  &:hover {
+    filter: grayscale(0);
+  }
 }
 
 .menu_active {
+  top: 0;
   left: 0;
   transition: all 0.5s ease-in;
 }
 
-//! Switcher
 .switch {
+  transition: all 0.5s ease;
+  &:hover {
+    transition: all 0.5s ease;
+    border-color: $color-red;
+    .checkbox__label {
+      background-color: $color-red;
+    }
+  }
   position: relative;
-  border: 2px solid $color-red;
+  border: 2px solid $color-light-gray;
   width: 6rem;
   border-radius: 1rem;
-  height: 3rem;
+  height: 3.5rem;
   .checkbox {
     visibility: hidden;
     width: 6rem;
-    height: 3rem;
+    height: 4rem;
   }
   .checkbox__label {
     display: block;
     z-index: 1;
     position: absolute;
     width: 3rem;
-    height: 3rem;
+    height: 3.5rem;
     top: -2px;
     left: 0%;
-    background-color: $color-red;
+    background-color: $color-light-gray;
     border-radius: 30%;
-    transition: left 0.5s ease;
+    transition: all 0.5s ease;
     cursor: pointer;
   }
   .checkbox:checked + .checkbox__label {
-    left: calc(100% - 3rem);
+    left: calc(100% - 2.6rem);
+    background-color: $color-red;
+    border-color: $color-red;
   }
   .play,
   .train {
@@ -163,8 +257,8 @@ body {
     font-size: 1.6rem;
     color: $color-strong-gray;
     text-transform: uppercase;
-    left: -7rem;
-    top: 0;
+    left: 0.3rem;
+    top: 3rem;
   }
   .play {
     display: none;
@@ -176,7 +270,6 @@ body {
     display: block;
   }
 }
-//!
 
 .main {
   width: 100%;
@@ -245,7 +338,8 @@ body {
     transition: all 0.5s;
 
     &:hover {
-      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+      box-shadow: 0 14px 28px rgba(239, 49, 36, 0.25),
+        0 10px 10px rgba(239, 49, 36, 0.22);
     }
   }
 
@@ -345,11 +439,27 @@ body {
   visibility: hidden;
 }
 //! FOOTER
-.footer__date,
-.footer__author {
-  font-size: 4rem;
-}
+.footer {
+  background: $color-white;
+  width: 100%;
+  .wrapper__footer {
+    margin: 2rem auto;
+    justify-content: space-between;
+    align-items: center;
+    color: red;
 
-.school__img {
-  width: 10rem;
+    .footer__date {
+      color: $color-light-gray;
+      font-size: 5rem;
+    }
+  }
+
+  .footer__img {
+    width: 10rem;
+    transition: all 0.3s ease-in;
+    &:hover {
+      transition: all 0.3s ease-in;
+      filter: opacity(0.7);
+    }
+  }
 }
