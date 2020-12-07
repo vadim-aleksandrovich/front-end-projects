@@ -20,7 +20,6 @@ const header = create('header', 'header', create('div', 'wrapper wrapper__header
 const burgerBtn = create('button', 'burger__btn', createIcon('menu'), header.firstChild);
 const statisticOverlay = create('div', 'statistic__overlay');
 const infoBtn = create('button', 'info__btn button', createIcon('info'), header.firstChild);
-// let statistic = [];
 header.firstChild.append(switchElement.switchBox);
 const gameBtn = create('button', 'game__btn button', createIcon('play_circle_outline'), header.firstChild);
 gameBtn.disabled = true;
@@ -204,11 +203,8 @@ const playGame = () => {
 
 const statistic = generateStatistics(categories);
 
-if (storage.get('statistic')) {
-  statistic = storage.get('statistic');
-}
-
 const statisticUpdate = (cardName, field) => {
+  const newStatistis = statistic;
   statistic.forEach((el) => {
     if (el.eng === cardName) {
       switch (field) {
@@ -227,7 +223,7 @@ const statisticUpdate = (cardName, field) => {
       }
     }
   });
-  storage.set('statistic', statistic);
+  storage.set('statistic', newStatistis);
 };
 
 function showStatistic() {
@@ -235,9 +231,8 @@ function showStatistic() {
   deleteChildren(statisticOverlay);
   const clearBtn = create('button', 'button clear__btn', createIcon('delete_forever'), statisticOverlay);
   clearBtn.addEventListener('click', () => {
-    statistic = [];
-    generateStatistics(categories, statistic);
     storage.del('statistic');
+    generateStatistics(categories);
   });
   const category = create('div', 'statistic__category', '', statisticOverlay);
   create(
