@@ -62,6 +62,7 @@ body {
 }
 
 .gameoverlay_active {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,6 +91,7 @@ body {
 }
 
 .button {
+  cursor: pointer;
   .material-icons {
     width: 4rem;
     height: 4rem;
@@ -105,6 +107,7 @@ body {
 }
 
 .burger__btn {
+  cursor: pointer;
   outline: none;
   background: none;
   border: none;
@@ -126,6 +129,14 @@ body {
 .burger__btn_active {
   transform: rotate(90deg);
   transition: 0.5s;
+}
+
+.clear__btn {
+  transition: all 0.3s ease-in;
+  &:hover {
+    transition: all 0.3s ease-in;
+    color: $color-red;
+  }
 }
 
 .menu {
@@ -357,7 +368,8 @@ body {
     transition: all 0.5s ease-in;
 
     &:hover {
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
       background-color: $color-red;
     }
   }
@@ -491,6 +503,81 @@ body {
     }
   }
 }
+
+//! Statistics
+
+.statistic__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 20;
+  background-color: $color-white;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .statistic__category {
+    width: 90%;
+    margin: 1rem 0;
+    z-index: 2;
+  }
+  .statistic__fields,
+  .statistic__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in;
+    padding: 0.5rem;
+    &:hover {
+      background: $color-light-gray;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease-in;
+      .statistic__eng,
+      .statistic__rus,
+      .statistic__name,
+      .statistic__train,
+      .statistic__mistakes,
+      .statistic__correct,
+      .statistic__coef {
+        color: $color-red;
+        transition: all 0.3s ease-in;
+      }
+    }
+  }
+  .statistic__fields {
+    border-bottom: 1px solid $color-strong-gray;
+    color: $color-black;
+  }
+  .statistic__name {
+    width: 20%;
+    margin: 0.5rem 0;
+    color: $color-strong-gray;
+  }
+
+  .statistic__eng,
+  .statistic__rus {
+    color: $color-strong-gray;
+    width: 30%;
+    margin: 0.5rem 0;
+  }
+  .statistic__train,
+  .statistic__mistakes,
+  .statistic__correct,
+  .statistic__coef {
+    color: $color-strong-gray;
+    width: 5%;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+}
+
+.statistic__overlay_active {
+  display: flex;
+}
+
 @media screen and (max-width: 700px) {
   .footer .footer__img {
     width: 7rem;

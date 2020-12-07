@@ -1,23 +1,26 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-param-reassign */
 import '../sass/style.scss';
 import './images';
 import create from './utils/create';
+import * as storage from './utils/storage';
 import createIcon from './utils/createIcon';
 import deleteChildren from './utils/deleteChildren';
 import categories from './categories/categories';
 import links from './nls/links';
 import messages from './nls/messages';
-
 import gameOverlay from './elements/gameoverlay';
 import switchElement from './elements/switchelement';
+import generateStatistics from './utils/generateStatistics';
 import setActiveLink from './utils/setactivelink';
 import footer from './elements/footer';
+import setRefreshTime from './utils/setRefreshTime';
 
 const body = document.querySelector('body');
 const header = create('header', 'header', create('div', 'wrapper wrapper__header'));
 const burgerBtn = create('button', 'burger__btn', createIcon('menu'), header.firstChild);
-
+const statisticOverlay = create('div', 'statistic__overlay');
 const infoBtn = create('button', 'info__btn button', createIcon('info'), header.firstChild);
+// let statistic = [];
 header.firstChild.append(switchElement.switchBox);
 const gameBtn = create('button', 'game__btn button', createIcon('play_circle_outline'), header.firstChild);
 gameBtn.disabled = true;
@@ -25,7 +28,7 @@ const main = create('main', 'main', create('div', 'wrapper wrapper__main'), '');
 const gameAnswers = create('div', 'game__answers', '', main.firstChild);
 const cardConteiner = create('div', 'card__container', '', main.firstChild);
 
-document.body.prepend(gameOverlay.gameOverlayBox, header, main, footer.footer);
+document.body.prepend(gameOverlay.gameOverlayBox, statisticOverlay, header, main, footer.footer);
 gameOverlay.gameOverlayBox.append(
   gameOverlay.gameOverlayImg,
   gameOverlay.gameOverlayMessage,
@@ -84,7 +87,7 @@ const generateCards = function generateCards(cardContent) {
     const cardBack = create('div', 'card__back', '', cardBox);
     create('div', 'card__word', `${content[i].rus}`, cardBack);
 
-    const cardImage = create('img', 'card__image', '', cardFront, ['src', links.imageSrc(cardContent.title, content[i].eng)]);
+    create('img', 'card__image', '', cardFront, ['src', links.imageSrc(cardContent.title, content[i].eng)]);
     create('div', 'card__word', `${content[i].eng}`, cardFront);
 
     const cardReverse = create('button', 'card__reverse', createIcon('autorenew'), cardFront);
@@ -107,7 +110,7 @@ const createCards = function createCards() {
       `#${categories[i].title}`,
     ], ['category', `${categories[i].title}`]);
 
-    const cardFront = create('div', 'card__front',
+    create('div', 'card__front',
       [create('img', 'card__image', '', '',
         ['src', links.imageSrc(categories[i].title, categories[i].title)]),
       create('div', 'card__word', `${categories[i].title}`, ''),
@@ -171,12 +174,6 @@ const playSound = (card) => {
   }, 1);
 };
 
-const finishGame = () => {
-  setTimeout(() => {
-    window.location.reload();
-  }, 2000);
-};
-
 const gameMessage = () => {
   gameOverlay.gameOverlayBox.classList.add('gameoverlay_active');
   if (mistakes === 0) {
@@ -188,7 +185,7 @@ const gameMessage = () => {
     gameOverlay.gameOverlayImg.src = links.imageSrc('gameIcons', 'losing_сolor');
     gameOverlay.gameOverlayMessage.innerHTML = messages.fail(mistakes);
   }
-  finishGame();
+  setRefreshTime();
 };
 
 const playGame = () => {
@@ -205,22 +202,96 @@ const playGame = () => {
   gameBtn.innerHTML = createIcon('replay');
 };
 
+const statistic = generateStatistics(categories);
+
+if (storage.get('statistic')) {
+  statistic = storage.get('statistic');
+}
+
+const statisticUpdate = (cardName, field) => {
+  statistic.forEach((el) => {
+    if (el.eng === cardName) {
+      switch (field) {
+        case 'mistake':
+          el.mistakesCount += 1;
+          break;
+        case 'correct':
+          el.correctCount += 1;
+          break;
+        default:
+          el.trainCount += 1;
+          break;
+      }
+      if (el.correctCount || el.mistakesCount) {
+        el.coef = Math.ceil((el.correctCount / (el.correctCount + el.mistakesCount)) * 100);
+      }
+    }
+  });
+  storage.set('statistic', statistic);
+};
+
+function showStatistic() {
+  statisticOverlay.classList.toggle('statistic__overlay_active');
+  deleteChildren(statisticOverlay);
+  const clearBtn = create('button', 'button clear__btn', createIcon('delete_forever'), statisticOverlay);
+  clearBtn.addEventListener('click', () => {
+    statistic = [];
+    generateStatistics(categories, statistic);
+    storage.del('statistic');
+  });
+  const category = create('div', 'statistic__category', '', statisticOverlay);
+  create(
+    'div',
+    'statistic__fields',
+    [
+      create('div', 'statistic__eng', 'Category', ''),
+      create('div', 'statistic__eng', 'Word', ''),
+      create('div', 'statistic__rus', 'Translate', ''),
+      create('div', 'statistic__train', 'Train', ''),
+      create('div', 'statistic__mistakes', '-', ''),
+      create('div', 'statistic__correct', '+', ''),
+      create('div', 'statistic__correct', '%', ''),
+    ],
+    category,
+  );
+  statistic.forEach((statisticElement) => {
+    create(
+      'div',
+      'statistic__item',
+      [
+        create('div', 'statistic__name', `${statisticElement.categoryName}`, ''),
+        create('div', 'statistic__eng', `${statisticElement.eng}`, ''),
+        create('div', 'statistic__rus', `${statisticElement.rus}`, ''),
+        create('div', 'statistic__train', `${statisticElement.trainCount}`, ''),
+        create('div', 'statistic__mistakes', `${statisticElement.mistakesCount}`, ''),
+        create('div', 'statistic__correct', `${statisticElement.correctCount}`, ''),
+        create('div', 'statistic__coef', `${statisticElement.coef}`, ''),
+      ],
+      category,
+    );
+  });
+}
+
 cardConteiner.onclick = function func(event) {
   const targ = event.target.closest('.card__box_word');
 
   if (targ) {
+    const cardName = targ.getAttribute('data-card-name');
     if (!switchElement.switchBtn.checked) {
       playSound(targ);
+      statisticUpdate(cardName);
     }
     if (switchElement.switchBtn.checked && gameBtn.classList.contains('repeat')) {
       if (targ.getAttribute('data-card-name') === gameMode[gameMode.length - 1]) {
         targ.classList.add('game__true');
         gameAnswers.prepend(create('div', 'correct', '', ''));
+        statisticUpdate(cardName, 'correct');
         playMessageSound(links.correctSound);
         gameMode.pop();
         playGame();
       } else {
         gameAnswers.prepend(create('div', 'mistake', '', ''));
+        statisticUpdate(gameMode[gameMode.length - 1], 'mistake');
         playMessageSound(links.mistakeSound);
         mistakes += 1;
       }
@@ -244,3 +315,6 @@ menuOverlay.addEventListener('click', (e) => {
     switherMenu();
   }
 });
+
+infoBtn.addEventListener('click', showStatistic);
+statisticOverlay.addEventListener('click', showStatistic);
