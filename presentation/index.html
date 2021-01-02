@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h3>Accessibility</h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>What is accessibility</h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2; margin-top: 100px">What is accessibility</h3>
+          <p>
+            Giving users with disabilities or impairments alternative ways to
+            access our products
+          </p>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2;">Who use it?</h3>
+          <p>
+            Educational, goverment, and some business clients may require it
+          </p>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>Accessibility is a law</h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2; margin-top: 100px">
+            Accessibility is a law
+          </h3>
+          <ul>
+            <li>United Kindom</li>
+            <li>USA</li>
+            <li>Israel and else</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>
+            When you focus on accessibility you tend to build better stuff
+          </h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>Screen reader access</h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2; margin-top: 100px">Screen reader access</h3>
+          <p>Goal: Offer non-sighed users access to our content</p>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2; margin-top: 100px">Under the hood</h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2; margin-top: 100px">Under the hood</h3>
+          <div style="display: flex">
+            <div style="flex: 1; font-size: 30px">
+              <h5>HTML</h5>
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim><script type="text/template">
+								<html>
+								 <head>
+								  <title>How old are you?</title>
+								 </head>
+								<body>
+								 <label for="age">Age</label>
+								  <input id="age"
+									 type="text"
+									 name="age"
+									 value="28">
+								 <div>
+								  <button>Back</button>
+								  <button>Next</button>
+								 </div>
+								</body>
+								</html>
+							</script></code></pre>
+            </div>
+            <div style="flex: 1; font-size: 30px">
+              <h5>Accessibility tree</h5>
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim><script type="text/template">
+            id=1 role=WebArea name="How old are you?"
+             id=2 role=Label name="Age"
+             id=3 role=TextFiled labelledByIds=[2]
+               value="42"
+             id=4 role=Group
+              id=5 role=Button name="Back"
+              id=6 role=Button name="Next"
+							</script></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2; margin-top: 100px">Under the hood</h3>
+          <pre
+            data-id="code"
+          ><code data-line-numbers class="hljs" data-trim><script type="text/template">
+                <label for="seatType">Preferred seats</label>
+                <select name="seatType" id="seatType">
+                 <option value="0">No_preference</option>
+                 <option value="1">Aisle_seat</option>
+                 <option value="2">Window_seat</option>
+                </select>
+							</script></code></pre>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>Implicit Semantics</h3>
+          <div style="display: flex; align-items: center">
+            <div style="flex: 1; font-size: 30px">
+              <p>
+                Similar to focus, native elements get rich semantics for free
+              </p>
+            </div>
+            <div style="flex: 1; font-size: 30px">
+              <img src="assets/elements.png" alt="button, input, textarea" />
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>Landmarks</h3>
+          <div style="display: flex; align-items: center">
+            <div style="flex: 1; font-size: 30px">
+              <p>
+                Some elements act as landmarks. Screen readers can quickly jump
+                to these sections on the page
+              </p>
+            </div>
+            <div style="flex: 1; font-size: 30px">
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim><script type="text/template">
+                <h1></h1>
+                <h2></h2>
+                ...
+                <header></header>
+                <nav></nav>
+                <main></main>
+                <footer></footer>
+
+							</script></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>Don’t make your life hard</h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2">Don’t make your life hard</h3>
+          <p>Use the right elements for the job</p>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3 style="opacity: 0.2">WAI-ARIA</h3>
+          <p>
+            The web Accessibility Initiative - Accessible Rich Internet
+            Applications (ARIA) specification adds the ability to modify and
+            enhance the semantic meaning of elements in the DOM
+          </p>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>ARIA does not change behavior</h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>Labels help users understand the purpose of a control</h3>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>&lt;label&gt;</h3>
+          <div style="display: flex; align-items: center">
+            <div style="flex: 1; font-size: 30px">
+              <p>
+                Control must be a child of &lt;label&gt; or targeted by an IDRef
+                using the label’s for="" attribute. <br />Only works with native
+                form elements.
+              </p>
+            </div>
+            <div style="flex: 1; font-size: 30px">
+              <img style="width: 80%" src="assets/label.png" alt="login" />
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim><script type="text/template">
+                <label>
+                 First name:
+                 <input type="text">
+                </label>
+							</script></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>aria-label</h3>
+          <div style="display: flex; align-items: center">
+            <div style="flex: 1; font-size: 30px">
+              <p>
+                A string to be used as the accessible label. Overrides any other
+                native labelling mechanism
+              </p>
+            </div>
+            <div style="flex: 1; font-size: 30px">
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim><script type="text/template">
+                <button id="hamburger">
+                  aria-label="Main Menu"
+                </button>
+							</script></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>aria-labelledby</h3>
+          <div style="display: flex; align-items: center">
+            <div style="flex: 1; font-size: 30px">
+              <p>
+                A reference to an element(s) which will act as an accessible
+                label. Overrides any other labelling mechanism including
+                are-label
+              </p>
+            </div>
+            <div style="flex: 1; font-size: 30px">
+              <img
+                style="width: 80%"
+                src="assets/shopNow.png"
+                alt="Shop-button"
+              />
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim><script type="text/template">
+                <h2 id="1b1">Clothes</h2>
+                <button id="btn">
+                 aria-labelledby="1b1 btn"
+                 Shop Now
+                </button>
+							</script></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate data-auto-animate-unmatched="fade">
+          <h3>Thank you</h3>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
