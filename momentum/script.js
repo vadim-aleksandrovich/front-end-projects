@@ -163,7 +163,7 @@ async function getWeather() {
         const data = await res.json();
 
         if ((data["message"] === "city not found")) {
-            weatherError.textContent = "Error, city not found!";
+            weatherError.textContent = "Sorry, but this one city not found!";
             weatherIcon.style.display = "none";
             temperature.textContent = "";
             weatherHumidity.textContent = "";
@@ -173,9 +173,9 @@ async function getWeather() {
             weatherIcon.style.display = "flex";
             weatherIcon.className = 'weather-icon owf';
             weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-            temperature.textContent = `${data.main.temp}°C`;
-            weatherHumidity.textContent = `${data.main.humidity}%`;
-            weatherWind.textContent = `${data.wind.speed}km/h`;
+            temperature.textContent = `${Math.round(data.main.temp)} °C`;
+            weatherHumidity.textContent = `${Math.round(data.main.humidity)} %`;
+            weatherWind.textContent = `${Math.round(data.wind.speed)} km/h`;
             }
     }
 
